@@ -5,7 +5,8 @@
     <title>appserver</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Thread based PHP daemon to implement stuff like message queues.">
-    <!-- Main styles -->
+
+    <!-- Le styles -->
     <link href="css/styles.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -20,81 +21,94 @@
 
 <body>
 
-<div class="container-narrow">
+<div class="container">
 
     <div class="masthead">
-        <ul class="nav nav-pills">
-            <li class="disabled"><a href="#">Home</a></li>
-            <li class="disabled"><a href="#">Home</a></li>
-            <li class="disabled"><a href="#">Home</a></li>
-        </ul>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Github</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div><!-- /.navbar -->
     </div>
 
-    <hr>
-
+    <!-- Jumbotron -->
     <div class="jumbotron">
         <h1>appserver</h1>
         <p class="lead">Multithreaded Application Servers für PHP, geschrieben in PHP</p>
-        <button class="btn btn-primary" type="button">install</button>
-        <button class="btn" type="button">github</button>
+        <a class="btn btn-primary">install</a>
+        <a class="btn" href="https://github.com/techdivision/TechDivision_ApplicationServer">github</a>
     </div>
 
     <hr>
 
-    <div class="row-fluid marketing">
-        <div class="span6">
-            <h4>Go for it!</h4>
+    <!-- Example row of columns -->
+    <div class="row-fluid">
+        <div class="span4">
+            <h2>Go for it!</h2>
             <p>Ziel des Projekts ist die Entwicklung eines multithreaded Application Servers für PHP, geschrieben in PHP. Geschrieben in PHP um möglichst vielen Entwicklern aus der PHP Gemeinde die Mitarbeit zu ermöglichen und das Projekt durch die möglichst breite Unterstützung der PHP Community als Standardlösung für Enterprise Application im PHP Umfeld zu etablieren.</p>
-
-            <h4>Requirements</h4>
+        </div>
+        <div class="span4">
+            <h2>Highlights</h2>
             <p>
-                <ul>
-                    <li>PHP5.3+ on x64 or x86</li>
-                    <li>ZTS Enabled (Thread Safety)</li>
-                    <li>Posix Threads Implementierung</li>
-                    <li>Memcached (2.1+)</li>
-                </ul>
+            <ul>
+                <li>Doctrine als Standard Persistence Provider</li>
+                <li>Session Beans (Stateful, Stateless + Singleton)</li>
+                <li>Message Beans</li>
+                <li>Timer Service (tbd)</li>
+                <li>Servlet Engine</li>
+                <li>Integrierte Message Queue</li>
+                <li>Einfache Skalierung</li>
+                <li>Webservices</li>
+            </ul>
+            </p>
+        </div>
+        <div class="span4">
+            <h2>Requirements</h2>
             <p>
+            <ul>
+                <li>PHP5.3+ on x64 or x86</li>
+                <li>ZTS Enabled (Thread Safety)</li>
+                <li>Posix Threads Implementierung</li>
+                <li>Memcached (2.1+)</li>
+            </ul>
+            </p>
             <p>Die aktuelle Version bisher lediglich auf Mac OS X 10.7+ getestet. Aufgrund der verwendeten Komponenten sollten allerdings auch auf anderen Plattformen der Betrieb möglich sein.</p>
         </div>
-        <div class="span6">
-            <h4>Highlights</h4>
-            <p>
-                <ul>
-                    <li>Doctrine als Standard Persistence Provider</li>
-                    <li>Session Beans (Stateful, Stateless + Singleton)</li>
-                    <li>Message Beans</li>
-                    <li>Timer Service (tbd)</li>
-                    <li>Servlet Engine</li>
-                    <li>Integrierte Message Queue</li>
-                    <li>Einfache Skalierung</li>
-                    <li>Webservices</li>
-                </ul>
-            </p>
-
-            <h4>Technical Features</h4>
-            <p>
-                <ul>
-                    <li>Verwendung der phtreads Library von Joe Watkins (https://github.com/krakjoe/pthreads)</li>
-                    <li>Verwendung von DI & AOP innerhalb der jeweiligen Container</li>
-                    <li>Einsatz von Annotations zur Konfiguration der Beans</li>
-                    <li>Configration by Exception (optional Verwendung von Deployment Descriptoren möglich)</li>
-                </ul>
-            </p>
-        </div>
     </div>
 
     <hr>
 
     <div class="row-fluid marketing">
-        <div class="span12">
+        <div class="span6">
+            <h4>Architektur</h4>
             <p>Die Implementierung einer Webanwendung sowie deren Betrieb im PHP Application Server muss so einfach wie möglich sein. Hierzu werden zum Einen, wann immer möglich, bereits bestehenden Komponenten als Standardlösung, so z. B. Doctrine, verwendet, zum Anderen darf, durch das Paradigma Configuration by Exception, für den Betrieb einer Anwendung nur ein Minimum an Konfiguration notwendig sein. So wird breits durch das Standardverhalten der jeweiligen Kompenenten ein Großteil der Verwendungsfälle abgedeckt wodurch sich der Enwickler häufig keine deklarativen Angaben zur Konfiguration machen muss.</p>
             <p>Um eine möglichst breite Community anzusprechen muss die Architektur des PHP Application Servers so aufgebaut werden, das über Adapter eine möglichst große Anzahl an bereits bestehenden Anwendungen einfach migriert werden können. Weiterhin wird die zukünftige Entwicklung von Webanwendungen auf Basis aller relevanten PHP Frameworks durch die Bereitstellung von Libraries unterstützt.</p>
         </div>
+        <div class="span6">
+            <h4>Technical Features</h4>
+            <p>
+            <ul>
+                <li>Verwendung der phtreads Library von Joe Watkins (https://github.com/krakjoe/pthreads)</li>
+                <li>Verwendung von DI & AOP innerhalb der jeweiligen Container</li>
+                <li>Einsatz von Annotations zur Konfiguration der Beans</li>
+                <li>Configration by Exception (optional Verwendung von Deployment Descriptoren möglich)</li>
+            </ul>
+            </p>
+        </div>
+
     </div>
 
+
     <div class="footer">
-        <p>&copy; Company 2013</p>
+        <p>&copy; TechDivision GmbH 2013</p>
     </div>
 
 </div> <!-- /container -->
@@ -102,19 +116,19 @@
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/bootstrap-transition.js"></script>
-<script src="../assets/js/bootstrap-alert.js"></script>
-<script src="../assets/js/bootstrap-modal.js"></script>
-<script src="../assets/js/bootstrap-dropdown.js"></script>
-<script src="../assets/js/bootstrap-scrollspy.js"></script>
-<script src="../assets/js/bootstrap-tab.js"></script>
-<script src="../assets/js/bootstrap-tooltip.js"></script>
-<script src="../assets/js/bootstrap-popover.js"></script>
-<script src="../assets/js/bootstrap-button.js"></script>
-<script src="../assets/js/bootstrap-collapse.js"></script>
-<script src="../assets/js/bootstrap-carousel.js"></script>
-<script src="../assets/js/bootstrap-typeahead.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap-transition.js"></script>
+<script src="js/bootstrap-alert.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-dropdown.js"></script>
+<script src="js/bootstrap-scrollspy.js"></script>
+<script src="js/bootstrap-tab.js"></script>
+<script src="js/bootstrap-tooltip.js"></script>
+<script src="js/bootstrap-popover.js"></script>
+<script src="js/bootstrap-button.js"></script>
+<script src="js/bootstrap-collapse.js"></script>
+<script src="js/bootstrap-carousel.js"></script>
+<script src="js/bootstrap-typeahead.js"></script>
 
 </body>
 </html>
