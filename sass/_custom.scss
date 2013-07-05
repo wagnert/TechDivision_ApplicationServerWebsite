@@ -1,6 +1,9 @@
 body {
-  padding-top: 20px;
+  padding-top: 0;
   padding-bottom: 60px;
+  background: url('../img/background.png') no-repeat center center;
+  min-height:100%;
+  background-size:cover;
 }
 
 /* Custom container */
@@ -14,7 +17,7 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
-  margin: 80px 0;
+  margin: 0 0 30px 0;
   text-align: center;
 }
 .jumbotron h1 {
@@ -40,6 +43,10 @@ body {
 
 
 /* Customize the navbar links to be fill the entire space of the .navbar */
+.navbar {
+  margin-bottom: 0;
+}
+
 .navbar .navbar-inner {
   padding: 0;
 }
@@ -66,4 +73,20 @@ body {
 .navbar .nav li:last-child a {
   border-right: 0;
   border-radius: 0 3px 3px 0;
+}
+
+.jumbotron {
+  background: linear-gradient(45deg, #af262d 0%, #000000 100%) repeat scroll 0 0 transparent;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
+  color: #FFFFFF;
+  padding: 40px 0;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+}
+
+hr.soften {
+  background-image: -moz-linear-gradient(left center , transparent, rgba(0, 0, 0, 0.1), transparent);
+  border: 0 none;
+  height: 1px;
 }

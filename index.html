@@ -5,8 +5,6 @@
     <title>appserver</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Thread based PHP daemon to implement stuff like message queues.">
-
-    <!-- Le styles -->
     <link href="css/styles.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -14,40 +12,32 @@
     <script src="js/html5shiv.js"></script>
     <![endif]-->
 
-    <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="ico/favicon.png">
 </head>
 
 <body>
 
-<div class="container">
-
-    <div class="masthead">
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                    <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="https://github.com/techdivision/TechDivision_ApplicationServer">Github</a></li>
-                        <li><a href="#">Downloads</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div><!-- /.navbar -->
+<div class="navbar">
+    <div class="navbar-inner">
+        <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="https://github.com/techdivision/TechDivision_ApplicationServer">Github</a></li>
+            <li><a href="#">Downloads</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </div>
+</div>
 
-    <!-- Jumbotron -->
-    <div class="jumbotron">
+<div class="jumbotron masthead">
+    <div class="container">
         <h1>appserver</h1>
         <p class="lead">Multithreaded Application Servers für PHP, geschrieben in PHP</p>
-        <a class="btn btn-primary btn-large">install</a>
+        <a class="btn btn-primary btn-large">install appserver</a>
     </div>
+</div>
 
-    <hr>
-
-    <!-- Example row of columns -->
+<div class="container">
     <div class="row-fluid">
         <div class="span4">
             <h2>Go for it!</h2>
@@ -82,16 +72,16 @@
         </div>
     </div>
 
-    <hr>
+    <hr class="soften">
 
     <div class="row-fluid marketing">
         <div class="span6">
-            <h4>Architektur</h4>
+            <h2>Architektur</h2>
             <p>Die Implementierung einer Webanwendung sowie deren Betrieb im PHP Application Server muss so einfach wie möglich sein. Hierzu werden zum Einen, wann immer möglich, bereits bestehenden Komponenten als Standardlösung, so z. B. Doctrine, verwendet, zum Anderen darf, durch das Paradigma Configuration by Exception, für den Betrieb einer Anwendung nur ein Minimum an Konfiguration notwendig sein. So wird breits durch das Standardverhalten der jeweiligen Kompenenten ein Großteil der Verwendungsfälle abgedeckt wodurch sich der Enwickler häufig keine deklarativen Angaben zur Konfiguration machen muss.</p>
             <p>Um eine möglichst breite Community anzusprechen muss die Architektur des PHP Application Servers so aufgebaut werden, das über Adapter eine möglichst große Anzahl an bereits bestehenden Anwendungen einfach migriert werden können. Weiterhin wird die zukünftige Entwicklung von Webanwendungen auf Basis aller relevanten PHP Frameworks durch die Bereitstellung von Libraries unterstützt.</p>
         </div>
         <div class="span6">
-            <h4>Technical Features</h4>
+            <h2>Technical Features</h2>
             <p>
             <ul>
                 <li>Verwendung der phtreads Library von Joe Watkins (https://github.com/krakjoe/pthreads)</li>
@@ -101,19 +91,14 @@
             </ul>
             </p>
         </div>
-
     </div>
-
 
     <div class="footer">
         <p>&copy; TechDivision GmbH 2013</p>
     </div>
 
-</div> <!-- /container -->
+</div>
 
-<!-- Le javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap-transition.js"></script>
 <script src="js/bootstrap-alert.js"></script>
