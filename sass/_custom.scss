@@ -89,14 +89,6 @@ h2 {
 .jumbotron {
   background: linear-gradient(45deg, #af262d 0%, #000000 100%) repeat scroll 0 0 transparent;
   background: -webkit-linear-gradient(45deg, #af262d, #000000);
-  /* Für Internet Explorer 5.5 - 7 */
-  filter: progid:DXImageTransform.Microsoft.gradient
-    (GradientType=0, startColorstr=#c8482c, endColorstr=#ffffff);
-  zoom: 1;
-  /* Für Internet Explorer 8 */
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient
-    (GradientType=0, startColorstr=#c8482c, endColorstr=#ffffff)";
-}
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
   color: #FFFFFF;
   padding: 40px 0;
