@@ -8412,6 +8412,7 @@ h2 {
 /* line 89, ../sass/_custom.scss */
 .jumbotron {
   background: linear-gradient(45deg, #af262d 0%, #000000 100%) repeat scroll 0 0 transparent;
+  background: -webkit-linear-gradient(45deg, #af262d, black);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
   color: #FFFFFF;
   padding: 40px 0;
@@ -8420,14 +8421,14 @@ h2 {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
 }
 
-/* line 99, ../sass/_custom.scss */
+/* line 100, ../sass/_custom.scss */
 hr.soften {
   background-image: -moz-linear-gradient(left center, transparent, rgba(0, 0, 0, 0.1), transparent);
   border: 0 none;
   height: 1px;
 }
 
-/* line 105, ../sass/_custom.scss */
+/* line 106, ../sass/_custom.scss */
 .footer {
   padding-top: 40px;
 }
