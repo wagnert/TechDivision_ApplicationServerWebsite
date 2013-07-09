@@ -1,16 +1,13 @@
 /* Font import */
 @import url(http://fonts.googleapis.com/css?family=Ubuntu|Lobster+Two:700|Open+Sans:400,700);
 
-html {
-  min-width: 500px;
-}
-
 body {
   padding: 0 0 60px 0;
   background: url('../img/background.png') no-repeat center center;
   min-height:100%;
   background-size:cover;
   font-family: 'Open Sans', sans-serif;
+  min-width: 600px;
 }
 
 h1 {
