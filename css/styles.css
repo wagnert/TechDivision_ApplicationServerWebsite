@@ -8308,89 +8308,88 @@ body {
 
 /* line 12, ../sass/_custom.scss */
 h1 {
-  font-size: 75%;
   font-family: 'Lobster Two', cursive;
 }
 
-/* line 17, ../sass/_custom.scss */
+/* line 16, ../sass/_custom.scss */
 h2 {
   font-family: 'Open Sans', sans-serif;
 }
 
 /* Custom container */
-/* line 22, ../sass/_custom.scss */
+/* line 21, ../sass/_custom.scss */
 .container {
   margin: 0 auto;
   max-width: 1000px;
 }
 
-/* line 26, ../sass/_custom.scss */
+/* line 25, ../sass/_custom.scss */
 .container > hr {
   margin: 60px 0;
 }
 
 /* Main marketing message and sign up button */
-/* line 31, ../sass/_custom.scss */
+/* line 30, ../sass/_custom.scss */
 .jumbotron {
   margin: 0 0 30px 0;
   text-align: center;
 }
 
-/* line 35, ../sass/_custom.scss */
+/* line 34, ../sass/_custom.scss */
 .jumbotron h1 {
-  font-size: 100px;
+  font-size: 75px;
   line-height: 1;
 }
 
-/* line 39, ../sass/_custom.scss */
+/* line 38, ../sass/_custom.scss */
 .jumbotron .lead {
   font-size: 24px;
   line-height: 1.25;
 }
 
-/* line 43, ../sass/_custom.scss */
+/* line 42, ../sass/_custom.scss */
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
 }
 
 /* Supporting marketing content */
-/* line 49, ../sass/_custom.scss */
+/* line 48, ../sass/_custom.scss */
 .marketing p + h4 {
   margin-top: 20px;
 }
 
-/* line 53, ../sass/_custom.scss */
+/* line 52, ../sass/_custom.scss */
 .main {
   padding: 0 20px;
 }
 
 /* Customize the navbar links to be fill the entire space of the .navbar */
-/* line 58, ../sass/_custom.scss */
+/* line 57, ../sass/_custom.scss */
 .navbar {
   margin-bottom: 0;
 }
 
-/* line 62, ../sass/_custom.scss */
+/* line 61, ../sass/_custom.scss */
 .navbar .navbar-inner {
   padding: 0;
 }
 
-/* line 65, ../sass/_custom.scss */
+/* line 64, ../sass/_custom.scss */
 .navbar .nav {
   margin: 0;
   display: table;
   width: 100%;
 }
 
-/* line 70, ../sass/_custom.scss */
+/* line 69, ../sass/_custom.scss */
 .navbar .nav li {
   display: table-cell;
   width: 1%;
   float: none;
 }
 
-/* line 75, ../sass/_custom.scss */
+/* line 74, ../sass/_custom.scss */
 .navbar .nav li a {
   font-weight: bold;
   text-align: center;
@@ -8398,19 +8397,19 @@ h2 {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* line 81, ../sass/_custom.scss */
+/* line 80, ../sass/_custom.scss */
 .navbar .nav li:first-child a {
   border-left: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* line 85, ../sass/_custom.scss */
+/* line 84, ../sass/_custom.scss */
 .navbar .nav li:last-child a {
   border-right: 0;
   border-radius: 0 3px 3px 0;
 }
 
-/* line 90, ../sass/_custom.scss */
+/* line 89, ../sass/_custom.scss */
 .jumbotron {
   background: linear-gradient(45deg, #af262d 0%, #000000 100%) repeat scroll 0 0 transparent;
   background: -webkit-linear-gradient(45deg, #af262d, black);
@@ -8422,14 +8421,14 @@ h2 {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
 }
 
-/* line 101, ../sass/_custom.scss */
+/* line 100, ../sass/_custom.scss */
 hr.soften {
   background-image: -moz-linear-gradient(left center, transparent, rgba(0, 0, 0, 0.1), transparent);
   border: 0 none;
   height: 1px;
 }
 
-/* line 107, ../sass/_custom.scss */
+/* line 106, ../sass/_custom.scss */
 .footer {
   padding-top: 40px;
 }
