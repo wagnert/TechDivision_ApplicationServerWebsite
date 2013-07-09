@@ -1,12 +1,16 @@
-/* Font import */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
-body {
-  padding: 0 0 60px 0;
-  background: url('../img/background.png') no-repeat center center;
+html {
+  background:url('../img/background.png') no-repeat center center;
   min-height:100%;
   background-size:cover;
+}
+
+body {
+  background: none;
+  padding: 0 0 60px 0;
   font-family: 'Open Sans', sans-serif;
+  min-height:100%;
 }
 
 /* Custom container */
@@ -40,7 +44,6 @@ body {
   padding: 14px 24px;
 }
 
-/* Supporting marketing content */
 .marketing p + h4 {
   margin-top: 20px;
 }
@@ -49,7 +52,6 @@ body {
   padding: 0 20px;
 }
 
-/* Customize the navbar links to be fill the entire space of the .navbar */
 .navbar {
   margin-bottom: 0;
 }
@@ -67,16 +69,19 @@ body {
   width: 1%;
   float: none;
 }
+
 .navbar .nav li a {
   font-weight: bold;
   text-align: center;
   border-left: 1px solid rgba(255,255,255,.75);
   border-right: 1px solid rgba(0,0,0,.1);
 }
+
 .navbar .nav li:first-child a {
   border-left: 0;
   border-radius: 3px 0 0 3px;
 }
+
 .navbar .nav li:last-child a {
   border-right: 0;
   border-radius: 0 3px 3px 0;
@@ -91,12 +96,6 @@ body {
   position: relative;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
-}
-
-hr.soften {
-  background-image: -moz-linear-gradient(left center , transparent, rgba(0, 0, 0, 0.1), transparent);
-  border: 0 none;
-  height: 1px;
 }
 
 .footer {

@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>appserver</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Thread based PHP daemon to implement stuff like message queues.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/styles.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
@@ -12,7 +12,6 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <![endif]-->
-
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="ico/favicon.png">
 </head>
@@ -23,9 +22,9 @@
     <div class="navbar-inner">
         <ul class="nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="https://github.com/techdivision/TechDivision_ApplicationServer">Github</a></li>
-            <li><a href="#">Downloads</a></li>
-            <li><a href="#">Contact</a></li>
+            <li ><a href="#">Downloads</a></li>
+            <li ><a href="#">Contact</a></li>
+            <li ><a href="https://github.com/techdivision/TechDivision_ApplicationServer">Fork it!</a></li>
         </ul>
     </div>
 </div>
@@ -33,7 +32,7 @@
 <div class="jumbotron masthead">
     <div class="container">
         <h1>appserver</h1>
-        <p class="lead">Multithreaded Application Servers für PHP, geschrieben in PHP</p>
+        <p class="lead">Multithreaded Application Servers für PHP, geschrieben in PHP.</p>
         <a class="btn btn-primary btn-large"><i class="icon-download icon-large"></i> install appserver</a>
     </div>
 </div>
@@ -41,15 +40,16 @@
 <div class="container main">
     <div class="row-fluid">
         <div class="span4">
-            <h2><i class="icon-thumbs-up"></i> Go for it!</h2>
-            <p>Ziel des Projekts ist die Entwicklung eines multithreaded Application Servers für PHP, geschrieben in PHP. Geschrieben in PHP um möglichst vielen Entwicklern aus der PHP Gemeinde die Mitarbeit zu ermöglichen und das Projekt durch die möglichst breite Unterstützung der PHP Community als Standardlösung für Enterprise Application im PHP Umfeld zu etablieren.</p>
+            <h2><i class="icon-thumbs-up"></i>&nbsp;Go for it!</h2>
+            <ul class="icons-ul">
+            </ul>
+            <p> Ziel des Projekts ist die Entwicklung eines multithreaded Application Servers für PHP, geschrieben in PHP. Geschrieben in PHP um möglichst vielen Entwicklern aus der PHP Gemeinde die Mitarbeit zu ermöglichen und das Projekt durch die möglichst breite Unterstützung der PHP Community als Standardlösung für Enterprise Application im PHP Umfeld zu etablieren. </p>
         </div>
         <div class="span4">
-            <h2><i class="icon-sun"></i> Highlights</h2>
-            <p>
+            <h2><i class="icon-sun"></i>&nbsp;Highlights</h2>
             <ul class="icons-ul">
                 <li><i class="icon-li icon-ok"></i>Doctrine als Standard Persistence Provider</li>
-                <li><i class="icon-li icon-ok"></i>Session Beans (Stateful, Stateless + Singleton)</li>
+                <li><i class="icon-li icon-ok"></i>Session Beans (Stateful, Stateless + Singleton</li>
                 <li><i class="icon-li icon-ok"></i>Message Beans</li>
                 <li><i class="icon-li icon-ok"></i>Timer Service (tbd)</li>
                 <li><i class="icon-li icon-ok"></i>Servlet Engine</li>
@@ -57,38 +57,37 @@
                 <li><i class="icon-li icon-ok"></i>Einfache Skalierung</li>
                 <li><i class="icon-li icon-ok"></i>Webservices</li>
             </ul>
-            </p>
+            <p></p>
         </div>
         <div class="span4">
-            <h2><i class="icon-folder-close"></i> Requirements</h2>
-            <p>
+            <h2><i class="icon-folder-close"></i>&nbsp;Requirements</h2>
             <ul class="icons-ul">
                 <li><i class="icon-li icon-ok"></i>PHP5.3+ on x64 or x86</li>
                 <li><i class="icon-li icon-ok"></i>ZTS Enabled (Thread Safety)</li>
                 <li><i class="icon-li icon-ok"></i>Posix Threads Implementierung</li>
                 <li><i class="icon-li icon-ok"></i>Memcached (2.1+)</li>
             </ul>
-            </p>
-            <p>Die aktuelle Version bisher lediglich auf Mac OS X 10.7+ getestet. Aufgrund der verwendeten Komponenten sollten allerdings auch auf anderen Plattformen der Betrieb möglich sein.</p>
+            <p> Die aktuelle Version bisher lediglich auf Mac OS X 10.7+ getestet. Aufgrund der verwendeten Komponenten sollten allerdings auch auf anderen Plattformen der Betrieb möglich sein. </p>
         </div>
     </div>
 
     <div class="row-fluid marketing">
         <div class="span6">
-            <h2><i class="icon-gamepad"></i> Keep it simple!</h2>
-            <p>Die Implementierung einer Webanwendung sowie deren Betrieb im PHP Application Server muss so einfach wie möglich sein. Hierzu werden zum Einen, wann immer möglich, bereits bestehenden Komponenten als Standardlösung, so z. B. Doctrine, verwendet, zum Anderen darf, durch das Paradigma Configuration by Exception, für den Betrieb einer Anwendung nur ein Minimum an Konfiguration notwendig sein. So wird breits durch das Standardverhalten der jeweiligen Kompenenten ein Großteil der Verwendungsfälle abgedeckt wodurch sich der Enwickler häufig keine deklarativen Angaben zur Konfiguration machen muss.</p>
-            <p>Um eine möglichst breite Community anzusprechen muss die Architektur des PHP Application Servers so aufgebaut werden, das über Adapter eine möglichst große Anzahl an bereits bestehenden Anwendungen einfach migriert werden können. Weiterhin wird die zukünftige Entwicklung von Webanwendungen auf Basis aller relevanten PHP Frameworks durch die Bereitstellung von Libraries unterstützt.</p>
+            <h2><i class="icon-gamepad"></i>&nbsp;Keep it simple!</h2>
+            <ul class="icons-ul">
+            </ul>
+            <p> Die Implementierung einer Webanwendung sowie deren Betrieb im PHP Application Server muss so einfach wie möglich sein. Hierzu werden zum Einen, wann immer möglich, bereits bestehenden Komponenten als Standardlösung, so z. B. Doctrine, verwendet, zum Anderen darf, durch das Paradigma Configuration by Exception, für den Betrieb einer Anwendung nur ein Minimum an Konfiguration notwendig sein. So wird breits durch das Standardverhalten der jeweiligen Kompenenten ein Großteil der Verwendungsfälle abgedeckt wodurch sich der Enwickler häufig keine deklarativen Angaben zur Konfiguration machen muss.
+Um eine möglichst breite Community anzusprechen muss die Architektur des PHP Application Servers so aufgebaut werden, das über Adapter eine möglichst große Anzahl an bereits bestehenden Anwendungen einfach migriert werden können. Weiterhin wird die zukünftige Entwicklung von Webanwendungen auf Basis aller relevanten PHP Frameworks durch die Bereitstellung von Libraries unterstützt. </p>
         </div>
         <div class="span6">
-            <h2><i class="icon-reorder"></i> Technical Features</h2>
-            <p>
+            <h2><i class="icon-reorder"></i>&nbsp;Technical Features</h2>
             <ul class="icons-ul">
                 <li><i class="icon-li icon-ok"></i>Verwendung der phtreads Library von Joe Watkins (https://github.com/krakjoe/pthreads)</li>
-                <li><i class="icon-li icon-ok"></i>Verwendung von DI & AOP innerhalb der jeweiligen Container</li>
+                <li><i class="icon-li icon-ok"></i>Verwendung von DI &amp; AOP innerhalb der jeweiligen Container</li>
                 <li><i class="icon-li icon-ok"></i>Einsatz von Annotations zur Konfiguration der Beans</li>
                 <li><i class="icon-li icon-ok"></i>Configration by Exception (optional Verwendung von Deployment Descriptoren möglich)</li>
             </ul>
-            </p>
+            <p></p>
         </div>
     </div>
 
@@ -98,7 +97,7 @@
 
 </div>
 
-<script src="js/jquery.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="js/bootstrap-transition.js"></script>
 <script src="js/bootstrap-alert.js"></script>
 <script src="js/bootstrap-modal.js"></script>
