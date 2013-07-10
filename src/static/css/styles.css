@@ -2454,7 +2454,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url(/img/../img/glyphicons-halflings.png?1373008374);
+  background-image: url(/static/img/glyphicons-halflings.png?1373008374);
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -2479,7 +2479,7 @@ table th[class*="span"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
-  background-image: url(/img/../img/glyphicons-halflings-white.png?1373008374);
+  background-image: url(/static/img/glyphicons-halflings-white.png?1373008374);
 }
 
 /* line 52, ../../../../../.rvm/gems/ruby-2.0.0-p195/gems/bootstrap-sass-2.3.2.0/vendor/assets/stylesheets/bootstrap/_sprites.scss */
