@@ -13,6 +13,13 @@
 
     <servlet>
         <description/>
+        <display-name>DownloadServlet</display-name>
+        <servlet-name>DownloadServlet</servlet-name>
+        <servlet-class>\TechDivision\ApplicationServerWebsite\Servlets\DownloadServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <description/>
         <display-name>StaticResourceServlet</display-name>
         <servlet-name>StaticResourceServlet</servlet-name>
         <servlet-class>\TechDivision\ServletContainer\Servlets\StaticResourceServlet</servlet-class>
@@ -31,6 +38,11 @@
     <servlet-mapping>
         <servlet-name>StaticResourceServlet</servlet-name>
         <url-pattern>/static/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DownloadServlet</servlet-name>
+        <url-pattern>/dl/*</url-pattern>
     </servlet-mapping>
 
 </web-app>

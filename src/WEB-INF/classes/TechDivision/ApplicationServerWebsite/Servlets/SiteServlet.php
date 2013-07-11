@@ -34,15 +34,6 @@ class SiteServlet extends HttpServlet implements Servlet {
      */
     public function doGet(ServletRequest $req, ServletResponse $res)
     {
-        /*
-        $connection = Factory::createContextConnection();
-        $session = $connection->createContextSession();
-        $initialContext = $session->createInitialContext();
-
-        $processor = $initialContext->lookup('TechDivision\Slistr\Services\SlistrProcessor');
-        $processor->createSchema();
-        */
-
         $res->setContent(
             file_get_contents(__DIR__ . '/../../../../../index.html')
         );
