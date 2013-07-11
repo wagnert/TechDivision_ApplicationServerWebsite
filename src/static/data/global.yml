@@ -1,4 +1,51 @@
 
+Title: 'appserver'
+
+Description: |
+  Thread based PHP daemon to implement stuff like message queues.
+
+Head:
+  Favicon: 'static/ico/favicon.png'
+  Styles:
+    - Style: 'static/css/styles.css'
+    - Style: 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
+    - Style: 'http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic'
+  Scripts:
+    - Script: 'static/js/html5shiv.js'
+    - Script: 'http://code.jquery.com/jquery-1.10.1.min.js'
+    - Script: 'static/js/os-detect.js'
+#    - Script: 'static/js/bootstrap-transition.js'
+#    - Script: 'static/js/bootstrap-alert.js'
+#    - Script: 'static/js/bootstrap-modal.js'
+#    - Script: 'static/js/bootstrap-dropdown.js'
+#    - Script: 'static/js/bootstrap-scrollspy.js'
+#    - Script: 'static/js/bootstrap-tab.js'
+#    - Script: 'static/js/bootstrap-tooltip.js'
+#    - Script: 'static/js/bootstrap-popover.js'
+#    - Script: 'static/js/bootstrap-button.js'
+#    - Script: 'static/js/bootstrap-collapse.js'
+#    - Script: 'static/js/bootstrap-carousel.js'
+#    - Script: 'static/js/bootstrap-typeahead.js'
+
+Navigation:
+  - Name: 'Home'
+    Url: '#'
+    Active: false
+  - Name: 'Downloads'
+    Url: '#'
+    Active: false
+  - Name: 'Contact'
+    Url: '#'
+    Active: false
+  - Name: 'Fork it!'
+    Url: 'https://github.com/techdivision/TechDivision_ApplicationServer'
+    Active: false
+
+Teaser:
+  Title: 'appserver'
+  Description: |
+    Multithreaded Application Servers für PHP, geschrieben in PHP.
+
 Analytics: |
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

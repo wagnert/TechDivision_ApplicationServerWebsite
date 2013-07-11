@@ -1,28 +1,4 @@
 
-Title: 'appserver'
-
-Description: |
-  Thread based PHP daemon to implement stuff like message queues.
-
-Navigation:
-  - Name: 'Home'
-    Url: '#'
-    Active: true
-  - Name: 'Downloads'
-    Url: '#'
-    Active: false
-  - Name: 'Contact'
-    Url: '#'
-    Active: false
-  - Name: 'Fork it!'
-    Url: 'https://github.com/techdivision/TechDivision_ApplicationServer'
-    Active: false
-
-Teaser:
-  Title: 'appserver'
-  Description: |
-    Multithreaded Application Servers für PHP, geschrieben in PHP.
-
 3-Column-Row:
   - Title: 'Go for it!'
     Icon: 'icon-thumbs-up'
@@ -82,6 +58,5 @@ Teaser:
       - Item: 'Verwendung von DI & AOP innerhalb der jeweiligen Container'
       - Item: 'Einsatz von Annotations zur Konfiguration der Beans'
       - Item: 'Configration by Exception (optional Verwendung von Deployment Descriptoren möglich)'
-    Description: ''
+    Description: |
 
-Footer: '&copy; TechDivision GmbH 2013'

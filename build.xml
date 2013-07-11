@@ -27,7 +27,22 @@
     <target name="copy" depends="prepare" description="Copies the sources to the target directory.">
         <copy todir="${php-target.dir}/${webapp.name}" preservelastmodified="true" overwrite="true">
             <fileset dir="${php-src.dir}">
+                <include name="**/*.php" />
+                <include name="**/*.xml" />
+                <include name="**/*.xml.*" />
+                <include name="**/*.yml.*" />
+            </fileset>
+            <filterchain>
+                <expandproperties/>
+            </filterchain>
+        </copy>
+        <copy todir="${php-target.dir}/${webapp.name}" preservelastmodified="true" overwrite="true">
+            <fileset dir="${php-src.dir}">
                 <include name="**/*" />
+                <exclude name="**/*.php" />
+                <exclude name="**/*.xml" />
+                <exclude name="**/*.xml.*" />
+                <exclude name="**/*.yml.*" />
             </fileset>
         </copy>
     </target>

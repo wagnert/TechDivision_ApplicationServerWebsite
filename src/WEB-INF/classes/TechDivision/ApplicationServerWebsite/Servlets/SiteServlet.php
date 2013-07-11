@@ -100,16 +100,18 @@ class SiteServlet extends HttpServlet implements Servlet {
             $template = self::DEFAULT_TEMPALTE;
         }
 
-        $data = $this->yaml->parse(
+        $data01 = $this->yaml->parse(
             // load global data
-            file_get_contents($this->getRootDir('static/data/global.yml')) .
+            file_get_contents($this->getRootDir('static/data/global.yml'))
+        );
+        $data02 = $this->yaml->parse(
             // load specific data
             file_get_contents($this->getRootDir('static/data/' . $language . '/' . $template . '.yml'))
         );
 
         // render given template with parsed data
         $res->setContent(
-            $this->mustache->render('index', $data)
+            $this->mustache->render('index', array_merge($data01, $data02))
         );
 
      }

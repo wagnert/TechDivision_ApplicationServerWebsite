@@ -37,13 +37,13 @@ class DownloadServlet extends HttpServlet implements Servlet {
      * @var mirror urls
      */
     protected $mirrors = array(
-        'appserver-0.4.6beta_amd64.deb'
+        'Linux'
             => array(
-                0 => 'https://dl.dropboxusercontent.com/s/62j80e2liv1bgl7/appserver-0.4.6beta_amd64.deb'
+                0 => '${webapp.dl.url.linux}'
             ),
-        'ApplicationServer-0.4.6beta.pkg'
+        'MacOS'
             => array(
-                0 => 'https://dl.dropboxusercontent.com/s/ruppqflxzdhocts/ApplicationServer-0.4.6beta.pkg'
+                0 => '${webapp.dl.url.macos}'
             ),
     );
 
@@ -96,7 +96,7 @@ class DownloadServlet extends HttpServlet implements Servlet {
                 );
             $res->setContent(PHP_EOL);
         } else {
-            $res->setContent(sprintf('No mirror defined for "%s"', $this->downloadFilename));
+            $res->setContent(sprintf('No mirror defined for OS "%s"', $this->downloadFilename));
         }
 
     }
