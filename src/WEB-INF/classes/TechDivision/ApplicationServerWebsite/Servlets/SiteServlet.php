@@ -65,8 +65,14 @@ class SiteServlet extends DefaultServlet implements Servlet {
             'cache' => $this->getRootDir('cache/mustache'),
             'loader' => new \Mustache_Loader_FilesystemLoader($this->getRootDir('static/template')),
         ));
+
         // init parser for yaml data.
         $this->yaml = new Parser();
+    }
+
+    public function __($text)
+    {
+        return 'Hallo';
     }
 
     /**
