@@ -24,13 +24,13 @@ require dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))) . '/vendo
  */
 
 use TechDivision\ServletContainer\Interfaces\Servlet;
-use TechDivision\ServletContainer\Servlets\HttpServlet;
+use TechDivision\ServletContainer\Servlets\DefaultServlet;
 use TechDivision\ServletContainer\Interfaces\ServletConfig;
 use TechDivision\ServletContainer\Interfaces\ServletRequest;
 use TechDivision\ServletContainer\Interfaces\ServletResponse;
 use Symfony\Component\Yaml\Parser;
 
-class SiteServlet extends HttpServlet implements Servlet {
+class SiteServlet extends DefaultServlet implements Servlet {
 
     /**
      * define default template to use.
