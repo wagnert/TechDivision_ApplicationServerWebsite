@@ -39,11 +39,11 @@ class DownloadServlet extends HttpServlet implements Servlet {
     protected $mirrors = array(
         'appserver-0.4.6beta_amd64.deb'
             => array(
-                0 => 'https://dl.dropboxusercontent.com/s/otbx3nssfp9nmo0/appserver-0.4.6beta_amd64.deb'
+                0 => 'https://dl.dropboxusercontent.com/s/62j80e2liv1bgl7/appserver-0.4.6beta_amd64.deb'
             ),
         'ApplicationServer-0.4.6beta.pkg'
             => array(
-                0 => 'https://dl.dropboxusercontent.com/s/9cf8282dh8ffw1d/ApplicationServer-0.4.6beta.pkg'
+                0 => 'https://dl.dropboxusercontent.com/s/ruppqflxzdhocts/ApplicationServer-0.4.6beta.pkg'
             ),
     );
 

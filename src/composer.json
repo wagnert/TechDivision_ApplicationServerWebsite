@@ -1,0 +1,13 @@
+{
+    "name": "techdivision/techdivision_applicationsserverwebsite",
+    "description": "The Website for the ApplicationServer as webapp",
+    "require": {
+        "mustache/mustache": "~2.1"
+    },
+    "authors": [
+        {
+            "name": "Johann Zelger",
+            "email": "jz@techdivision.com"
+        }
+    ]
+}

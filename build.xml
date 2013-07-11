@@ -31,6 +31,7 @@
             </fileset>
         </copy>
     </target>
+
     <!-- ==================================================================== -->
     <!-- Copies the sources to the deploy directory     					  -->
     <!-- ==================================================================== -->
@@ -40,6 +41,9 @@
                 <include name="**/*"/>
             </fileset>
         </copy>
+        <exec executable="composer.phar" dir="${deploy.dir}/${webapp.name}">
+            <arg line="update"/>
+        </exec>
     </target>
 
     <!-- ==================================================================== -->
@@ -117,13 +121,6 @@
         <exec executable="phpunit" dir="${php-target.dir}">
             <arg line="--bootstrap bootstrap.php --configuration phpunit.xml.dist" />
         </exec>
-    </target>
-
-    <!-- ==================================================================== -->
-    <!-- Builds the webapp                          						  -->
-    <!-- ==================================================================== -->
-    <target name="build" description="Runs the PHPUnit tests and generates a report.">
-
     </target>
 
 </project>
