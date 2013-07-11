@@ -11,7 +11,6 @@ Head:
     - Style: 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
     - Style: 'http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic'
   Scripts:
-    - Script: 'static/js/html5shiv.js'
     - Script: 'http://code.jquery.com/jquery-1.10.1.min.js'
     - Script: 'static/js/os-detect.js'
 #    - Script: 'static/js/bootstrap-transition.js'
