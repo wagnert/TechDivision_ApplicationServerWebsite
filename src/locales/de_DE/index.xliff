@@ -3,32 +3,15 @@
     <file source-language="en" datatype="plaintext" original="index">
         <body>
             <trans-unit id="1">
-                <source>Home</source>
-                <target>Startseite</target>
-            </trans-unit>
-            <trans-unit id="2">
-                <source>Downloads</source>
-                <target>Downloads</target>
-            </trans-unit>
-            <trans-unit id="3">
-                <source>Contact</source>
-                <target>Kontakt</target>
-            </trans-unit>
-            <trans-unit id="4">
-                <source>Fork it!</source>
-                <target>Fork it!</target>
-            </trans-unit>
-            <trans-unit id="5">
-                <source>Go for it!</source>
-                <target>Auf gehts!</target>
-            </trans-unit>
-            <trans-unit id="6">
                 <source>Ziel des Projekts ist die Entwicklung eines multithreaded Application Servers für PHP,
 geschrieben in PHP. Geschrieben in PHP um möglichst vielen Entwicklern aus der PHP Gemeinde
 die Mitarbeit zu ermöglichen und das Projekt durch die möglichst breite Unterstützung der
 PHP Community als Standardlösung für Enterprise Application im PHP Umfeld zu etablieren.</source>
                 <target>
-                    LOL
+                    DE_de Ziel des Projekts ist die Entwicklung eines multithreaded Application Servers für PHP,
+geschrieben in PHP. Geschrieben in PHP um möglichst vielen Entwicklern aus der PHP Gemeinde
+die Mitarbeit zu ermöglichen und das Projekt durch die möglichst breite Unterstützung der
+PHP Community als Standardlösung für Enterprise Application im PHP Umfeld zu etablieren.
                 </target>
             </trans-unit>
         </body>

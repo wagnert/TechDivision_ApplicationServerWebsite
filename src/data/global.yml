@@ -1,5 +1,5 @@
 
-Title: 'appserver'
+Title: 'page.title'
 
 Description: |
   Thread based PHP daemon to implement stuff like message queues.
@@ -12,7 +12,7 @@ Head:
     - Style: 'http://fonts.googleapis.com/css?family=Open+Sans:400,700'
   Scripts:
     - Script: 'http://code.jquery.com/jquery-1.10.1.min.js'
-    - Script: 'static/js/os-detect.js'
+    - Script: 'static/js/site.js'
 #    - Script: 'static/js/bootstrap-transition.js'
 #    - Script: 'static/js/bootstrap-alert.js'
 #    - Script: 'static/js/bootstrap-modal.js'
@@ -28,13 +28,16 @@ Head:
 
 Navigation:
   - Name: 'Home'
-    Url: '#'
+    Url: 'index'
     Active: false
   - Name: 'Downloads'
-    Url: '#'
+    Url: 'downloads'
     Active: false
   - Name: 'Contact'
-    Url: '#'
+    Url: 'contact'
+    Active: false
+  - Name: 'Imprint'
+    Url: 'imprint'
     Active: false
   - Name: 'Fork it!'
     Url: 'https://github.com/techdivision/TechDivision_ApplicationServer'

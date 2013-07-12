@@ -3,8 +3,32 @@
     <file source-language="en" datatype="plaintext" original="global">
         <body>
             <trans-unit id="1">
-                <source>appserver</source>
+                <source>page.title</source>
                 <target>appserver.io</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Home</source>
+                <target>Startseite</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Downloads</source>
+                <target>Downloads</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Contact</source>
+                <target>Kontakt</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Contact</source>
+                <target>Kontakt</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Imprint</source>
+                <target>Impressum</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Go for it!</source>
+                <target>Auf gehts!</target>
             </trans-unit>
         </body>
     </file>

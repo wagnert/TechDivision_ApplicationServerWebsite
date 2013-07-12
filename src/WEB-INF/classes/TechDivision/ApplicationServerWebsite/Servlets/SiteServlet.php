@@ -39,7 +39,8 @@ class SiteServlet extends HttpServlet implements Servlet {
      *
      * @var string
      */
-    const DEFAULT_TEMPALTE = 'index';
+    const DEFAULT_TEMPALTE = 'default';
+    const DEFAULT_PAGE = 'index';
 
     /**
      * holds translator engine
@@ -83,8 +84,20 @@ class SiteServlet extends HttpServlet implements Servlet {
     }
 
     /**
+     * Returns webapp folder
+     *
+     * TODO: should be retrieved by application object.
+     * @return string
+     */
+    public function getWebappFolder()
+    {
+        return '/site';
+    }
+
+    /**
      * Returns webapp root dir with path extended.
      *
+     * TODO: should be retrieved by application object.
      * @param string $path
      * @return string
      */
@@ -104,7 +117,9 @@ class SiteServlet extends HttpServlet implements Servlet {
     public function doGet(ServletRequest $req, ServletResponse $res)
     {
         // check if root path is call without ending slash
-        error_log($req->getRequestUri());
+        $internalData = array(
+            'BaseUrl' => $this->getWebappFolder() . DS
+        );
 
         // init language
         // TODO: should be given by e.g. $req->getLocale()
@@ -112,21 +127,18 @@ class SiteServlet extends HttpServlet implements Servlet {
 
         $this->i18n->setLocale($locale);
 
-        // grap template path to render
-        $template = trim(str_replace('/site', '', $req->getRequestUri()), '/');
-        // if noting left take default template
-        if (!$template) {
-            $template = self::DEFAULT_TEMPALTE;
+        // grab page to render
+        $page = trim(str_replace($this->getWebappFolder(), '', $req->getRequestUri()), '/');
+        // if noting left take default page
+        if (!$page) {
+            $page = self::DEFAULT_PAGE;
         }
-
-        $globalData = $this->yaml->parse(
-            // load global data
-            file_get_contents($this->getRootDir('static' . DS . 'data' . DS . 'global.yml'))
-        );
-        $templateData = $this->yaml->parse(
-            // load specific data
-            file_get_contents($this->getRootDir('static' . DS . 'data' . DS . $template . '.yml'))
-        );
+        // set default template
+        $template = self::DEFAULT_TEMPALTE;
+        // check if page specific template exists
+        if (file_exists($this->getRootDir('static' . DS . 'template' . DS . $page .'.mustache'))) {
+            $template = $page;
+        }
 
         // add global translations
         $this->i18n->addResource('xliff-file',
@@ -135,14 +147,29 @@ class SiteServlet extends HttpServlet implements Servlet {
         );
         // add template view translations
         $this->i18n->addResource('xliff-file',
-            $this->getRootDir('locales' . DS . $locale . DS . $template . '.xliff'),
-            $locale, $template
+            $this->getRootDir('locales' . DS . $locale . DS . $page . '.xliff'),
+            $locale, $page
         );
 
+        $globalData = $this->yaml->parse(
+            // load global data
+            file_get_contents($this->getRootDir('data' . DS . 'global.yml'))
+        );
+        // translate data
         $this->i18n->translateData($globalData, 'global');
-        $this->i18n->translateData($templateData, $template);
 
-        $data = array_merge($globalData, $templateData);
+        $pageData = array();
+        // check if page specific data exists
+        if (file_exists($this->getRootDir('data' . DS . $page . '.yml'))) {
+            $pageData = $this->yaml->parse(
+                // load specific data
+                file_get_contents($this->getRootDir('data' . DS . $page . '.yml'))
+            );
+            // translate data
+            $this->i18n->translateData($pageData, $page);
+        }
+
+        $data = array_merge($internalData, $globalData, $pageData);
 
         // render given template with parsed data
         $res->setContent(
