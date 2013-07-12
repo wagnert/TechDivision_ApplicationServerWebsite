@@ -1,3 +1,6 @@
+Teaser:
+  Title: 'appserver'
+  Description: | Multithreaded Application Servers für PHP, geschrieben in PHP.
 
 3-Column-Row:
   - Title: 'Go for it!'
@@ -7,7 +10,7 @@
       Ziel des Projekts ist die Entwicklung eines multithreaded Application Servers für PHP,
       geschrieben in PHP. Geschrieben in PHP um möglichst vielen Entwicklern aus der PHP Gemeinde
       die Mitarbeit zu ermöglichen und das Projekt durch die möglichst breite Unterstützung der
-      PHP Community als Standardlösung für Enterprise Application im PHP Umfeld zu etablieren.'
+      PHP Community als Standardlösung für Enterprise Application im PHP Umfeld zu etablieren.
   - Title: 'Highlights'
     Icon: 'icon-sun'
     List:

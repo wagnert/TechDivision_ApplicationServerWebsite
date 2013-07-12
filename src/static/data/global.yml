@@ -40,11 +40,6 @@ Navigation:
     Url: 'https://github.com/techdivision/TechDivision_ApplicationServer'
     Active: false
 
-Teaser:
-  Title: 'appserver'
-  Description: |
-    Multithreaded Application Servers für PHP, geschrieben in PHP.
-
 Footer: '&copy; TechDivision GmbH'
 
 Analytics: |

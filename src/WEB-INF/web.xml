@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <web-app version="2.4">
 
-    <display-name>Site Servlet</display-name>
+    <display-name>site</display-name>
     <description>site</description>
-
-    <servlet>
-        <description/>
-        <display-name>SiteServlet</display-name>
-        <servlet-name>SiteServlet</servlet-name>
-        <servlet-class>\TechDivision\ApplicationServerWebsite\Servlets\SiteServlet</servlet-class>
-    </servlet>
-
-    <servlet>
-        <description/>
-        <display-name>DownloadServlet</display-name>
-        <servlet-name>DownloadServlet</servlet-name>
-        <servlet-class>\TechDivision\ApplicationServerWebsite\Servlets\DownloadServlet</servlet-class>
-    </servlet>
 
     <servlet>
         <description/>
@@ -24,17 +10,37 @@
         <servlet-name>StaticResourceServlet</servlet-name>
         <servlet-class>\TechDivision\ServletContainer\Servlets\StaticResourceServlet</servlet-class>
     </servlet>
+    <servlet>
+        <description/>
+        <display-name>DefaultServlet</display-name>
+        <servlet-name>DefaultServlet</servlet-name>
+        <servlet-class>\TechDivision\ServletContainer\Servlets\DefaultServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description/>
+        <display-name>SiteServlet</display-name>
+        <servlet-name>SiteServlet</servlet-name>
+        <servlet-class>\TechDivision\ApplicationServerWebsite\Servlets\SiteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description/>
+        <display-name>DownloadServlet</display-name>
+        <servlet-name>DownloadServlet</servlet-name>
+        <servlet-class>\TechDivision\ApplicationServerWebsite\Servlets\DownloadServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>DefaultServlet</servlet-name>
+        <url-pattern>*</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SiteServlet</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>StaticResourceServlet</servlet-name>
         <url-pattern>/static/*</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>DownloadServlet</servlet-name>
         <url-pattern>/dl/*</url-pattern>

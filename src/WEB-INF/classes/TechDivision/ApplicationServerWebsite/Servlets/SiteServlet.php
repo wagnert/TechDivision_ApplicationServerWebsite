@@ -24,13 +24,15 @@ require dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))) . '/vendo
  */
 
 use TechDivision\ServletContainer\Interfaces\Servlet;
-use TechDivision\ServletContainer\Servlets\DefaultServlet;
 use TechDivision\ServletContainer\Interfaces\ServletConfig;
 use TechDivision\ServletContainer\Interfaces\ServletRequest;
 use TechDivision\ServletContainer\Interfaces\ServletResponse;
 use Symfony\Component\Yaml\Parser;
+use TechDivision\ApplicationServerWebsite\Utilities\I18n;
+use TechDivision\ServletContainer\Servlets\HttpServlet;
 
-class SiteServlet extends DefaultServlet implements Servlet {
+
+class SiteServlet extends HttpServlet implements Servlet {
 
     /**
      * define default template to use.
@@ -40,18 +42,25 @@ class SiteServlet extends DefaultServlet implements Servlet {
     const DEFAULT_TEMPALTE = 'index';
 
     /**
+     * holds translator engine
+     *
+     * @var I18n
+     */
+    protected $i18n;
+
+    /**
      * holds mustache template engine
      *
      * @var \Mustache_Engine
      */
-    protected $mustache = null;
+    protected $mustache;
 
     /**
      * holds yml parser instance
      *
      * @var Parser
      */
-    protected $yaml = null;
+    protected $yaml;
 
     /**
      * constructor
@@ -66,13 +75,11 @@ class SiteServlet extends DefaultServlet implements Servlet {
             'loader' => new \Mustache_Loader_FilesystemLoader($this->getRootDir('static/template')),
         ));
 
-        // init parser for yaml data.
-        $this->yaml = new Parser();
-    }
+        // init translator engine
+        $this->i18n = new I18n('de_DE');
 
-    public function __($text)
-    {
-        return 'Hallo';
+        // init parser for template yaml data.
+        $this->yaml = new Parser();
     }
 
     /**
@@ -96,28 +103,50 @@ class SiteServlet extends DefaultServlet implements Servlet {
      */
     public function doGet(ServletRequest $req, ServletResponse $res)
     {
+        // check if root path is call without ending slash
+        error_log($req->getRequestUri());
+
         // init language
         // TODO: should be given by e.g. $req->getLocale()
-        $language = 'de_de';
+        $locale = 'de_DE';
 
-        // grap template to render
-        $template = str_replace('/site', '', $req->getRequestUri());
-        if (in_array($template, array('/', ''))) {
+        $this->i18n->setLocale($locale);
+
+        // grap template path to render
+        $template = trim(str_replace('/site', '', $req->getRequestUri()), '/');
+        // if noting left take default template
+        if (!$template) {
             $template = self::DEFAULT_TEMPALTE;
         }
 
-        $data01 = $this->yaml->parse(
+        $globalData = $this->yaml->parse(
             // load global data
-            file_get_contents($this->getRootDir('static/data/global.yml'))
+            file_get_contents($this->getRootDir('static' . DS . 'data' . DS . 'global.yml'))
         );
-        $data02 = $this->yaml->parse(
+        $templateData = $this->yaml->parse(
             // load specific data
-            file_get_contents($this->getRootDir('static/data/' . $language . '/' . $template . '.yml'))
+            file_get_contents($this->getRootDir('static' . DS . 'data' . DS . $template . '.yml'))
         );
+
+        // add global translations
+        $this->i18n->addResource('xliff-file',
+            $this->getRootDir('locales' . DS . $locale . DS . 'global.xliff'),
+            $locale, 'global'
+        );
+        // add template view translations
+        $this->i18n->addResource('xliff-file',
+            $this->getRootDir('locales' . DS . $locale . DS . $template . '.xliff'),
+            $locale, $template
+        );
+
+        $this->i18n->translateData($globalData, 'global');
+        $this->i18n->translateData($templateData, $template);
+
+        $data = array_merge($globalData, $templateData);
 
         // render given template with parsed data
         $res->setContent(
-            $this->mustache->render('index', array_merge($data01, $data02))
+            $this->mustache->render($template, $data)
         );
 
      }
