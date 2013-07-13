@@ -29,10 +29,10 @@ use TechDivision\ServletContainer\Interfaces\ServletRequest;
 use TechDivision\ServletContainer\Interfaces\ServletResponse;
 use Symfony\Component\Yaml\Parser;
 use TechDivision\ApplicationServerWebsite\Utilities\I18n;
-use TechDivision\ServletContainer\Servlets\HttpServlet;
+use TechDivision\ServletContainer\Servlets\DefaultServlet;
 
 
-class SiteServlet extends HttpServlet implements Servlet {
+class SiteServlet extends DefaultServlet {
 
     /**
      * define default template to use.

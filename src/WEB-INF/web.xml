@@ -12,12 +12,6 @@
     </servlet>
     <servlet>
         <description/>
-        <display-name>DefaultServlet</display-name>
-        <servlet-name>DefaultServlet</servlet-name>
-        <servlet-class>\TechDivision\ServletContainer\Servlets\DefaultServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <description/>
         <display-name>SiteServlet</display-name>
         <servlet-name>SiteServlet</servlet-name>
         <servlet-class>\TechDivision\ApplicationServerWebsite\Servlets\SiteServlet</servlet-class>
@@ -29,10 +23,6 @@
         <servlet-class>\TechDivision\ApplicationServerWebsite\Servlets\DownloadServlet</servlet-class>
     </servlet>
 
-    <servlet-mapping>
-        <servlet-name>DefaultServlet</servlet-name>
-        <url-pattern>*</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SiteServlet</servlet-name>
         <url-pattern>/*</url-pattern>
