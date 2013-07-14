@@ -1,0 +1,58 @@
+/*
+Syntax error: File to import not found or unreadable: bootstrap.
+              Load path: /Users/zelgerj/Workspace/github/techdivision/TechDivision_ApplicationServerWebsite/src/sass
+        on line 5 of styles.scss
+
+1: // Import all the variables into the main css file.
+2: @import "variables";
+3: 
+4: // I gather this file is a starting point for the project.
+5: @import "bootstrap";
+6: 
+7: // Include responsive Bootstrap styles
+8: @import "bootstrap-responsive";
+9: 
+10: // Include custom styles
+
+Backtrace:
+styles.scss:5
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/import_node.rb:45:in `import'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:217:in `visit_import'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/tree/root_node.rb:20:in `render'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/engine.rb:315:in `_render'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/engine.rb:262:in `render'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/plugin.rb:81:in `update_stylesheets'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/exec.rb:432:in `watch_or_update'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/exec.rb:315:in `process_result'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/exec.rb:41:in `parse'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/lib/sass/exec.rb:21:in `parse!'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/gems/sass-3.2.9/bin/scss:9:in `<top (required)>'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/bin/scss:19:in `load'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/bin/scss:19:in `<main>'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/bin/ruby_noexec_wrapper:14:in `eval'
+/Users/zelgerj/.rvm/gems/ruby-1.9.3-p429/bin/ruby_noexec_wrapper:14:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: bootstrap.\A               Load path: /Users/zelgerj/Workspace/github/techdivision/TechDivision_ApplicationServerWebsite/src/sass\A         on line 5 of styles.scss\A \A 1: // Import all the variables into the main css file.\A 2: @import \"variables\";\A 3: \A 4: // I gather this file is a starting point for the project.\A 5: @import \"bootstrap\";\A 6: \A 7: // Include responsive Bootstrap styles\A 8: @import \"bootstrap-responsive\";\A 9: \A 10: // Include custom styles"; }
