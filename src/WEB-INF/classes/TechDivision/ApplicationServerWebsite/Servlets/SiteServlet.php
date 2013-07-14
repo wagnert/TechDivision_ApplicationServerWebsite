@@ -65,7 +65,6 @@ class SiteServlet extends HttpServlet {
      * @param ServletConfig $config
      * @throws ServletException;
      * @return mixed
-     * @todo Implement init() method
      */
     public function init(ServletConfig $config)
     {
@@ -92,7 +91,6 @@ class SiteServlet extends HttpServlet {
     /**
      * Returns webapp root dir with path extended.
      *
-     * TODO: should be retrieved by application object.
      * @param string $path
      * @return string
      */
@@ -111,7 +109,6 @@ class SiteServlet extends HttpServlet {
      */
     public function doGet(ServletRequest $req, ServletResponse $res)
     {
-
         // initialize the base URL
         $baseUrl = '/';
 
@@ -127,15 +124,17 @@ class SiteServlet extends HttpServlet {
         // TODO: should be given by e.g. $req->getLocale()
         $locale = 'de_DE';
 
+        // set locale for i18n
         $this->i18n->setLocale($locale);
 
         // grab page to render
-        $page = trim(str_replace($baseUrl, '', $req->getRequestUri()), '/');
+        $page = trim(str_replace($baseUrl, '', $req->getRequestUri() .DS), '/');
 
         // if noting left take default page
-        if (!$page) {
+        if ($page == '') {
             $page = self::DEFAULT_PAGE;
         }
+
         // set default template
         $template = self::DEFAULT_TEMPALTE;
         // check if page specific template exists
@@ -178,7 +177,6 @@ class SiteServlet extends HttpServlet {
         $res->setContent(
             $this->mustache->render($template, $data)
         );
-
      }
 
 }
