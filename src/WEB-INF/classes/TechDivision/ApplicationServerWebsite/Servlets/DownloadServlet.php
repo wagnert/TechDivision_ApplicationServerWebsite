@@ -31,7 +31,7 @@ class DownloadServlet extends DefaultServlet {
     /**
      * defines base download uri
      */
-    const BASE_DOWNLOAD_URI = '/site/dl/';
+    const BASE_DOWNLOAD_URI = '/dl/';
 
     /**
      * @var mirror urls
@@ -77,7 +77,8 @@ class DownloadServlet extends DefaultServlet {
         /** @var \TechDivision\ServletContainer\Http\HttpServletResponse $res */
 
         // define downloadFilename
-        $this->downloadFilename = str_replace(self::BASE_DOWNLOAD_URI, '', $req->getRequestUri());
+        $this->downloadFilename = basename($req->getRequestUri());
+
         // check mirror for filename
         $mirrorUrl = $this->getMirrorUrl();
         // if mirror exists send redirect headers

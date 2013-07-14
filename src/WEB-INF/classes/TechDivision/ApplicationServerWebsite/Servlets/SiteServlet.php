@@ -90,17 +90,6 @@ class SiteServlet extends HttpServlet {
     }
 
     /**
-     * Returns webapp folder
-     *
-     * TODO: should be retrieved by application object.
-     * @return string
-     */
-    public function getWebappFolder()
-    {
-        // return '/site';
-    }
-
-    /**
      * Returns webapp root dir with path extended.
      *
      * TODO: should be retrieved by application object.
