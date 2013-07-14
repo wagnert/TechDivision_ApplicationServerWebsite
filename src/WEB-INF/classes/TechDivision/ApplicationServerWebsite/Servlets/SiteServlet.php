@@ -121,10 +121,17 @@ class SiteServlet extends DefaultServlet {
      */
     public function doGet(ServletRequest $req, ServletResponse $res)
     {
+
+        // initialize the base URL
+        $baseUrl = '/';
+
+        // if the application has NOT been called over a VHost configuration append application folder naem
+        if (!$this->getServletConfig()->getApplication()->isVhostOf($req->getServerName())) {
+            $baseUrl .= $this->getServletConfig()->getApplication()->getName() . '/';
+        }
+
         // check if root path is call without ending slash
-        $internalData = array(
-            'BaseUrl' => $this->getWebappFolder() . DS
-        );
+        $internalData = array('BaseUrl' => $baseUrl);
 
         // init language
         // TODO: should be given by e.g. $req->getLocale()
@@ -133,7 +140,10 @@ class SiteServlet extends DefaultServlet {
         $this->i18n->setLocale($locale);
 
         // grab page to render
-        $page = trim(str_replace($this->getWebappFolder(), '', $req->getRequestUri()), '/');
+        $page = trim(str_replace($baseUrl, '', $req->getRequestUri()), '/');
+
+        error_log("Found page: $page");
+
         // if noting left take default page
         if (!$page) {
             $page = self::DEFAULT_PAGE;
@@ -156,8 +166,8 @@ class SiteServlet extends DefaultServlet {
             $locale, $page
         );
 
+        // load global data
         $globalData = $this->yaml->parse(
-            // load global data
             file_get_contents($this->getRootDir('data' . DS . 'global.yml'))
         );
         // translate data
