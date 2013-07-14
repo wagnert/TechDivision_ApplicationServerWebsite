@@ -108,7 +108,7 @@ class SiteServlet extends DefaultServlet {
      */
     protected function getRootDir($path = null)
     {
-        $rootDir = dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))) ;
+        $rootDir = $this->getServletConfig()->getWebappPath();
         if ($path) {
             $rootDir = $rootDir . DS . $path;
         }
