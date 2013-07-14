@@ -2,9 +2,6 @@
 
 namespace TechDivision\ApplicationServerWebsite\Servlets;
 
-require dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))) . '/vendor/autoload.php';
-\Mustache_Autoloader::register();
-
 /**
  * TechDivision\ApplicationServerWebsite\Servlets\SiteServlet
  *
@@ -64,12 +61,20 @@ class SiteServlet extends DefaultServlet {
     protected $yaml;
 
     /**
-     * constructor
-     *
-     * @return void
+     * @param ServletConfig $config
+     * @throws ServletException;
+     * @return mixed
+     * @todo Implement init() method
      */
-    public function __construct()
+    public function init(ServletConfig $config)
     {
+
+        // IMPORTANT: call parent method
+        parent::init($config);
+
+        // initialize composer + mustache autoloader
+        require $this->getServletConfig()->getWebappPath() . '/vendor/autoload.php';
+
         // init template engine
         $this->mustache = new \Mustache_Engine(array(
             'cache' => $this->getRootDir('cache/mustache'),
