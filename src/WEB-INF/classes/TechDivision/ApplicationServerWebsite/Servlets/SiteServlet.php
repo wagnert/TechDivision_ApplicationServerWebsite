@@ -142,8 +142,6 @@ class SiteServlet extends DefaultServlet {
         // grab page to render
         $page = trim(str_replace($baseUrl, '', $req->getRequestUri()), '/');
 
-        error_log("Found page: $page");
-
         // if noting left take default page
         if (!$page) {
             $page = self::DEFAULT_PAGE;
