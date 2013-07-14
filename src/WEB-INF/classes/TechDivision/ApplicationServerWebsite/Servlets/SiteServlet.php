@@ -96,7 +96,7 @@ class SiteServlet extends DefaultServlet {
      */
     public function getWebappFolder()
     {
-        return '/site';
+        // return '/site';
     }
 
     /**
