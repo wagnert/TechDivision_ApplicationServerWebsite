@@ -23,8 +23,8 @@ namespace TechDivision\ApplicationServerWebsite\Servlets;
 use TechDivision\ServletContainer\Interfaces\Servlet;
 use TechDivision\ServletContainer\Servlets\DefaultServlet;
 use TechDivision\ServletContainer\Interfaces\ServletConfig;
-use TechDivision\ServletContainer\Interfaces\ServletRequest;
-use TechDivision\ServletContainer\Interfaces\ServletResponse;
+use TechDivision\ServletContainer\Interfaces\Request;
+use TechDivision\ServletContainer\Interfaces\Response;
 
 class DownloadServlet extends DefaultServlet {
 
@@ -68,16 +68,16 @@ class DownloadServlet extends DefaultServlet {
     }
 
     /**
-     * @param ServletRequest $req
-     * @param ServletResponse $res
+     * @param Request $req
+     * @param Response $res
      */
-    public function doGet(ServletRequest $req, ServletResponse $res)
+    public function doGet(Request $req, Response $res)
     {
-        /** @var \TechDivision\ServletContainer\Http\HttpServletRequest $req */
-        /** @var \TechDivision\ServletContainer\Http\HttpServletResponse $res */
+        /** @var \TechDivision\ServletContainer\Http\HttpRequest $req */
+        /** @var \TechDivision\ServletContainer\Http\HttpResponse $res */
 
         // define downloadFilename
-        $this->downloadFilename = basename($req->getRequestUri());
+        $this->downloadFilename = basename($req->getUri());
 
         // check mirror for filename
         $mirrorUrl = $this->getMirrorUrl();

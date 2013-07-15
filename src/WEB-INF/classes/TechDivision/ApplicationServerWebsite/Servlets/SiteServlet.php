@@ -22,8 +22,8 @@ namespace TechDivision\ApplicationServerWebsite\Servlets;
 
 use TechDivision\ServletContainer\Interfaces\Servlet;
 use TechDivision\ServletContainer\Interfaces\ServletConfig;
-use TechDivision\ServletContainer\Interfaces\ServletRequest;
-use TechDivision\ServletContainer\Interfaces\ServletResponse;
+use TechDivision\ServletContainer\Interfaces\Request;
+use TechDivision\ServletContainer\Interfaces\Response;
 use Symfony\Component\Yaml\Parser;
 use TechDivision\ApplicationServerWebsite\Utilities\I18n;
 use TechDivision\ServletContainer\Servlets\DefaultServlet;
@@ -104,10 +104,10 @@ class SiteServlet extends HttpServlet {
     }
 
     /**
-     * @param ServletRequest $req
-     * @param ServletResponse $res
+     * @param Request $req
+     * @param Response $res
      */
-    public function doGet(ServletRequest $req, ServletResponse $res)
+    public function doGet(Request $req, Response $res)
     {
         // initialize the base URL
         $baseUrl = '/';
@@ -128,7 +128,7 @@ class SiteServlet extends HttpServlet {
         $this->i18n->setLocale($locale);
 
         // grab page to render
-        $page = trim(str_replace($baseUrl, '', $req->getRequestUri() .DS), '/');
+        $page = trim(str_replace($baseUrl, '', $req->getPathInfo() .DS), '/');
 
         // if noting left take default page
         if ($page == '') {
