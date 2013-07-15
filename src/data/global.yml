@@ -26,24 +26,28 @@ Head:
 #    - Script: 'static/js/bootstrap-carousel.js'
 #    - Script: 'static/js/bootstrap-typeahead.js'
 
-Navigation:
-  - Name: 'Home'
-    Url: 'index'
-    Active: false
-  - Name: 'Downloads'
-    Url: 'downloads'
-    Active: false
-  - Name: 'Contact'
-    Url: 'contact'
-    Active: false
-  - Name: 'Imprint'
-    Url: 'imprint'
-    Active: false
-  - Name: 'Fork it!'
-    Url: 'https://github.com/techdivision/TechDivision_ApplicationServer'
-    Active: false
+Header:
+  Navigation:
+    - Name: 'Home'
+      Url: 'index'
+      Active: false
+      Icon:
+    - Name: 'Downloads'
+      Url: 'downloads'
+      Active: false
+      Icon:
+    - Name: 'Fork me'
+      Url: 'https://github.com/techdivision/TechDivision_ApplicationServer'
+      Active: false
+      Icon: 'icon-github'
 
-Footer: '&copy; TechDivision GmbH'
+Footer:
+  Line: '&copy; TechDivision GmbH'
+  Navigation:
+    - Name: 'Imprint'
+      Url: 'imprint'
+      Active: false
+      Icon:
 
 Analytics: |
   <script>
