@@ -12,13 +12,13 @@ Downloads:
     Links:
       - Name: '32bit (not yet)'
       - Name: '64bit'
-        Url: 'dl/Linux'
+        Url: 'dl/MacOS'
   - Name: 'Linux Installer (.deb)'
     Icon: 'icon-linux'
     Links:
       - Name: '32bit (not yet)'
       - Name: '64bit'
-        Url: 'dl/MacOS'
+        Url: 'dl/Linux'
   - Name: 'Windows Installer (.msi)'
     Icon: 'icon-windows'
     Links:
