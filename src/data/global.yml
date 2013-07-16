@@ -9,7 +9,6 @@ Head:
   Styles:
     - Style: 'static/css/styles.css'
     - Style: 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
-    - Style: 'http://fonts.googleapis.com/css?family=Open+Sans:400,700'
   Scripts:
     - Script: 'http://code.jquery.com/jquery-1.10.1.min.js'
     - Script: 'static/js/site.js'
