@@ -44,6 +44,10 @@ Header:
 Footer:
   Line: '&copy; TechDivision GmbH'
   Navigation:
+    - Name: '@php_appserver'
+      Url: 'https://twitter.com/php_appserver'
+      Active: false
+      Icon: 'icon-twitter'
     - Name: 'Imprint'
       Url: 'imprint'
       Active: false

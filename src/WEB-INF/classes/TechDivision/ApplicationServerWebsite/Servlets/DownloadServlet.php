@@ -39,11 +39,11 @@ class DownloadServlet extends DefaultServlet {
     protected $mirrors = array(
         'Linux'
             => array(
-                0 => '${webapp.dl.url.linux}'
+                0 => '${webapp.dl.url.linux.64bit}'
             ),
         'MacOS'
             => array(
-                0 => '${webapp.dl.url.macos}'
+                0 => '${webapp.dl.url.macos.64bit}'
             ),
     );
 

@@ -1,7 +1,26 @@
 Teaser:
-  Title: 'downloads'
   Description: |
-    The Downloads
+    Download the appserver source code or a pre-built installer for your platform, and start developing today.
 
-Content: |
-  The Downloads Content
+Version:
+  Title: Current version:
+  Value: v${webapp.appserver.version}
+
+Downloads:
+  - Name: 'Mac OS X Installer (.pkg)'
+    Icon: 'icon-apple'
+    Links:
+      - Name: '32bit (not yet)'
+      - Name: '64bit'
+        Url: 'dl/Linux'
+  - Name: 'Linux Installer (.deb)'
+    Icon: 'icon-linux'
+    Links:
+      - Name: '32bit (not yet)'
+      - Name: '64bit'
+        Url: 'dl/MacOS'
+  - Name: 'Windows Installer (.msi)'
+    Icon: 'icon-windows'
+    Links:
+      - Name: '32bit (not yet)'
+      - Name: '64bit (not yet)'

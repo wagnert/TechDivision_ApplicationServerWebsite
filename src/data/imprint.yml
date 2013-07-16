@@ -1,7 +1,3 @@
 Teaser:
-  Title: 'imprint'
-  Description: |
-    The Imprint
-
-Content: |
-  The Imprint Content
+  Title: 'title.imprint'
+  Description: 'description.imprint'

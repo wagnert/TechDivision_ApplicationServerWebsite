@@ -1,0 +1,24 @@
+{{>header}}
+    <div class="row-fluid">
+        <div class="span12 text-center">
+
+            <p>{{Version.Title}} <strong>{{Version.Value}}</strong></p>
+
+            <table class="table table-bordered table-hover">
+                <tbody>
+                {{#Downloads}}
+                <tr>
+                    <td>{{#Icon}}<i class="{{Icon}} icon-large"></i>{{/Icon}} {{Name}}</td>
+                    {{#Links}}
+                    <td {{#ColSpan}}colspan="{{ColSpan}}"{{/ColSpan}}>
+                        {{#Url}}<a href="{{Url}}"{{#Class}} class="{{Class}}"{{/Class}}> {{/Url}}{{Name}}{{#Url}}</a>{{/Url}}
+                    </td>
+                    {{/Links}}
+                </tr>
+                {{/Downloads}}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+{{>footer}}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="imprint">
+        <body>
+            <trans-unit id="1">
+                <source>title.imprint</source>
+                <target>Impressum</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>description.imprint</source>
+                <target>Angaben gemäß § 5 TMG</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

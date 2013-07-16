@@ -20,6 +20,7 @@ namespace TechDivision\ApplicationServerWebsite\Servlets;
  * @author      Johann Zelger <jz@techdivision.com>
  */
 
+use TechDivision\ApplicationServerWebsite\Utilities\Template;
 use TechDivision\ServletContainer\Interfaces\Servlet;
 use TechDivision\ServletContainer\Interfaces\ServletConfig;
 use TechDivision\ServletContainer\Interfaces\Request;
@@ -79,6 +80,7 @@ class SiteServlet extends HttpServlet {
         $this->mustache = new \Mustache_Engine(array(
             'cache' => $this->getRootDir('cache/mustache'),
             'loader' => new \Mustache_Loader_FilesystemLoader($this->getRootDir('static/template')),
+            'partials_loader' => new \Mustache_Loader_FilesystemLoader($this->getRootDir('static/template/partials')),
         ));
 
         // init translator engine

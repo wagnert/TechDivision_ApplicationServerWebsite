@@ -38,7 +38,7 @@ $textColor:             $grayDark;
 
 // Links
 // -------------------------
-$linkColor:             #71e6e4;
+$linkColor:             #1EA9B0;
 $linkColorHover:        darken($linkColor, 15%);
 
 
@@ -57,6 +57,7 @@ $headingsFontFamily:    inherit; // empty to use BS default, $baseFontFamily
 $headingsFontWeight:    bold;    // instead of browser default, bold
 $headingsColor:         inherit; // empty to use BS default, $textColor
 
+$paragraphBottomPad:    20px;
 
 // Component sizing
 // -------------------------

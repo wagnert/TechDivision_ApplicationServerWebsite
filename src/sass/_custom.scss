@@ -5,6 +5,10 @@ body {
   min-height:100%;
 }
 
+p {
+  padding-bottom: $paragraphBottomPad;
+}
+
 /* Custom container */
 .container {
   margin: 0 auto;
@@ -30,6 +34,7 @@ body {
 .jumbotron .lead {
   font-size: 24px;
   line-height: 1.25;
+  padding-bottom: 0;
 }
 .jumbotron .btn {
   font-size: 21px;
@@ -92,5 +97,7 @@ body {
 }
 
 .footer {
-  padding-top: 40px;
+  border-top: 1px solid $grayLighter;
+  padding-top: 10px;
+  margin-top: 30px;
 }
