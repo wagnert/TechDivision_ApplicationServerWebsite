@@ -2,6 +2,7 @@ Teaser:
   Title: 'appserver'
   Description: |
     Multithreaded Application Servers für PHP, geschrieben in PHP.
+  Download: 'install appserver'
 
 3-Column-Row:
   - Title: 'Go for it!'

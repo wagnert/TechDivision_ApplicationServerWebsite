@@ -63,6 +63,15 @@ class SiteServlet extends HttpServlet {
     protected $yaml;
 
     /**
+     * Holds hashes for every page
+     *
+     * @var array
+     */
+    static public $hashes = array();
+
+    protected $modifiedDates = array();
+
+    /**
      * @param ServletConfig $config
      * @throws ServletException;
      * @return mixed
@@ -173,12 +182,39 @@ class SiteServlet extends HttpServlet {
             $this->i18n->translateData($pageData, $page);
         }
 
+        // merge data arrays
         $data = array_merge($internalData, $globalData, $pageData);
 
+        // render content
+        $content = $this->mustache->render($template, $data);
+
+        // generate content hash
+        $contentHash = crc32($content);
+
+        // check if content hash has been generated for this page
+        if ($contentHash == $this->hashes[$req->getUri()]) {
+            // set correct last modified date
+            $res->addHeader("Last-Modified", gmdate('D, d M Y H:i:s \G\M\T', $this->modifiedDates[$contentHash]));
+            // check if If-Modified-Since header info is set
+            if ($req->getHeader('If-Modified-Since')) {
+                // check if file is modified since header given header date
+                if (strtotime($req->getHeader('If-Modified-Since'))>=$this->modifiedDates[$contentHash]) {
+                    // send 304 Not Modified Header information without content
+                    $res->addHeader('status', 'HTTP/1.1 304 Not Modified');
+                    $res->getContent(PHP_EOL);
+                    return;
+                }
+            }
+        } else {
+            // set hash
+            self::$hashes[$req->getUri()] = $contentHash;
+
+            // set modifieddate to content hash
+            $this->modifiedDates[$contentHash] = time();
+        }
+
         // render given template with parsed data
-        $res->setContent(
-            $this->mustache->render($template, $data)
-        );
+        $res->setContent($content);
      }
 
 }
