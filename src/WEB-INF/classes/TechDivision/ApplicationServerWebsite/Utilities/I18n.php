@@ -45,7 +45,6 @@ class I18n extends Translator
     {
         parent::__construct($locale);
         $this->addLoader('xliff-file', new XliffFileLoader());
-
     }
 
     /**

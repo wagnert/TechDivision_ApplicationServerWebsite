@@ -67,37 +67,9 @@ class SiteServlet extends HttpServlet {
      *
      * @var array
      */
-    static public $hashes = array();
+    protected $hashes = array();
 
     protected $modifiedDates = array();
-
-    /**
-     * @param ServletConfig $config
-     * @throws ServletException;
-     * @return mixed
-     */
-    public function init(ServletConfig $config)
-    {
-
-        // IMPORTANT: call parent method
-        parent::init($config);
-
-        // initialize composer + mustache autoloader
-        require $this->getServletConfig()->getWebappPath() . '/vendor/autoload.php';
-
-        // init template engine
-        $this->mustache = new \Mustache_Engine(array(
-            'cache' => $this->getRootDir('cache/mustache'),
-            'loader' => new \Mustache_Loader_FilesystemLoader($this->getRootDir('static/template')),
-            'partials_loader' => new \Mustache_Loader_FilesystemLoader($this->getRootDir('static/template/partials')),
-        ));
-
-        // init translator engine
-        $this->i18n = new I18n('de_DE');
-
-        // init parser for template yaml data.
-        $this->yaml = new Parser();
-    }
 
     /**
      * Returns webapp root dir with path extended.
@@ -120,6 +92,23 @@ class SiteServlet extends HttpServlet {
      */
     public function doGet(Request $req, Response $res)
     {
+
+        // initialize composer + mustache autoloader
+        require $this->getServletConfig()->getWebappPath() . '/vendor/autoload.php';
+
+        // init template engine
+        $this->mustache = new \Mustache_Engine(array(
+            'cache' => $this->getRootDir('cache/mustache'),
+            'loader' => new \Mustache_Loader_FilesystemLoader($this->getRootDir('static/template')),
+            'partials_loader' => new \Mustache_Loader_FilesystemLoader($this->getRootDir('static/template/partials')),
+        ));
+
+        // init translator engine
+        $this->i18n = new I18n('de_DE');
+
+        // init parser for template yaml data.
+        $this->yaml = new Parser();
+
         // initialize the base URL
         $baseUrl = '/';
 
@@ -207,7 +196,7 @@ class SiteServlet extends HttpServlet {
             }
         } else {
             // set hash
-            self::$hashes[$req->getUri()] = $contentHash;
+            $this->hashes[$req->getUri()] = $contentHash;
 
             // set modifieddate to content hash
             $this->modifiedDates[$contentHash] = time();
