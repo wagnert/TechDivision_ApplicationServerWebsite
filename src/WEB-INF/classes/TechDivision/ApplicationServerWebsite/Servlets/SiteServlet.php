@@ -63,15 +63,6 @@ class SiteServlet extends HttpServlet {
     protected $yaml;
 
     /**
-     * Holds hashes for every page
-     *
-     * @var array
-     */
-    protected $hashes = array();
-
-    protected $modifiedDates = array();
-
-    /**
      * Returns webapp root dir with path extended.
      *
      * @param string $path
@@ -92,6 +83,8 @@ class SiteServlet extends HttpServlet {
      */
     public function doGet(Request $req, Response $res)
     {
+
+        error_log(__CLASS__ . ' HASH: ' . spl_object_hash($this));
 
         // initialize composer + mustache autoloader
         require $this->getServletConfig()->getWebappPath() . '/vendor/autoload.php';
@@ -176,31 +169,6 @@ class SiteServlet extends HttpServlet {
 
         // render content
         $content = $this->mustache->render($template, $data);
-
-        // generate content hash
-        $contentHash = crc32($content);
-
-        // check if content hash has been generated for this page
-        if ($contentHash == $this->hashes[$req->getUri()]) {
-            // set correct last modified date
-            $res->addHeader("Last-Modified", gmdate('D, d M Y H:i:s \G\M\T', $this->modifiedDates[$contentHash]));
-            // check if If-Modified-Since header info is set
-            if ($req->getHeader('If-Modified-Since')) {
-                // check if file is modified since header given header date
-                if (strtotime($req->getHeader('If-Modified-Since'))>=$this->modifiedDates[$contentHash]) {
-                    // send 304 Not Modified Header information without content
-                    $res->addHeader('status', 'HTTP/1.1 304 Not Modified');
-                    $res->getContent(PHP_EOL);
-                    return;
-                }
-            }
-        } else {
-            // set hash
-            $this->hashes[$req->getUri()] = $contentHash;
-
-            // set modifieddate to content hash
-            $this->modifiedDates[$contentHash] = time();
-        }
 
         // render given template with parsed data
         $res->setContent($content);
