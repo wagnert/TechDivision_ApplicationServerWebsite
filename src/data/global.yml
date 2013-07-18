@@ -1,8 +1,7 @@
 
-Title: 'page.title'
+Title: page.title
 
-Description: |
-  Thread based PHP daemon to implement stuff like message queues.
+Description: page.description
 
 Head:
   Favicon: 'static/ico/favicon.png'
@@ -27,15 +26,15 @@ Head:
 
 Header:
   Navigation:
-    - Name: 'Home'
+    - Name: global.navigation.home
       Url: 'index'
       Active: false
       Icon:
-    - Name: 'Downloads'
+    - Name: global.navigation.downloads
       Url: 'downloads'
       Active: false
       Icon:
-    - Name: 'Fork me'
+    - Name: global.navigation.fork-me
       Url: 'https://github.com/techdivision/TechDivision_ApplicationServer'
       Active: false
       Icon: 'icon-github'
@@ -47,7 +46,7 @@ Footer:
       Url: 'https://twitter.com/php_appserver'
       Active: false
       Icon: 'icon-twitter'
-    - Name: 'Imprint'
+    - Name: global.navigation.imprint
       Url: 'imprint'
       Active: false
       Icon:

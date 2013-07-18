@@ -1,67 +1,46 @@
 Teaser:
-  Title: 'appserver'
-  Description: |
-    Multithreaded Application Servers für PHP, geschrieben in PHP.
-  Download: 'install appserver'
+  Title: index.teaser.title
+  Description: index.teaser.description
+  Download: index.teaser.download
 
 3-Column-Row:
-  - Title: 'Go for it!'
+  - Title: index.go-for-it.title
     Icon: 'icon-thumbs-up'
     List: ''
-    Description: |
-      Ziel des Projekts ist die Entwicklung eines multithreaded Application Servers für PHP,
-      geschrieben in PHP. Geschrieben in PHP um möglichst vielen Entwicklern aus der PHP Gemeinde
-      die Mitarbeit zu ermöglichen und das Projekt durch die möglichst breite Unterstützung der
-      PHP Community als Standardlösung für Enterprise Application im PHP Umfeld zu etablieren.
-  - Title: 'Highlights'
+    Description: index.go-for-it.description
+  - Title: index.highlight.title
     Icon: 'icon-sun'
     List:
-      - Item: 'Doctrine als Standard Persistence Provider'
-      - Item: 'Session Beans (Stateful, Stateless + Singleton'
-      - Item: 'Message Beans'
-      - Item: 'Timer Service (tbd)'
-      - Item: 'Servlet Engine'
-      - Item: 'Integrierte Message Queue'
-      - Item: 'Einfache Skalierung'
-      - Item: 'Webservices'
+      - Item: index.highlight.list.item-01
+      - Item: index.highlight.list.item-02
+      - Item: index.highlight.list.item-03
+      - Item: index.highlight.list.item-04
+      - Item: index.highlight.list.item-05
+      - Item: index.highlight.list.item-06
+      - Item: index.highlight.list.item-07
+      - Item: index.highlight.list.item-08
     Description: ''
-  - Title: 'Requirements'
+  - Title: index.requirements.title
     Icon: 'icon-folder-close'
     List:
-      - Item: 'PHP5.3+ on x64 or x86'
-      - Item: 'ZTS Enabled (Thread Safety)'
-      - Item: 'Posix Threads Implementierung'
-      - Item: 'Memcached (2.1+)'
-    Description: |
-      Die aktuelle Version bisher lediglich auf Mac OS X 10.7+ getestet. Aufgrund der
-      verwendeten Komponenten sollten allerdings auch auf anderen Plattformen
-      der Betrieb möglich sein.
+      - Item: index.requirements.list.item-01
+      - Item: index.requirements.list.item-02
+      - Item: index.requirements.list.item-03
+      - Item: index.requirements.list.item-04
+    Description: index.requirements.description
 
 2-Column-Row:
-  - Title: 'Keep it simple!'
+  - Title: index.keep-it-simple.title
     Icon: 'icon-gamepad'
     List: ''
-    Description: |
-      Die Implementierung einer Webanwendung sowie deren Betrieb im PHP Application Server
-      muss so einfach wie möglich sein. Hierzu werden zum Einen, wann immer möglich,
-      bereits bestehenden Komponenten als Standardlösung, so z. B. Doctrine, verwendet,
-      zum Anderen darf, durch das Paradigma Configuration by Exception, für den Betrieb einer
-      Anwendung nur ein Minimum an Konfiguration notwendig sein. So wird breits durch das
-      Standardverhalten der jeweiligen Kompenenten ein Großteil der Verwendungsfälle abgedeckt
-      wodurch sich der Enwickler häufig keine deklarativen Angaben zur Konfiguration machen muss.
+    Description: index.keep-it-simple.description
 
-      Um eine möglichst breite Community anzusprechen muss die Architektur des PHP Application
-      Servers so aufgebaut werden, das über Adapter eine möglichst große Anzahl an bereits
-      bestehenden Anwendungen einfach migriert werden können. Weiterhin wird die zukünftige
-      Entwicklung von Webanwendungen auf Basis aller relevanten PHP Frameworks durch die
-      Bereitstellung von Libraries unterstützt.
-
-  - Title: 'Technical Features'
+  - Title: index.technical-features.title
     Icon: 'icon-reorder'
     List:
-      - Item: 'Verwendung der phtreads Library von Joe Watkins (https://github.com/krakjoe/pthreads)'
-      - Item: 'Verwendung von DI & AOP innerhalb der jeweiligen Container'
-      - Item: 'Einsatz von Annotations zur Konfiguration der Beans'
-      - Item: 'Configration by Exception (optional Verwendung von Deployment Descriptoren möglich)'
+      - Item: index.technical-features.list.item-01
+      - Item: index.technical-features.list.item-02
+      - Item: index.technical-features.list.item-03
+      - Item: index.technical-features.list.item-04
     Description: |
 

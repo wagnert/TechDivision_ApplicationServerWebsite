@@ -1,9 +1,8 @@
 Teaser:
-  Description: |
-    Download the appserver source code or a pre-built installer for your platform, and start developing today.
+  Description: downloads.teaser.description
 
 Version:
-  Title: Current version:
+  Title: downloads.version.title
   Value: v${webapp.appserver.version}
 
 Downloads:

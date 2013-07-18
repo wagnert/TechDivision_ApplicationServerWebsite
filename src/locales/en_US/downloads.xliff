@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="downloads">
+        <body>
+            <trans-unit id="1">
+                <source>downloads.teaser.description</source>
+                <target>Download a pre-built installer for your platform, and start developing today.</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>downloads.version.title</source>
+                <target>Current version:</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

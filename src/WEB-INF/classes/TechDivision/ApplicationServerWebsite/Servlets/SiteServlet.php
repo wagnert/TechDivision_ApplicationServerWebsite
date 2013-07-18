@@ -34,7 +34,7 @@ use TechDivision\ServletContainer\Servlets\HttpServlet;
 class SiteServlet extends HttpServlet {
 
     /**
-     * define default template to use.
+     * Define default template to use.
      *
      * @var string
      */
@@ -42,25 +42,39 @@ class SiteServlet extends HttpServlet {
     const DEFAULT_PAGE = 'index';
 
     /**
-     * holds translator engine
+     * Holds translator engine
      *
      * @var I18n
      */
     protected $i18n;
 
     /**
-     * holds mustache template engine
+     * Holds mustache template engine.
      *
      * @var \Mustache_Engine
      */
     protected $mustache;
 
     /**
-     * holds yml parser instance
+     * Holds yml parser instance.
      *
      * @var Parser
      */
     protected $yaml;
+
+    /**
+     * The default locale to use.
+     *
+     * @var string
+     */
+    protected $defaultLocale = 'en_US';
+
+    /**
+     * Array with the accepted languages.
+     *
+     * @var array
+     */
+    protected $locales = array('de-de' => 'de_DE', 'en-us' => 'en_US');
 
     /**
      * Returns webapp root dir with path extended.
@@ -83,9 +97,6 @@ class SiteServlet extends HttpServlet {
      */
     public function doGet(Request $req, Response $res)
     {
-
-        error_log(__CLASS__ . ' HASH: ' . spl_object_hash($this));
-
         // initialize composer + mustache autoloader
         require $this->getServletConfig()->getWebappPath() . '/vendor/autoload.php';
 
@@ -96,8 +107,17 @@ class SiteServlet extends HttpServlet {
             'partials_loader' => new \Mustache_Loader_FilesystemLoader($this->getRootDir('static/template/partials')),
         ));
 
+        // init language
+        $locale = $this->defaultLocale;
+        list ($acceptLanguage)= explode(',', $req->getServerVar('HTTP_ACCEPT_LANGUAGE'));
+        if (array_key_exists($acceptLanguage, $this->locales)) {
+            $locale = $this->locales[$acceptLanguage];
+        }
+
+        error_log("Now set default locale: {$locale}");
+
         // init translator engine
-        $this->i18n = new I18n('de_DE');
+        $this->i18n = new I18n($locale);
 
         // init parser for template yaml data.
         $this->yaml = new Parser();
@@ -112,13 +132,6 @@ class SiteServlet extends HttpServlet {
 
         // check if root path is call without ending slash
         $internalData = array('BaseUrl' => $baseUrl);
-
-        // init language
-        // TODO: should be given by e.g. $req->getLocale()
-        $locale = 'de_DE';
-
-        // set locale for i18n
-        $this->i18n->setLocale($locale);
 
         // grab page to render
         $page = trim(str_replace($baseUrl, '', $req->getPathInfo() .DS), '/');

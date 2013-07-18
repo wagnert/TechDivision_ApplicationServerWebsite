@@ -8,11 +8,11 @@
             </trans-unit>
             <trans-unit id="2">
                 <source>page.description</source>
-                <target>Multithreaded PHP Application Server.</target>
+                <target>Multi threaded PHP application server.</target>
             </trans-unit>
             <trans-unit id="3">
                 <source>global.navigation.home</source>
-                <target>Startseite</target>
+                <target>Home</target>
             </trans-unit>
             <trans-unit id="4">
                 <source>global.navigation.downloads</source>
@@ -20,7 +20,7 @@
             </trans-unit>
             <trans-unit id="5">
                 <source>global.navigation.imprint</source>
-                <target>Impressum</target>
+                <target>Imprint</target>
             </trans-unit>
             <trans-unit id="6">
                 <source>global.navigation.fork-me</source>

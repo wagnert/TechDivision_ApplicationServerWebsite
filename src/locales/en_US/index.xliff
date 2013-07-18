@@ -11,13 +11,13 @@
             <trans-unit id="2">
                 <source>index.teaser.description</source>
                 <target>
-                    Multithreaded Application Server für PHP, geschrieben in PHP.
+                    Multithreaded application server for PHP, written in PHP.
                 </target>
             </trans-unit>
             <trans-unit id="3">
                 <source>index.teaser.download</source>
                 <target>
-                    Application Server herunterladen
+                    install appserver
                 </target>
             </trans-unit>
             <trans-unit id="4">
@@ -35,10 +35,9 @@
             <trans-unit id="6">
                 <source>index.go-for-it.description</source>
                 <target>
-                    Ziel des Projekts ist die Entwicklung eines multithreaded Application Servers für PHP,
-                    geschrieben in PHP. Geschrieben in PHP um möglichst vielen Entwicklern aus der PHP Gemeinde
-                    die Mitarbeit zu ermöglichen und das Projekt durch die die breite Unterstützung der PHP
-                    Community als eine Standardlösung für Enterprise Anwendungen im PHP Umfeld zu etablieren.
+                    The project is focused on development of a multithreaded application server for PHP,
+                    written in PHP. Written in PHP to enable the collaboration of PHP community and to
+                    establish itself as s standard solution for enterprise applications in the PHP ecosystem.
                 </target>
             </trans-unit>
             <trans-unit id="7">
@@ -50,13 +49,13 @@
             <trans-unit id="8">
                 <source>index.highlight.list.item-01</source>
                 <target>
-                    Doctrine als Standard Persistence Provider
+                    Doctrine as standard persistence provider
                 </target>
             </trans-unit>
             <trans-unit id="9">
                 <source>index.highlight.list.item-02</source>
                 <target>
-                    Session Beans (Stateful, Stateless + Singleton
+                    Session Beans (stateful, stateless + singleton)
                 </target>
             </trans-unit>
             <trans-unit id="10">
@@ -80,13 +79,13 @@
             <trans-unit id="13">
                 <source>index.highlight.list.item-06</source>
                 <target>
-                    Integrierte Message Queue
+                    Integrated Message Queue
                 </target>
             </trans-unit>
             <trans-unit id="14">
                 <source>index.highlight.list.item-07</source>
                 <target>
-                    Einfache Skalierung
+                    Easy scaling
                 </target>
             </trans-unit>
             <trans-unit id="15">
@@ -104,19 +103,19 @@
             <trans-unit id="17">
                 <source>index.requirements.list.item-01</source>
                 <target>
-                    PHP5.3+ on x64 or x86
+                    PHP 5.4+ on x64 or x86
                 </target>
             </trans-unit>
             <trans-unit id="18">
                 <source>index.requirements.list.item-02</source>
                 <target>
-                    ZTS Enabled (Thread Safety)
+                    ZTS enabled (thread safety)
                 </target>
             </trans-unit>
             <trans-unit id="19">
                 <source>index.requirements.list.item-03</source>
                 <target>
-                    Posix Threads Implementierung
+                    POSIX threads implementation
                 </target>
             </trans-unit>
             <trans-unit id="20">
@@ -128,8 +127,8 @@
             <trans-unit id="21">
                 <source>index.requirements.description</source>
                 <target>
-                    Die aktuelle Version wurde auf Mac OS X 10.7+ und Debian getestet. Aufgrund der verwendeten
-                    Komponenten sollten allerdings auch auf anderen Plattformen der Betrieb möglich sein.
+                    The actual version has been tested on Mac OS X 10.7+ and Debian. On basis of the used
+                    components, however, on other platforms the operation should also be possible.
                 </target>
             </trans-unit>
             <trans-unit id="22">
@@ -141,18 +140,16 @@
             <trans-unit id="23">
                 <source>index.keep-it-simple.description</source>
                 <target><![CDATA[
-                    Die Implementierung einer Webanwendung sowie deren Betrieb im PHP Application Server
-                    muss so einfach wie möglich sein. Hierzu werden zum Einen, wann immer möglich,
-                    bereits bestehenden Komponenten als Standardlösung, so z. B. Doctrine, verwendet,
-                    zum Anderen darf, durch das Paradigma Configuration by Exception, für den Betrieb einer
-                    Anwendung nur ein Minimum an Konfiguration notwendig sein. So wird breits durch das
-                    Standardverhalten der jeweiligen Kompenenten ein Großteil der Verwendungsfälle abgedeckt
-                    wodurch sich der Enwickler häufig keine deklarativen Angaben zur Konfiguration machen muss.
-                    Um eine möglichst breite Community anzusprechen ist die Architektur des Application
-                    Servers so aufgebaut, dass über Servlets eine möglichst große Anzahl an bereits
-                    bestehenden Anwendungen/Frameworks einfach migriert werden können. Zusätzlich wird die
-                    zukünftige Entwicklung von Webanwendungen auf Basis der relevanten PHP Frameworks
-                    durch die Bereitstellung von Libraries unterstützt.
+                    The implementation of a web application and the operation in the application server
+                    has to be as easy as possible. For this purpose, whenever possible, already popular
+                    and proven components will be used as standard solutions, for example Doctrine is
+                    the standard persistence provider. Also configuration by exception to start an
+                    application running is one the main paradigms. Keeping this in mind, the minimal
+                    configuration effort fits to most of the use cases. To enable collaboration of the
+                    PHP community the standard servlets that will be delivered covers a wide range of
+                    existing applications and frameworks. Additional development of future feature rich
+                    web applications based on popular frameworks will be supported with specific libraries
+                    and documentation.
                 ]]></target>
             </trans-unit>
             <trans-unit id="24">
@@ -164,25 +161,25 @@
             <trans-unit id="25">
                 <source>index.technical-features.list.item-01</source>
                 <target>
-                    Verwendung der phtreads Library von Joe Watkins (https://github.com/krakjoe/pthreads)
+                    Usage of the phtreads PECL extension of Joe Watkins (https://github.com/krakjoe/pthreads)
                 </target>
             </trans-unit>
             <trans-unit id="26">
                 <source>index.technical-features.list.item-02</source>
                 <target>
-                    Verwendung von DI &amp; AOP innerhalb der jeweiligen Container
+                    Supports usage of DI &amp; AOP inside containers (tdb)
                 </target>
             </trans-unit>
             <trans-unit id="27">
                 <source>index.technical-features.list.item-03</source>
                 <target>
-                    Einsatz von Annotations zur Konfiguration der Beans
+                    Supports annotations to configure beans (tbd)
                 </target>
             </trans-unit>
             <trans-unit id="28">
                 <source>index.technical-features.list.item-04</source>
                 <target>
-                    Configration by Exception (optional Verwendung von Deployment Descriptoren möglich)
+                    Configration by exception, optional usage of deployment descriptors (tbd)
                 </target>
             </trans-unit>
         </body>

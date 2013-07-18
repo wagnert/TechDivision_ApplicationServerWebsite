@@ -1,3 +1,27 @@
 Teaser:
-  Title: 'title.imprint'
-  Description: 'description.imprint'
+  Title: imprint.teaser.title
+  Description: imprint.teaser.description
+
+1-Column-Row:
+  - Position: 'right'
+    List:
+      - Item:
+          Title: imprint.list.item-01.title
+          Description: imprint.list.item-01.description
+      - Item:
+          Title: imprint.list.item-02.title
+          Description: imprint.list.item-02.description
+      - Item:
+          Title: imprint.list.item-03.title
+          Description: imprint.list.item-03.description
+  - Position: 'left'
+    List:
+      - Item:
+          Title: imprint.list.item-04.title
+          Description: imprint.list.item-04.description
+      - Item:
+          Title: imprint.list.item-05.title
+          Description: imprint.list.item-05.description
+      - Item:
+          Title: imprint.list.item-06.title
+          Description: imprint.list.item-06.description

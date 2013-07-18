@@ -4,11 +4,11 @@
         <body>
             <trans-unit id="1">
                 <source>imprint.teaser.title</source>
-                <target>Impressum</target>
+                <target>Impress</target>
             </trans-unit>
             <trans-unit id="2">
                 <source>imprint.teaser.description</source>
-                <target>Angaben gemäß § 5 TMG</target>
+                <target>Disclosures according to § 5 TMG</target>
             </trans-unit>
             <trans-unit id="3">
                 <source>imprint.list.item-01.title</source>
@@ -20,39 +20,39 @@
             </trans-unit>
             <trans-unit id="5">
                 <source>imprint.list.item-02.title</source>
-                <target>Vertreten durch</target>
+                <target>Excecutive Board</target>
             </trans-unit>
             <trans-unit id="6">
                 <source>imprint.list.item-02.description</source>
-                <target>Stefan und Josef Willkommer</target>
+                <target>Stefan and Josef Willkommer</target>
             </trans-unit>
             <trans-unit id="7">
                 <source>imprint.list.item-03.title</source>
-                <target>Kontakt</target>
+                <target>Contact</target>
             </trans-unit>
             <trans-unit id="8">
                 <source>imprint.list.item-03.description</source>
-                <target><![CDATA[Telefon: +49 8031 221055-0<br/>Telefax: +49 8031 221055-22]]></target>
+                <target><![CDATA[Phone: +49 8031 221055-0<br/>Fax: +49 8031 221055-22]]></target>
             </trans-unit>
             <trans-unit id="9">
                 <source>imprint.list.item-04.title</source>
-                <target>Registereintrag</target>
+                <target>Commercial register</target>
             </trans-unit>
             <trans-unit id="10">
                 <source>imprint.list.item-04.description</source>
-                <target><![CDATA[Eintragung im Handelsregister.<br/>Registergericht:Amtsgericht Traunstein<br/>Registernummer: HRB 17123]]></target>
+                <target><![CDATA[Municipial Court of Traunstein<br/>HRB 17123]]></target>
             </trans-unit>
             <trans-unit id="11">
                 <source>imprint.list.item-05.title</source>
-                <target>Umsatzsteuer-ID</target>
+                <target>VAT registration number</target>
             </trans-unit>
             <trans-unit id="12">
                 <source>imprint.list.item-05.description</source>
-                <target><![CDATA[Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br/>DE249664276]]></target>
+                <target><![CDATA[VAT registration number according to §27 a sales tax law: DE249664276]]></target>
             </trans-unit>
             <trans-unit id="13">
                 <source>imprint.list.item-06.title</source>
-                <target>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</target>
+                <target>Responsible for content according to § 55 Abs. 2 RStV</target>
             </trans-unit>
             <trans-unit id="14">
                 <source>imprint.list.item-06.description</source>
