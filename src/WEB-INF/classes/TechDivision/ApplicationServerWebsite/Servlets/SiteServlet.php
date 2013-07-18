@@ -109,12 +109,11 @@ class SiteServlet extends HttpServlet {
 
         // init language
         $locale = $this->defaultLocale;
-        list ($acceptLanguage)= explode(',', $req->getServerVar('HTTP_ACCEPT_LANGUAGE'));
+        list ($acceptLanguage) = explode(',', $req->getServerVar('HTTP_ACCEPT_LANGUAGE'));
+        $acceptLanguage = strtolower($acceptLanguage);
         if (array_key_exists($acceptLanguage, $this->locales)) {
             $locale = $this->locales[$acceptLanguage];
         }
-
-        error_log("Now set default locale: {$locale}");
 
         // init translator engine
         $this->i18n = new I18n($locale);
