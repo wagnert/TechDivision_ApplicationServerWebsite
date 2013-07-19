@@ -99,8 +99,12 @@ p {
 }
 
 .jumbotron {
-  background: linear-gradient(45deg, #af262d 0%, #000000 100%) repeat scroll 0 0 transparent;
-  background: -webkit-linear-gradient(45deg, #af262d, #000000);
+  background: url('../img/logo-big.png') repeat-x center center, -webkit-linear-gradient(45deg, #af262d, #000000);
+  background-color: #410d0f;
+  background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
   color: #FFFFFF;
   padding: 40px 0;

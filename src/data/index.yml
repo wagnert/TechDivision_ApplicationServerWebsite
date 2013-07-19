@@ -1,4 +1,5 @@
 Teaser:
+  Logo: 'static/img/logo-index.png'
   Title: index.teaser.title
   Description: index.teaser.description
   Download: index.teaser.download
