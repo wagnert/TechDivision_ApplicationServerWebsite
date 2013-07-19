@@ -17,7 +17,7 @@
             <trans-unit id="3">
                 <source>index.teaser.download</source>
                 <target>
-                    Application Server herunterladen
+                    jetzt herunterladen
                 </target>
             </trans-unit>
             <trans-unit id="4">
@@ -37,8 +37,8 @@
                 <target>
                     Ziel des Projekts ist die Entwicklung eines multithreaded Application Servers für PHP,
                     geschrieben in PHP. Geschrieben in PHP um möglichst vielen Entwicklern aus der PHP Gemeinde
-                    die Mitarbeit zu ermöglichen und das Projekt durch die die breite Unterstützung der PHP
-                    Community als eine Standardlösung für Enterprise Anwendungen im PHP Umfeld zu etablieren.
+                    die Mitarbeit zu ermöglichen und das Projekt durch die breite Unterstützung der PHP
+                    Community als Standardlösung für Enterprise Anwendungen im PHP Umfeld zu etablieren.
                 </target>
             </trans-unit>
             <trans-unit id="7">
@@ -129,7 +129,7 @@
                 <source>index.requirements.description</source>
                 <target>
                     Die aktuelle Version wurde auf Mac OS X 10.7+ und Debian getestet. Aufgrund der verwendeten
-                    Komponenten sollten allerdings auch auf anderen Plattformen der Betrieb möglich sein.
+                    Komponenten sollte der Betrieb allerdings auch auf anderen Plattformen möglich sein.
                 </target>
             </trans-unit>
             <trans-unit id="22">
@@ -146,13 +146,13 @@
                     bereits bestehenden Komponenten als Standardlösung, so z. B. Doctrine, verwendet,
                     zum Anderen darf, durch das Paradigma Configuration by Exception, für den Betrieb einer
                     Anwendung nur ein Minimum an Konfiguration notwendig sein. So wird breits durch das
-                    Standardverhalten der jeweiligen Kompenenten ein Großteil der Verwendungsfälle abgedeckt
-                    wodurch sich der Enwickler häufig keine deklarativen Angaben zur Konfiguration machen muss.
+                    Standardverhalten der jeweiligen Kompenenten ein Großteil der Anwendungsfälle abgedeckt,
+                    als Enwickler musst du somit nahezu keine deklarativen Angaben zur Konfiguration machen.
                     Um eine möglichst breite Community anzusprechen ist die Architektur des Application
                     Servers so aufgebaut, dass über Servlets eine möglichst große Anzahl an bereits
-                    bestehenden Anwendungen/Frameworks einfach migriert werden können. Zusätzlich wird die
-                    zukünftige Entwicklung von Webanwendungen auf Basis der relevanten PHP Frameworks
-                    durch die Bereitstellung von Libraries unterstützt.
+                    bestehenden Anwendungen/Frameworks einfach migriert werden kann. Zusätzlich wird die
+                    Entwicklung von Webanwendungen auf Basis der relevanten PHP Frameworks durch die
+                    Bereitstellung von Libraries unterstützt.
                 ]]></target>
             </trans-unit>
             <trans-unit id="24">
