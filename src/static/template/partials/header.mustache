@@ -25,7 +25,7 @@
     <div class="navbar-inner">
         <ul class="nav">
             {{#Header.Navigation}}
-            <li {{#Active}}class="active"{{/Active}}><a href="{{Url}}">{{#Icon}}<i class="{{Icon}} icon-large"></i>{{/Icon}} {{Name}}</a></li>
+            <li {{#Active}}class="active"{{/Active}}><a href="{{Url}}">{{#Icon}}<i class="{{.}} icon-large"></i>{{/Icon}} {{Name}}</a></li>
             {{/Header.Navigation}}
         </ul>
     </div>
@@ -34,9 +34,9 @@
 <div class="jumbotron masthead">
     <div class="container">
         <p>&nbsp;</p>
-        {{#Teaser.Title}}<h1>{{Teaser.Title}}</h1>{{/Teaser.Title}}
-        {{#Teaser.Description}}<p class="lead">{{Teaser.Description}}</p>{{/Teaser.Description}}
-        {{#Teaser.Download}}<a id="download-link" class="btn btn-primary btn-large"><i class="icon-download icon-large"></i> {{Teaser.Download}}</a>{{/Teaser.Download}}
+        {{#Teaser.Title}}<h1>{{/Teaser.Title}}{{#Teaser.Logo}}<img src="{{.}}"/>{{/Teaser.Logo}}{{#Teaser.Title}} {{.}}</h1>{{/Teaser.Title}}
+        {{#Teaser.Description}}<p class="lead">{{.}}</p>{{/Teaser.Description}}
+        {{#Teaser.Download}}<a id="download-link" class="btn btn-primary btn-large"><i class="icon-download icon-large"></i> {{.}}</a>{{/Teaser.Download}}
     </div>
 </div>
 

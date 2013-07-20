@@ -4,7 +4,7 @@ Title: page.title
 Description: page.description
 
 Head:
-  Favicon: 'static/ico/favicon.png'
+  Favicon: 'static/img/favicon.png'
   Styles:
     - Style: 'static/css/styles.css'
     - Style: 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
