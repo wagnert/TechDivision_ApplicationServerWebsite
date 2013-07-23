@@ -21,12 +21,12 @@ namespace TechDivision\ApplicationServerWebsite\Servlets;
  */
 
 use TechDivision\ServletContainer\Interfaces\Servlet;
-use TechDivision\ServletContainer\Servlets\DefaultServlet;
+use TechDivision\ServletContainer\Servlets\HttpServlet;
 use TechDivision\ServletContainer\Interfaces\ServletConfig;
 use TechDivision\ServletContainer\Interfaces\Request;
 use TechDivision\ServletContainer\Interfaces\Response;
 
-class DownloadServlet extends DefaultServlet {
+class DownloadServlet extends HttpServlet {
 
     /**
      * defines base download uri

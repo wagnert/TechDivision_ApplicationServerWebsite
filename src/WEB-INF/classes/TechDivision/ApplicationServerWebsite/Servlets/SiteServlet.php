@@ -27,7 +27,6 @@ use TechDivision\ServletContainer\Interfaces\Request;
 use TechDivision\ServletContainer\Interfaces\Response;
 use Symfony\Component\Yaml\Parser;
 use TechDivision\ApplicationServerWebsite\Utilities\I18n;
-use TechDivision\ServletContainer\Servlets\DefaultServlet;
 use TechDivision\ServletContainer\Servlets\HttpServlet;
 
 
