@@ -58,7 +58,7 @@ class I18n extends Translator
         // set translation domain
         $this->domain = $domain;
         // translate all values from array recursively
-        array_walk_recursive($data, array(__CLASS__, '__'));
+        array_walk_recursive($data, array($this, '__'));
     }
 
     /**
