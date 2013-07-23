@@ -12,12 +12,14 @@ Downloads:
       - Name: '32bit (not yet)'
       - Name: '64bit'
         Url: 'dl/MacOS'
+        OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'MacOS 64bit']);"
   - Name: 'Linux Installer (.deb)'
     Icon: 'icon-linux'
     Links:
       - Name: '32bit (not yet)'
       - Name: '64bit'
         Url: 'dl/Linux'
+        OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Linux 64bit']);"
   - Name: 'Windows Installer (.msi)'
     Icon: 'icon-windows'
     Links:

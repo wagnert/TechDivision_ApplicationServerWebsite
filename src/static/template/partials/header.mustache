@@ -36,7 +36,7 @@
         <p>&nbsp;</p>
         {{#Teaser.Title}}<h1>{{/Teaser.Title}}{{#Teaser.Logo}}<img src="{{.}}"/>{{/Teaser.Logo}}{{#Teaser.Title}} {{.}}</h1>{{/Teaser.Title}}
         {{#Teaser.Description}}<p class="lead">{{.}}</p>{{/Teaser.Description}}
-        {{#Teaser.Download}}<a id="download-link" class="btn btn-primary btn-large"><i class="icon-download icon-large"></i> {{.}}</a>{{/Teaser.Download}}
+        {{#Teaser.Download}}<a id="download-link" {{#Teaser.OnClick}}onclick="{{.}}" {{/Teaser.OnClick}}class="btn btn-primary btn-large"><i class="icon-download icon-large"></i> {{.}}</a>{{/Teaser.Download}}
     </div>
 </div>
 

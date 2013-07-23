@@ -3,6 +3,7 @@ Teaser:
   Title: index.teaser.title
   Description: index.teaser.description
   Download: index.teaser.download
+  OnClick: "_gaq.push(['_trackEvent', 'Home', 'Downloaded', 'Package']);"
 
 3-Column-Row:
   - Title: index.go-for-it.title
