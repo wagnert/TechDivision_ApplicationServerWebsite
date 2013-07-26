@@ -10,6 +10,14 @@
                 <source>downloads.version.title</source>
                 <target>Current version:</target>
             </trans-unit>
+            <trans-unit id="3">
+                <source>downloads.asset.title</source>
+                <target>Other downloads</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>downloads.asset.techtalk.name</source>
+                <target>Techtalk 07/2013</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

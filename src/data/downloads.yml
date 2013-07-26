@@ -25,3 +25,13 @@ Downloads:
     Links:
       - Name: '32bit (not yet)'
       - Name: '64bit (not yet)'
+
+Asset:
+  Title: downloads.asset.title
+
+Assets:
+    Icon: 'icon-book'
+    Links:
+        Name: 'TD Techtalk 07/2013'
+        Url: 'dl/Techtalk072013'
+        OnClick: "_gaq.push(['_trackEvent', 'Assets', 'Downloaded', downloads.asset.techtalk.name]);"

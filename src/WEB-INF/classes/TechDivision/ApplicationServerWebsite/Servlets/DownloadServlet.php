@@ -45,6 +45,10 @@ class DownloadServlet extends HttpServlet {
             => array(
                 0 => '${webapp.dl.url.macos.64bit}'
             ),
+        'Techtalk072013'
+            => array(
+                0 => '${webapp.asset.techtalk.url}'
+            ),
     );
 
     /**
@@ -97,7 +101,7 @@ class DownloadServlet extends HttpServlet {
                 );
             $res->setContent(PHP_EOL);
         } else {
-            $res->setContent(sprintf('No mirror defined for OS "%s"', $this->downloadFilename));
+            $res->setContent(sprintf('No mirror defined for download "%s"', $this->downloadFilename));
         }
 
     }
