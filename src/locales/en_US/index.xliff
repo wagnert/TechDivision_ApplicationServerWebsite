@@ -37,7 +37,7 @@
                 <target>
                     The project is focused on development of a multithreaded application server for PHP,
                     written in PHP. Written in PHP to enable the collaboration of PHP community and to
-                    establish itself as s standard solution for enterprise applications in the PHP ecosystem.
+                    establish itself as a standard solution for enterprise applications in the PHP ecosystem.
                 </target>
             </trans-unit>
             <trans-unit id="7">

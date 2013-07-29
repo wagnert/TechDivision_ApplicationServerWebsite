@@ -1,5 +1,6 @@
 /target
 /.idea
 .sass-cache
+.DS_Store
 build.properties
 /vendor/
