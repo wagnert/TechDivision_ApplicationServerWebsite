@@ -85,7 +85,7 @@ class SiteServlet extends HttpServlet {
     {
         $rootDir = $this->getServletConfig()->getWebappPath();
         if ($path) {
-            $rootDir = $rootDir . DS . $path;
+            $rootDir = $rootDir . DIRECTORY_SEPARATOR . $path;
         }
         return $rootDir;
     }
@@ -132,7 +132,7 @@ class SiteServlet extends HttpServlet {
         $internalData = array('BaseUrl' => $baseUrl);
 
         // grab page to render
-        $page = trim(str_replace($baseUrl, '', $req->getPathInfo() .DS), '/');
+        $page = trim(str_replace($baseUrl, '', $req->getPathInfo() . DIRECTORY_SEPARATOR), '/');
 
         // if noting left take default page
         if ($page == '') {
@@ -142,34 +142,34 @@ class SiteServlet extends HttpServlet {
         // set default template
         $template = self::DEFAULT_TEMPALTE;
         // check if page specific template exists
-        if (file_exists($this->getRootDir('static' . DS . 'template' . DS . $page .'.mustache'))) {
+        if (file_exists($this->getRootDir('static' . DIRECTORY_SEPARATOR . 'template' . DIRECTORY_SEPARATOR . $page .'.mustache'))) {
             $template = $page;
         }
 
         // add global translations
         $this->i18n->addResource('xliff-file',
-            $this->getRootDir('locales' . DS . $locale . DS . 'global.xliff'),
+            $this->getRootDir('locales' . DIRECTORY_SEPARATOR . $locale . DIRECTORY_SEPARATOR . 'global.xliff'),
             $locale, 'global'
         );
         // add template view translations
         $this->i18n->addResource('xliff-file',
-            $this->getRootDir('locales' . DS . $locale . DS . $page . '.xliff'),
+            $this->getRootDir('locales' . DIRECTORY_SEPARATOR . $locale . DIRECTORY_SEPARATOR . $page . '.xliff'),
             $locale, $page
         );
 
         // load global data
         $globalData = $this->yaml->parse(
-            file_get_contents($this->getRootDir('data' . DS . 'global.yml'))
+            file_get_contents($this->getRootDir('data' . DIRECTORY_SEPARATOR . 'global.yml'))
         );
         // translate data
         $this->i18n->translateData($globalData, 'global');
 
         $pageData = array();
         // check if page specific data exists
-        if (file_exists($this->getRootDir('data' . DS . $page . '.yml'))) {
+        if (file_exists($this->getRootDir('data' . DIRECTORY_SEPARATOR . $page . '.yml'))) {
             $pageData = $this->yaml->parse(
                 // load specific data
-                file_get_contents($this->getRootDir('data' . DS . $page . '.yml'))
+                file_get_contents($this->getRootDir('data' . DIRECTORY_SEPARATOR . $page . '.yml'))
             );
             // translate data
             $this->i18n->translateData($pageData, $page);
