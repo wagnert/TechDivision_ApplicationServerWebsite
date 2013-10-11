@@ -4,7 +4,7 @@
         <body>
             <trans-unit id="1">
                 <source>page.title</source>
-                <target>Multithreaded Application Server für PHP, geschrieben in PP - appserver.io</target>
+                <target>Multithreaded appserver written in PHP</target>
             </trans-unit>
             <trans-unit id="2">
                 <source>page.description</source>
