@@ -34,6 +34,10 @@ Header:
       Url: 'downloads'
       Active: false
       Icon:
+    - Name: global.navigation.documentation
+      Url: 'documentation'
+      Active: false
+      Icon:
     - Name: global.navigation.fork-me
       Url: 'https://github.com/techdivision/TechDivision_ApplicationServer'
       Active: false
