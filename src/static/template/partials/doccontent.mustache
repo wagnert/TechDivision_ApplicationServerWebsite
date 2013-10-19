@@ -1,0 +1,199 @@
+<div class="row-fluid">
+
+    <div class="span4">
+        <div id="bootstrap-nav">
+        <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#installation">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#roadmap">3. Roadmap</a></li>
+</ul>
+
+        </div>
+    </div>
+
+    <div class="span8">
+        <div id="doc-content">
+        
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="introduction">
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The objective of the project is to develop a multi-threaded application server for PHP, written in PHP. Yes, pure PHP!
+You think we aren&#8217;t serious? Maybe! But we think, in order to enable as many developers in our great community, this
+will be the one and only way to enable you helping us. Through the broadest possible support of the PHP community we
+hopefully establish this solution as the standard for enterprise applications in PHP environment.</p>
+<div class="section" id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Servlet engine, with full HTTP 1.1 support</li>
+<li>Session beans (stateful, stateless + singleton)</li>
+<li>Message beans</li>
+<li>Doctrine as standard Persistence provider</li>
+<li>Timer service</li>
+<li>Integrate message queue</li>
+<li>Web services</li>
+<li>Cluster functionality</li>
+</ul>
+</div>
+<div class="section" id="technical-features">
+<h2>Technical Features<a class="headerlink" href="#technical-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Joe Watkins (<a class="reference external" href="https://github.com/krakjoe/pthreads">https://github.com/krakjoe/pthreads</a>) phtreads Library is used</li>
+<li>DI &amp; AO  usage within the respective container</li>
+<li>Use of annotations to configure beans</li>
+<li>Configuration by Exception (optional Usage of Deployment Descriptor possible)</li>
+</ul>
+<p>The implementation of a Web application and its operation in the PHP Application Server must be as simple as possible.
+For this purpose, whenever possible, the utilization of standard solution based on existing components as a, such as
+Doctrine, are used. On the other hand, with the paradigm Configuration by exception, the operation of an application
+with a minimum of configuration is needed. So a lot of the use cases is already covered by the default behavior of the
+respective integrated components so that the developer often does not need declarative configuration information. To
+appeal to the widest possible community the architecture of the Application Server must be constructed so that as large
+a number of existing applications can easily be migrated via adapter. Furthermore, the future development of Web
+applications based on all relevant PHP frameworks by providing libraries is supported.</p>
+</div>
+</div>
+<div class="section" id="installation">
+<h1>2. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>PHP 5.4+ on x64 or x86</li>
+<li>ZTS Enabled (Thread Safety)</li>
+<li>Posix Threads Implementation</li>
+<li>Memcached (2.1+)</li>
+</ul>
+<p>The lastest version is only tested with Mac OS 10.8+ and Debian Wheezy. PHP Application Server should run on any PHP
+version from 5.3+. However segmentation faults occurred in various tests with PHP 5.3.x repeatedly. Meanwhile this can
+lead to the early development stage of the pthreads library. We actually use PHP 5.5.+ for development.</p>
+</div>
+<div class="section" id="id1">
+<h2>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Actually we support Mac OS X Mountain Lion and Debian Wheezy. We also plan to release a Windows installer and a RPM
+package as soon as possible but as we&#8217;re only Mac users we&#8217;ll be happy if someone is out there to support us with that
+stuff. Finally it&#8217;s possible to build the runtime by yourself. This can be done by cloning our [Runtime Environment]
+(<a class="reference external" href="https://github.com/techdivision/TechDivision_Runtime">https://github.com/techdivision/TechDivision_Runtime</a>). We&#8217;ve added two ANT targets <tt class="docutils literal"><span class="pre">create-pkg</span></tt> and <tt class="docutils literal"><span class="pre">create-deb</span></tt>
+that should do the stuff for you.</p>
+<div class="section" id="installation-on-mountain-lion">
+<h3>Installation on Mountain Lion<a class="headerlink" href="#installation-on-mountain-lion" title="Permalink to this headline">¶</a></h3>
+<p>To install on your Mac OS X Mountain Lion please download the actual .pkg Package from <a class="reference external" href="http://www.appserver.io">http://www.appserver.io</a>.
+After downlaod the .pkg you can start installation process with a double click on the package. To install the
+software you need to have administration privileges (sudo). After the installation process, that is really simple,
+you&#8217;ll find the Application Server software in the folder <tt class="docutils literal"><span class="pre">/opt/appserver</span></tt>.</p>
+<p>When the installation has been finished the Application Server will be started automatically. If you need to restart
+the Application Server, after you&#8217;ve deployed a new app for example, you can use the init scripts <tt class="docutils literal"><span class="pre">sbin/appserverctl</span></tt>
+and <tt class="docutils literal"><span class="pre">sbin/memcachectl</span></tt> therefore. Both accept <tt class="docutils literal"><span class="pre">start</span></tt>, <tt class="docutils literal"><span class="pre">stop``&nbsp;and</span> <span class="pre">``restart</span></tt> as parameter.</p>
+<p>Start your favorite browser and open the URL <tt class="docutils literal"><span class="pre">http://127.0.0.1:8586/demo</span></tt> to load the demo application.</p>
+</div>
+<div class="section" id="installation-on-a-debian-wheezy">
+<h3>Installation on a Debian Wheezy<a class="headerlink" href="#installation-on-a-debian-wheezy" title="Permalink to this headline">¶</a></h3>
+<p>If you&#8217;re on a Debian system you don&#8217;t need to download the .deb package. Follow these instructions:</p>
+<div class="highlight-python"><pre>root@debian:~# echo “deb http://deb.appserver.io/ wheezy main” &gt;&gt; /etc/apt/sources.list
+root@debian:~# wget http://deb.appserver.io/appserver.gpg
+root@debian:~# cat appserver.gpg | apt-key add -
+root@debian:~# aptitude update
+root@debian:~# aptitude install appserver</pre>
+</div>
+<p>This will install the Application Server in directory <tt class="docutils literal"><span class="pre">/opt/appserver</span></tt>. Also it&#8217;ll be started automatically, but you
+can start, stop or restart it with the init-script <tt class="docutils literal"><span class="pre">/etc/init.d/appserver</span></tt> and the parameter <tt class="docutils literal"><span class="pre">start</span></tt>, <tt class="docutils literal"><span class="pre">stop``&nbsp;and</span>
+<span class="pre">``restart</span></tt>. Additionally it is necessary that the memcached daemon has been started before the Application Server will
+be started itself.</p>
+<p>After installation you can open a really simply example app with your favorite browser open the URL
+<tt class="docutils literal"><span class="pre">http://127.0.0.1:8586/demo</span></tt>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="roadmap">
+<h1>3. Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h1>
+<p>As we&#8217;re in heavy development it may be, that we&#8217;ve to move some tasks from the following roadmap to a earlier/later
+version, please be aware of that. If you&#8217;ve ideas or features that definitely has to be in one of the next releases,
+please contact us. We&#8217;re always open for new ideas or feedback.</p>
+<p>And yes, we&#8217;ve plans for a Community and a Enterprise edition. The Community Edition will provide all functionality
+needed to develop, run maintain all kind of web applications. The Enterprise Edition will focus on large software
+solutions that run on many servers and needs real cluster functionality.</p>
+<div class="section" id="community-edition">
+<h2>Community Edition<a class="headerlink" href="#community-edition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-0-6-application-server">
+<h3>Version 0.6 - Application Server<a class="headerlink" href="#version-0-6-application-server" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>[ ] Logging</li>
+<li>[ ] AOP</li>
+<li>[ ] DI</li>
+<li>[ ] Refactoring routing</li>
+<li>[ ] Merging XML configuration files</li>
+<li>[ ] Separate configuration files for server, container and application</li>
+<li>[ ] Set environment variables in XML configuration files</li>
+<li>[ ] PHAR based deployment</li>
+<li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_ApplicationServer project</li>
+<li>[ ] Automated Build- and Deployment using Travis-CI</li>
+<li>[ ] Running Magento CE 1.7.x demo application</li>
+<li>[ ] Running TYPO3 6.x demo application</li>
+<li>[ ] Running TYPO3 Flow 2.0.x demo application</li>
+<li>[ ] Running TYPO3 Neos 1.x demo application</li>
+<li>[ ] Mac OS X Universal installer</li>
+<li>[ ] RPM packages</li>
+<li>[ ] Windows installer</li>
+<li>[ ] Generic management API</li>
+</ul>
+</div>
+<div class="section" id="version-0-7-servlet-container-https-github-com-techdivision-techdivision-servletcontainer">
+<h3>Version 0.7 - [Servlet Container](<a class="reference external" href="https://github.com/techdivision/TechDivision_ServletContainer">https://github.com/techdivision/TechDivision_ServletContainer</a>)<a class="headerlink" href="#version-0-7-servlet-container-https-github-com-techdivision-techdivision-servletcontainer" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>[ ] Integrate annotations for session beans</li>
+<li>[ ] Administration interface with drag-and-drop PHAR installer</li>
+<li>[ ] SSL Encryption for TechDivision_ServletContainer project</li>
+<li>[ ] HTTP basic authentication for TechDivision_ServletContainer project</li>
+<li>[ ] mod_rewrite functionality for TechDivision_ServletContainer project</li>
+<li>[ ] Add dynamic load of application specific PECL extensions</li>
+<li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_ServletContainer project</li>
+</ul>
+</div>
+<div class="section" id="version-0-8-persistence-container-https-github-com-techdivision-techdivision-persistencecontainer">
+<h3>Version 0.8 - [Persistence Container](<a class="reference external" href="https://github.com/techdivision/TechDivision_PersistenceContainer">https://github.com/techdivision/TechDivision_PersistenceContainer</a>)<a class="headerlink" href="#version-0-8-persistence-container-https-github-com-techdivision-techdivision-persistencecontainer" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>[ ] Stateful + Singleton session bean functionality</li>
+<li>[ ] Container managed entity beans for Doctrine</li>
+<li>[ ] Webservice for session beans</li>
+<li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_PersistenceContainer project</li>
+</ul>
+</div>
+<div class="section" id="version-0-9-message-queue-https-github-com-techdivision-techdivision-messagequeue">
+<h3>Version 0.9 - [Message Queue](<a class="reference external" href="https://github.com/techdivision/TechDivision_MessageQueue">https://github.com/techdivision/TechDivision_MessageQueue</a>)<a class="headerlink" href="#version-0-9-message-queue-https-github-com-techdivision-techdivision-messagequeue" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>[ ] Message bean functionality</li>
+<li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_MessageQueue project</li>
+</ul>
+</div>
+<div class="section" id="version-1-0-timer-service">
+<h3>Version 1.0 - Timer Service<a class="headerlink" href="#version-1-0-timer-service" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>[ ] Timer Service</li>
+<li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_TimerService project</li>
+</ul>
+</div>
+<div class="section" id="version-1-1-additional-containers">
+<h3>Version 1.1 - Additional Containers<a class="headerlink" href="#version-1-1-additional-containers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>[ ] Distributed and redundant cluster caching system with automated failover</li>
+<li>[ ] Fast-CGI container</li>
+<li>[ ] WebSocket integration</li>
+</ul>
+</div>
+</div>
+<div class="section" id="enterprise-edition">
+<h2>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-1-2-cluster-functionality">
+<h3>Version 1.2 - Cluster Functionality<a class="headerlink" href="#version-1-2-cluster-functionality" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>[ ] Cluster functionality</li>
+<li>[ ] Container based transactions</li>
+<li>[ ] Farming deployment</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+        </div>
+    </div>
+</div>
