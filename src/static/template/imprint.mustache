@@ -1,16 +1,14 @@
 {{>header}}
-    <div class="row-fluid">
-        <div class="row">
-            {{#1-Column-Row}}
-            <div class="span6 text-{{Position}}">
-            {{#List}}
-                <h4>{{Item.Title}}</h4>
-                <p>
-                    {{{Item.Description}}}
-                </p>
-            {{/List}}
-            </div>
-            {{/1-Column-Row}}
+    <div class="row">
+        {{#1-Column-Row}}
+        <div class="col-md-6 text-{{Position}}">
+        {{#List}}
+            <h4>{{Item.Title}}</h4>
+            <p>
+                {{{Item.Description}}}
+            </p>
+        {{/List}}
         </div>
+        {{/1-Column-Row}}
     </div>
 {{>footer}}

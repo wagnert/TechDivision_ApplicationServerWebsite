@@ -1,3 +1,7 @@
+Id: 'imprint'
+
+Breadcrumb: 'breadcrumb.imprint'
+
 Teaser:
   Title: imprint.teaser.title
   Description: imprint.teaser.description

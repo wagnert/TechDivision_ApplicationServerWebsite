@@ -1,8 +1,11 @@
+Id: 'documentation'
+
+Breadcrumb: 'breadcrumb.documentation'
+
 Teaser:
   Description: documentation.teaser.description
 
 Doc:
   Scripts:
-    - Script: 'static/js/bootstrap-affix.js'
-    - Script: 'static/js/application.js'
+    - Script: 'static/js/bootstrap/affix.js'
     - Script: 'static/js/doc.js'

@@ -19,25 +19,37 @@
     <link rel="shortcut icon" href="{{Head.Favicon}}">
 </head>
 
-<body>
+<body data-spy="scroll" data-offset="10" data-target="#sidebar-nav">
 
-<div class="navbar">
-    <div class="navbar-inner">
-        <ul class="nav">
+<nav class="navbar navbar-inverse navbar-static-top " role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex7-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand">{{Brand}} . {{Breadcrumb}}</span>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex7-collapse">
+        <ul class="nav navbar-nav navbar-right">
             {{#Header.Navigation}}
-            <li {{#Active}}class="active"{{/Active}}><a href="{{Url}}">{{#Icon}}<i class="{{.}} icon-large"></i>{{/Icon}} {{Name}}</a></li>
+                <li id="{{Id}}"><a href="{{Url}}">{{#Icon}}<i class="{{.}} icon-large"></i>{{/Icon}} {{Name}}</a></li>
             {{/Header.Navigation}}
         </ul>
-    </div>
-</div>
+    </div><!-- /.navbar-collapse -->
+</nav>
 
-<div class="jumbotron masthead">
+<header class="jumbotron masthead">
     <div class="container">
         <p>&nbsp;</p>
         {{#Teaser.Title}}<h1>{{/Teaser.Title}}{{#Teaser.Logo}}<img src="{{.}}"/>{{/Teaser.Logo}}{{#Teaser.Title}} {{.}}</h1>{{/Teaser.Title}}
         {{#Teaser.Description}}<p class="lead">{{.}}</p>{{/Teaser.Description}}
-        {{#Teaser.Download}}<a id="download-link" {{#Teaser.OnClick}}onclick="{{.}}" {{/Teaser.OnClick}}class="btn btn-primary btn-large"><i class="icon-download icon-large"></i> {{.}}</a>{{/Teaser.Download}}
+        {{#Teaser.Download}}<a id="download-link" {{#Teaser.OnClick}}onclick="{{.}}" {{/Teaser.OnClick}}class="btn btn-primary btn-lg"><i class="icon-download icon-large"></i> {{.}}</a>{{/Teaser.Download}}
     </div>
-</div>
+</header>
 
 <div class="container main">

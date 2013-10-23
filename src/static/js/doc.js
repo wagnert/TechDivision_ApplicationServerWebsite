@@ -1,21 +1,21 @@
-jQuery('#bootstrap-nav').find('ul').attr('class', 'nav nav-list bs-docs-sidenav affix');
-jQuery('#bootstrap-nav').find('li.current').attr('class', 'active');
+// add bootstrap classes to sphinx toctree ul element
+$('#sidebar-nav ul').addClass('nav nav-pills nav-stacked affix-top');
+// set first item action by default
+$('#sidebar-nav ul li').first().addClass('active');
+// set first id to nav sidebar element from content
+var firstId = $('#doc-content').find('.section').attr('id');
+$('#sidebar-nav ul li').first().find('a').attr('href', '#' + firstId);
 
-var firstId = jQuery('#doc-content').find('.section').attr('id');
-jQuery('#bootstrap-nav').find('li.active').find('a').attr('href', '#' + firstId);
-
-jQuery('#bootstrap-nav').find('a').each(function(){
+// add documentation to hash anchor href on sidebar items
+jQuery('#sidebar-nav').find('a').each(function(){
     var href = jQuery(this).attr('href');
     jQuery(this).attr('href', 'documentation/' + href);
-    jQuery(this).prepend('<i class="icon-chevron-right"></i>');
+    jQuery(this).attr('data-target', href);
 });
 
-jQuery('#doc-content').find('a').each(function(){
-    var href = jQuery(this).attr('href');
-    jQuery(this).attr('href', 'documentation/' + href);
-});
-
-$('.nav li a').on('click', function() {
-    $(this).parent().parent().find('.active').removeClass('active');
-    $(this).parent().addClass('active');
+// set affix offset for sidebar nav
+$('#sidebar-nav').affix({
+    offset: {
+        top: 190
+    }
 });

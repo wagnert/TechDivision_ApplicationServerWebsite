@@ -18,6 +18,12 @@
                 <source>downloads.asset.techtalk.name</source>
                 <target>Techtalk 07/2013</target>
             </trans-unit>
+            <trans-unit id="5">
+                <source>breadcrumb.downloads</source>
+                <target>
+                    Downloads
+                </target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

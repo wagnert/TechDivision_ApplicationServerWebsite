@@ -185,6 +185,12 @@
                     Configration by Exception (optional Verwendung von Deployment Descriptoren möglich)
                 </target>
             </trans-unit>
+            <trans-unit id="29">
+                <source>breadcrumb.index</source>
+                <target>
+                    Startseite
+                </target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

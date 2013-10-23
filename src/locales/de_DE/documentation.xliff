@@ -4,7 +4,13 @@
         <body>
             <trans-unit id="1">
                 <source>documentation.teaser.description</source>
-                <target>Appserver Documentation</target>
+                <target>Hole dir einen ersten Überblick über appserver</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>breadcrumb.documentation</source>
+                <target>
+                    Dokumentation
+                </target>
             </trans-unit>
         </body>
     </file>

@@ -2,10 +2,10 @@
 <div class="footer">
     <ul class="nav nav-pills pull-right">
         {{#Header.Navigation}}
-        <li {{#Active}}class="active"{{/Active}}><a href="{{Url}}">{{#Icon}}<i class="{{Icon}}"></i>{{/Icon}} {{Name}}</a></li>
+        <li id="{{Id}}"><a href="{{Url}}">{{#Icon}}<i class="{{Icon}}"></i>{{/Icon}} {{Name}}</a></li>
         {{/Header.Navigation}}
         {{#Footer.Navigation}}
-        <li {{#Active}}class="active"{{/Active}}><a href="{{Url}}">{{#Icon}}<i class="{{Icon}}"></i>{{/Icon}} {{Name}}</a></li>
+        <li id="{{Id}}"><a href="{{Url}}">{{#Icon}}<i class="{{Icon}}"></i>{{/Icon}} {{Name}}</a></li>
         {{/Footer.Navigation}}
         <li class="disabled"><a href="http://www.techdivision.com">{{{Footer.Line}}}</a></li>
     </ul>
@@ -14,12 +14,18 @@
 </div>
 
 {{#Head.Scripts}}
-<script src="{{Script}}"></script>
+    <script src="{{Script}}"></script>
 {{/Head.Scripts}}
 
 {{#Doc.Scripts}}
-<script src="{{Script}}"></script>
+    <script src="{{Script}}"></script>
 {{/Doc.Scripts}}
+
+<script type="application/javascript">
+    $(function() {
+        $('.nav #{{Id}}').addClass('active');
+    });
+</script>
 
 {{{Analytics}}}
 

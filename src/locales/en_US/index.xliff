@@ -182,6 +182,12 @@
                     Configration by exception, optional usage of deployment descriptors (tbd)
                 </target>
             </trans-unit>
+            <trans-unit id="29">
+                <source>breadcrumb.index</source>
+                <target>
+                    Home
+                </target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

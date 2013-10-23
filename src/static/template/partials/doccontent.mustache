@@ -1,8 +1,7 @@
-<div class="row-fluid">
-
-    <div class="span4">
-        <div id="bootstrap-nav">
-        <ul class="current">
+<div class="row">
+    <div class="col-md-3">
+        <div id="sidebar-nav">
+            <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#installation">2. Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#roadmap">3. Roadmap</a></li>
@@ -10,20 +9,19 @@
 
         </div>
     </div>
-
-    <div class="span8">
+    <div class="col-md-8" role="main">
         <div id="doc-content">
-        
+            
   <div class="toctree-wrapper compound">
 </div>
 <div class="section" id="introduction">
-<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<h1>1. Introduction</h1>
 <p>The objective of the project is to develop a multi-threaded application server for PHP, written in PHP. Yes, pure PHP!
 You think we aren&#8217;t serious? Maybe! But we think, in order to enable as many developers in our great community, this
 will be the one and only way to enable you helping us. Through the broadest possible support of the PHP community we
 hopefully establish this solution as the standard for enterprise applications in PHP environment.</p>
 <div class="section" id="highlights">
-<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h2>
+<h2>Highlights</h2>
 <ul class="simple">
 <li>Servlet engine, with full HTTP 1.1 support</li>
 <li>Session beans (stateful, stateless + singleton)</li>
@@ -36,7 +34,7 @@ hopefully establish this solution as the standard for enterprise applications in
 </ul>
 </div>
 <div class="section" id="technical-features">
-<h2>Technical Features<a class="headerlink" href="#technical-features" title="Permalink to this headline">¶</a></h2>
+<h2>Technical Features</h2>
 <ul class="simple">
 <li>Joe Watkins (<a class="reference external" href="https://github.com/krakjoe/pthreads">https://github.com/krakjoe/pthreads</a>) phtreads Library is used</li>
 <li>DI &amp; AO  usage within the respective container</li>
@@ -54,9 +52,9 @@ applications based on all relevant PHP frameworks by providing libraries is supp
 </div>
 </div>
 <div class="section" id="installation">
-<h1>2. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<h1>2. Installation</h1>
 <div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<h2>Requirements</h2>
 <ul class="simple">
 <li>PHP 5.4+ on x64 or x86</li>
 <li>ZTS Enabled (Thread Safety)</li>
@@ -68,14 +66,14 @@ version from 5.3+. However segmentation faults occurred in various tests with PH
 lead to the early development stage of the pthreads library. We actually use PHP 5.5.+ for development.</p>
 </div>
 <div class="section" id="id1">
-<h2>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Installation</h2>
 <p>Actually we support Mac OS X Mountain Lion and Debian Wheezy. We also plan to release a Windows installer and a RPM
 package as soon as possible but as we&#8217;re only Mac users we&#8217;ll be happy if someone is out there to support us with that
 stuff. Finally it&#8217;s possible to build the runtime by yourself. This can be done by cloning our [Runtime Environment]
 (<a class="reference external" href="https://github.com/techdivision/TechDivision_Runtime">https://github.com/techdivision/TechDivision_Runtime</a>). We&#8217;ve added two ANT targets <tt class="docutils literal"><span class="pre">create-pkg</span></tt> and <tt class="docutils literal"><span class="pre">create-deb</span></tt>
 that should do the stuff for you.</p>
 <div class="section" id="installation-on-mountain-lion">
-<h3>Installation on Mountain Lion<a class="headerlink" href="#installation-on-mountain-lion" title="Permalink to this headline">¶</a></h3>
+<h3>Installation on Mountain Lion</h3>
 <p>To install on your Mac OS X Mountain Lion please download the actual .pkg Package from <a class="reference external" href="http://www.appserver.io">http://www.appserver.io</a>.
 After downlaod the .pkg you can start installation process with a double click on the package. To install the
 software you need to have administration privileges (sudo). After the installation process, that is really simple,
@@ -86,7 +84,7 @@ and <tt class="docutils literal"><span class="pre">sbin/memcachectl</span></tt> 
 <p>Start your favorite browser and open the URL <tt class="docutils literal"><span class="pre">http://127.0.0.1:8586/demo</span></tt> to load the demo application.</p>
 </div>
 <div class="section" id="installation-on-a-debian-wheezy">
-<h3>Installation on a Debian Wheezy<a class="headerlink" href="#installation-on-a-debian-wheezy" title="Permalink to this headline">¶</a></h3>
+<h3>Installation on a Debian Wheezy</h3>
 <p>If you&#8217;re on a Debian system you don&#8217;t need to download the .deb package. Follow these instructions:</p>
 <div class="highlight-python"><pre>root@debian:~# echo “deb http://deb.appserver.io/ wheezy main” &gt;&gt; /etc/apt/sources.list
 root@debian:~# wget http://deb.appserver.io/appserver.gpg
@@ -104,7 +102,7 @@ be started itself.</p>
 </div>
 </div>
 <div class="section" id="roadmap">
-<h1>3. Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h1>
+<h1>3. Roadmap</h1>
 <p>As we&#8217;re in heavy development it may be, that we&#8217;ve to move some tasks from the following roadmap to a earlier/later
 version, please be aware of that. If you&#8217;ve ideas or features that definitely has to be in one of the next releases,
 please contact us. We&#8217;re always open for new ideas or feedback.</p>
@@ -112,9 +110,9 @@ please contact us. We&#8217;re always open for new ideas or feedback.</p>
 needed to develop, run maintain all kind of web applications. The Enterprise Edition will focus on large software
 solutions that run on many servers and needs real cluster functionality.</p>
 <div class="section" id="community-edition">
-<h2>Community Edition<a class="headerlink" href="#community-edition" title="Permalink to this headline">¶</a></h2>
+<h2>Community Edition</h2>
 <div class="section" id="version-0-6-application-server">
-<h3>Version 0.6 - Application Server<a class="headerlink" href="#version-0-6-application-server" title="Permalink to this headline">¶</a></h3>
+<h3>Version 0.6 - Application Server</h3>
 <ul class="simple">
 <li>[ ] Logging</li>
 <li>[ ] AOP</li>
@@ -137,7 +135,7 @@ solutions that run on many servers and needs real cluster functionality.</p>
 </ul>
 </div>
 <div class="section" id="version-0-7-servlet-container-https-github-com-techdivision-techdivision-servletcontainer">
-<h3>Version 0.7 - [Servlet Container](<a class="reference external" href="https://github.com/techdivision/TechDivision_ServletContainer">https://github.com/techdivision/TechDivision_ServletContainer</a>)<a class="headerlink" href="#version-0-7-servlet-container-https-github-com-techdivision-techdivision-servletcontainer" title="Permalink to this headline">¶</a></h3>
+<h3>Version 0.7 - [Servlet Container](<a class="reference external" href="https://github.com/techdivision/TechDivision_ServletContainer">https://github.com/techdivision/TechDivision_ServletContainer</a>)</h3>
 <ul class="simple">
 <li>[ ] Integrate annotations for session beans</li>
 <li>[ ] Administration interface with drag-and-drop PHAR installer</li>
@@ -149,7 +147,7 @@ solutions that run on many servers and needs real cluster functionality.</p>
 </ul>
 </div>
 <div class="section" id="version-0-8-persistence-container-https-github-com-techdivision-techdivision-persistencecontainer">
-<h3>Version 0.8 - [Persistence Container](<a class="reference external" href="https://github.com/techdivision/TechDivision_PersistenceContainer">https://github.com/techdivision/TechDivision_PersistenceContainer</a>)<a class="headerlink" href="#version-0-8-persistence-container-https-github-com-techdivision-techdivision-persistencecontainer" title="Permalink to this headline">¶</a></h3>
+<h3>Version 0.8 - [Persistence Container](<a class="reference external" href="https://github.com/techdivision/TechDivision_PersistenceContainer">https://github.com/techdivision/TechDivision_PersistenceContainer</a>)</h3>
 <ul class="simple">
 <li>[ ] Stateful + Singleton session bean functionality</li>
 <li>[ ] Container managed entity beans for Doctrine</li>
@@ -158,21 +156,21 @@ solutions that run on many servers and needs real cluster functionality.</p>
 </ul>
 </div>
 <div class="section" id="version-0-9-message-queue-https-github-com-techdivision-techdivision-messagequeue">
-<h3>Version 0.9 - [Message Queue](<a class="reference external" href="https://github.com/techdivision/TechDivision_MessageQueue">https://github.com/techdivision/TechDivision_MessageQueue</a>)<a class="headerlink" href="#version-0-9-message-queue-https-github-com-techdivision-techdivision-messagequeue" title="Permalink to this headline">¶</a></h3>
+<h3>Version 0.9 - [Message Queue](<a class="reference external" href="https://github.com/techdivision/TechDivision_MessageQueue">https://github.com/techdivision/TechDivision_MessageQueue</a>)</h3>
 <ul class="simple">
 <li>[ ] Message bean functionality</li>
 <li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_MessageQueue project</li>
 </ul>
 </div>
 <div class="section" id="version-1-0-timer-service">
-<h3>Version 1.0 - Timer Service<a class="headerlink" href="#version-1-0-timer-service" title="Permalink to this headline">¶</a></h3>
+<h3>Version 1.0 - Timer Service</h3>
 <ul class="simple">
 <li>[ ] Timer Service</li>
 <li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_TimerService project</li>
 </ul>
 </div>
 <div class="section" id="version-1-1-additional-containers">
-<h3>Version 1.1 - Additional Containers<a class="headerlink" href="#version-1-1-additional-containers" title="Permalink to this headline">¶</a></h3>
+<h3>Version 1.1 - Additional Containers</h3>
 <ul class="simple">
 <li>[ ] Distributed and redundant cluster caching system with automated failover</li>
 <li>[ ] Fast-CGI container</li>
@@ -181,9 +179,9 @@ solutions that run on many servers and needs real cluster functionality.</p>
 </div>
 </div>
 <div class="section" id="enterprise-edition">
-<h2>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h2>
+<h2>Enterprise Edition</h2>
 <div class="section" id="version-1-2-cluster-functionality">
-<h3>Version 1.2 - Cluster Functionality<a class="headerlink" href="#version-1-2-cluster-functionality" title="Permalink to this headline">¶</a></h3>
+<h3>Version 1.2 - Cluster Functionality</h3>
 <ul class="simple">
 <li>[ ] Cluster functionality</li>
 <li>[ ] Container based transactions</li>
