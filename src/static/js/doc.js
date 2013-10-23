@@ -19,3 +19,14 @@ $('#sidebar-nav').affix({
         top: 190
     }
 });
+
+// soft-scroll to an anchor 
+$('#sidebar-nav a').click(function() {
+    var hash = $(this).attr('data-target');
+    var offset = $(hash).offset();
+    if (offset) {
+      $('html, body').animate({ scrollTop: offset.top}, 'fast');
+      location.hash = hash;
+      return false;
+    }
+  });
