@@ -58,6 +58,12 @@
                 <source>imprint.list.item-06.description</source>
                 <target><![CDATA[Josef Willkommer<br/>Spinnereiinsel 3a<br/>83059 Kolbermoor]]></target>
             </trans-unit>
+            <trans-unit id="15">
+                <source>breadcrumb.imprint</source>
+                <target>
+                    Impressum
+                </target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1,3 +1,7 @@
+Id: 'downloads'
+
+Breadcrumb: 'breadcrumb.downloads'
+
 Teaser:
   Description: downloads.teaser.description
 

@@ -1,5 +1,6 @@
-
 Title: page.title
+
+Brand: 'appserver'
 
 Description: page.description
 
@@ -10,49 +11,39 @@ Head:
     - Style: 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
   Scripts:
     - Script: 'http://code.jquery.com/jquery-1.10.1.min.js'
+    - Script: 'static/js/bootstrap.min.js'
     - Script: 'static/js/site.js'
-#    - Script: 'static/js/bootstrap-transition.js'
-#    - Script: 'static/js/bootstrap-alert.js'
-#    - Script: 'static/js/bootstrap-modal.js'
-#    - Script: 'static/js/bootstrap-dropdown.js'
-#    - Script: 'static/js/bootstrap-scrollspy.js'
-#    - Script: 'static/js/bootstrap-tab.js'
-#    - Script: 'static/js/bootstrap-tooltip.js'
-#    - Script: 'static/js/bootstrap-popover.js'
-#    - Script: 'static/js/bootstrap-button.js'
-#    - Script: 'static/js/bootstrap-collapse.js'
-#    - Script: 'static/js/bootstrap-carousel.js'
-#    - Script: 'static/js/bootstrap-typeahead.js'
+
 
 Header:
   Navigation:
     - Name: global.navigation.home
+      Id: 'index'
       Url: 'index'
-      Active: false
-      Icon:
+      Icon: 'icon-home'
     - Name: global.navigation.downloads
+      Id: 'downloads'
       Url: 'downloads'
-      Active: false
-      Icon:
+      Icon: 'icon-download'
     - Name: global.navigation.documentation
+      Id: 'documentation'
       Url: 'documentation'
-      Active: false
-      Icon:
+      Icon: 'icon-file-text-alt'
     - Name: global.navigation.fork-me
+      Id: 'fork-me'
       Url: 'https://github.com/techdivision/TechDivision_ApplicationServer'
-      Active: false
       Icon: 'icon-github'
 
 Footer:
   Line: '&copy; TechDivision GmbH'
   Navigation:
     - Name: '@php_appserver'
+      Id: 'twitter'
       Url: 'https://twitter.com/php_appserver'
-      Active: false
       Icon: 'icon-twitter'
     - Name: global.navigation.imprint
+      Id: 'imprint'
       Url: 'imprint'
-      Active: false
       Icon:
 
 Analytics: |

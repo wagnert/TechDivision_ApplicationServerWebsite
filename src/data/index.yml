@@ -1,3 +1,7 @@
+Id: 'index'
+
+Breadcrumb: 'breadcrumb.index'
+
 Teaser:
   Logo: 'static/img/logo.png'
   Title: index.teaser.title
