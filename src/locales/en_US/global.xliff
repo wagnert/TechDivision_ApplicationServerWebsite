@@ -26,6 +26,10 @@
                 <source>global.navigation.fork-me</source>
                 <target>Fork me</target>
             </trans-unit>
+            <trans-unit id="7">
+                <source>global.navigation.documentation</source>
+                <target>Documentation</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

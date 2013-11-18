@@ -1,21 +1,22 @@
 {{>header}}
-    <div class="row-fluid">
+
+    <div class="row">
         {{#3-Column-Row}}
-        <div class="span4">
-            <h2><i class="{{Icon}}"></i>&nbsp;{{Title}}</h2>
-            <ul class="icons-ul">
-            {{#List}}
-                <li><i class="icon-li icon-ok"></i>{{Item}}</li>
-            {{/List}}
-            </ul>
-            <p>{{{Description}}}</p>
-        </div>
+            <div class="col-md-4">
+                <h2><i class="{{Icon}}"></i>&nbsp;{{Title}}</h2>
+                <ul class="icons-ul">
+                    {{#List}}
+                        <li><i class="icon-li icon-ok"></i>{{Item}}</li>
+                    {{/List}}
+                </ul>
+                <p>{{{Description}}}</p>
+            </div>
         {{/3-Column-Row}}
     </div>
 
-    <div class="row-fluid marketing">
+    <div class="row">
         {{#2-Column-Row}}
-        <div class="span6">
+        <div class="col-md-6">
             <h2><i class="{{Icon}}"></i>&nbsp;{{Title}}</h2>
             <ul class="icons-ul">
             {{#List}}
@@ -26,4 +27,5 @@
         </div>
         {{/2-Column-Row}}
     </div>
+
 {{>footer}}
