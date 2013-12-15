@@ -144,7 +144,7 @@
                     has to be as easy as possible. For this purpose, whenever possible, already popular
                     and proven components will be used as standard solutions, for example Doctrine is
                     the standard persistence provider. Also configuration by exception to start an
-                    application running is one the main paradigms. Keeping this in mind, the minimal
+                    application running is one of the main paradigms. Keeping this in mind, the minimal
                     configuration effort fits to most of the use cases. To enable collaboration of the
                     PHP community the standard servlets that will be delivered covers a wide range of
                     existing applications and frameworks. Additional development of future feature rich
