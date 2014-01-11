@@ -45,6 +45,9 @@
                 <exclude name="**/*.xml.*" />
             </fileset>
         </copy>
+        <exec executable="composer.phar" dir="${php-target.dir}/${webapp.name}">
+            <arg line="update"/>
+        </exec>
     </target>
 
     <!-- ==================================================================== -->
@@ -77,10 +80,16 @@
                 <include name="**/*"/>
             </fileset>
         </copy>
-        <exec executable="composer.phar" dir="${deploy.dir}/${webapp.name}">
-            <arg line="update"/>
-        </exec>
     </target>
+
+    <!-- ==================================================================== -->
+    <!-- Creates a PHAR file for deployment     					  		  -->
+    <!-- ==================================================================== -->
+	<target name="create-phar" depends="copy" description="Creates a PHAR file for deployment.">
+		<exec executable="phar">
+			<arg line="pack -l 0 -f ${php-target.dir}/${webapp.name}.phar ${php-target.dir}/${webapp.name}"/>
+		</exec>
+	</target>
 
     <!-- ==================================================================== -->
     <!-- Generates the API documentation                                      -->
