@@ -1,7 +1,7 @@
 {{>header}}
     <div class="row-fluid">
 
-        <div class="span12 text-center">
+        <div class="span12">
 
             <p>{{Version.Title}} <strong>{{Version.Value}}</strong></p>
 
@@ -25,11 +25,38 @@
     </div>
 
     <br/>
+    
+    <div class="row-fluid">
+
+        <div class="span12">
+
+            <p>{{App.Title}}</p>
+
+            <table class="table table-bordered table-hover">
+                <tbody>
+                {{#Apps}}
+                <tr>
+                    <td>{{#Icon}}<i class="{{Icon}} icon-large"></i>{{/Icon}} {{Name}}</td>
+                    {{#Links}}
+                    <td {{#ColSpan}}colspan="{{ColSpan}}"{{/ColSpan}}>
+                        {{#Url}}<a onclick="{{OnClick}}" href="{{Url}}"{{#Class}} class="{{Class}}"{{/Class}}> {{/Url}}{{Name}}{{#Url}}</a>{{/Url}}
+                    </td>
+                    {{/Links}}
+                </tr>
+                {{/Apps}}
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <br/>
 
     <div class="row-fluid">
 
 
-        <div class="span12 text-center">
+        <div class="span12">
 
             <p>{{Asset.Title}}</strong></p>
 

@@ -30,6 +30,41 @@ Downloads:
       - Name: '32bit (not yet)'
       - Name: '64bit (not yet)'
 
+App:
+  Title: downloads.app.title
+  
+Apps:
+  - Name: 'API (.phar)'
+    Icon: 'icon-apple'
+    Links:
+      - Name: 'Management API'
+        Url: 'dl/API'
+        OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'API']);"
+  - Name: 'Admin (.phar)'
+    Icon: 'icon-apple'
+    Links:
+      - Name: 'Administration GUI'
+        Url: 'dl/Admin'
+        OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Admin']);"
+  - Name: 'Example (.phar)'
+    Icon: 'icon-apple'
+    Links:
+      - Name: 'Example Application'
+        Url: 'dl/Example'
+        OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Example']);"
+  - Name: 'Site (.phar)'
+    Icon: 'icon-apple'
+    Links:
+      - Name: 'appserver.io Site'
+        Url: 'dl/Site'
+        OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Site']);"
+  - Name: 'Magento 1.8.1.0 (.phar)'
+    Icon: 'icon-apple'
+    Links:
+      - Name: 'Magenot CE 1.8.1.0'
+        Url: 'dl/Magento1810'
+        OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Magento CE 1.8.1.0']);"
+
 Asset:
   Title: downloads.asset.title
 

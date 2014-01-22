@@ -24,6 +24,12 @@
                     Downloads
                 </target>
             </trans-unit>
+            <trans-unit id="6">
+                <source>downloads.app.title</source>
+                <target>
+                    Apps
+                </target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
