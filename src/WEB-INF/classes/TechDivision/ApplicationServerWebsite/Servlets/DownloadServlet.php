@@ -49,6 +49,26 @@ class DownloadServlet extends HttpServlet {
             => array(
                 0 => '${webapp.asset.techtalk.url}'
             ),
+        'API'
+            => array(
+                0 => '${webapp.app.api.url}'
+            ),
+        'Admin'
+            => array(
+                0 => '${webapp.app.admin.url}'
+            ),
+        'Example'
+            => array(
+                0 => '${webapp.app.exmaple.url}'
+            ),
+        'Site'
+            => array(
+                0 => '${webapp.app.site.url}'
+            ),
+        'Magento1810'
+            => array(
+                0 => '${webapp.app.magento_1810.url}'
+            ),
     );
 
     /**
