@@ -61,7 +61,7 @@ Apps:
   - Name: 'Magento 1.8.1.0 (.phar)'
     Icon: 'icon-apple'
     Links:
-      - Name: 'Magenot CE 1.8.1.0'
+      - Name: 'Magento CE 1.8.1.0'
         Url: 'dl/Magento1810'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Magento CE 1.8.1.0']);"
 
