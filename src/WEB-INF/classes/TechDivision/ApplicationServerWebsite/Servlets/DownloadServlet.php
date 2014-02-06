@@ -123,6 +123,5 @@ class DownloadServlet extends HttpServlet {
         } else {
             $res->setContent(sprintf('No mirror defined for download "%s"', $this->downloadFilename));
         }
-
     }
 }

@@ -29,6 +29,7 @@
             <fileset dir="${php-src.dir}">
                 <include name="**/*.php" />
                 <include name="**/*.yml" />
+                <include name="**/*.properties" />
                 <include name="**/*.xml" />
                 <include name="**/*.xml.*" />
             </fileset>
@@ -41,13 +42,14 @@
                 <include name="**/*" />
                 <exclude name="**/*.php" />
                 <exclude name="**/*.yml" />
+                <exclude name="**/*.properties" />
                 <exclude name="**/*.xml" />
                 <exclude name="**/*.xml.*" />
             </fileset>
         </copy>
-        <exec executable="composer.phar" dir="${php-target.dir}/${webapp.name}">
+    	<!-- <exec executable="composer.phar" dir="${php-target.dir}/${webapp.name}">
             <arg line="update"/>
-        </exec>
+        </exec> -->
     </target>
 
     <!-- ==================================================================== -->
@@ -74,7 +76,7 @@
     <!-- Copies the sources to the deploy directory     					  -->
     <!-- ==================================================================== -->
     <target name="deploy" depends="copy" description="Copies the sources to the deploy directory.">
-        <antcall target="prepare-doc"/>
+        <!-- antcall target="prepare-doc"/ -->
         <copy todir="${deploy.dir}/${webapp.name}" preservelastmodified="true" overwrite="true">
             <fileset dir="${php-target.dir}/${webapp.name}">
                 <include name="**/*"/>
