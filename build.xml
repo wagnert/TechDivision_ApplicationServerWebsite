@@ -25,6 +25,7 @@
     <!-- Copies the sources to the target directory							  -->
     <!-- ==================================================================== -->
     <target name="copy" depends="prepare" description="Copies the sources to the target directory.">
+        <antcall target="sass-compile"/>
         <copy todir="${php-target.dir}/${webapp.name}" preservelastmodified="true" overwrite="true">
             <fileset dir="${php-src.dir}">
                 <include name="**/*.php" />
@@ -64,10 +65,20 @@
             <arg line="html" />
         </exec>
         <copy
-            file="${php-target.dir}/${doc.git.repo}/doc/build/html/documentation.html"
-            tofile="${php-target.dir}/${webapp.name}/static/template/partials/doccontent.mustache"
+            file="${doc.build.file}"
+            tofile="${doc.target.file}"
             overwrite="true"
         />
+        <copy todir="${doc.image.target.dir}" preservelastmodified="true" overwrite="true">
+            <fileset dir="${doc.image.build.dir}">
+                <include name="**/*" />
+            </fileset>
+        </copy>
+        <replaceregexp file="${doc.target.file}"
+                       match="src=&quot;_images"
+                       replace="src=&quot;static/img/docs"
+                       byline="true"
+                />
     </target>
 
     <!-- ==================================================================== -->
@@ -165,6 +176,17 @@
     <target name="run-tests" depends="copy-tests" description="Runs the PHPUnit tests and generates a report.">
         <exec executable="phpunit" dir="${php-target.dir}">
             <arg line="--bootstrap bootstrap.php --configuration phpunit.xml.dist" />
+        </exec>
+    </target>
+
+    <!-- ==================================================================== -->
+    <!-- Compiles sass to css                                			 	  -->
+    <!-- ==================================================================== -->
+    <target name="sass-compile" if="${sass.compile}" description="Compiles sass to css">
+        <echo message="Compiling sass to css..." />
+        <!-- compile -->
+        <exec dir="${php-src.dir}" executable="compass" >
+            <arg value="compile"/>
         </exec>
     </target>
 
