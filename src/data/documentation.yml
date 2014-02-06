@@ -6,6 +6,8 @@ Teaser:
   Description: documentation.teaser.description
 
 Doc:
+  Styles:
+    - Style: 'static/css/pygments.css'
   Scripts:
     - Script: 'static/js/bootstrap/affix.js'
     - Script: 'static/js/doc.js'
