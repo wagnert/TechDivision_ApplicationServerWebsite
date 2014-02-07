@@ -70,7 +70,8 @@ class DownloadsServlet extends IndexServlet {
      * extended with the TechDivision_ApplicationServer releases
      * loaded from the GitHub API.
      * 
-     * @param Request $req The actual request instance
+     * @param \TechDivision\ServletContainer\Interfaces\Request $req The actual request instance
+     *
      * @return array The requested page data
      * @see \TechDivision\ApplicationServerWebsite\Servlets\AbstractServlet::getPageData()
      */
@@ -85,7 +86,7 @@ class DownloadsServlet extends IndexServlet {
         $apiInstance = $initialContext->newInstance(DownloadsServlet::SERVICE_CLASS, array($initialContext));
         
         // initialize the path to the cache directory
-        $cachDir = $apiInstance->getTmpDir() . DIRECTORY_SEPARATOR . 'github-api-cache';
+        $cacheDir = $apiInstance->getTmpDir() . DIRECTORY_SEPARATOR . 'github-api-cache';
         
         // initialize the GitHub client
         $client = new Client(
@@ -107,7 +108,7 @@ class DownloadsServlet extends IndexServlet {
         $releases = $client->api('repositories')
             ->releases()
             ->all(DownloadsServlet::USERNAME, DownloadsServlet::REPOSITORY);
-        
+
         // merge the GitHub release information to the page data and return the result
         return array_merge(
             $pageData,
