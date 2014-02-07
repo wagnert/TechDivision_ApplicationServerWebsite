@@ -4,6 +4,11 @@
     <display-name>site</display-name>
     <description>site</description>
 
+    <context-param>
+        <param-name>settingsFile</param-name>
+        <param-value>WEB-INF/settings.properties</param-value>
+    </context-param>
+
     <servlet>
         <description/>
         <display-name>StaticResourceServlet</display-name>
@@ -12,9 +17,15 @@
     </servlet>
     <servlet>
         <description/>
-        <display-name>SiteServlet</display-name>
-        <servlet-name>SiteServlet</servlet-name>
-        <servlet-class>\TechDivision\ApplicationServerWebsite\Servlets\SiteServlet</servlet-class>
+        <display-name>IndexServlet</display-name>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>\TechDivision\ApplicationServerWebsite\Servlets\IndexServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description/>
+        <display-name>DownloadsServlet</display-name>
+        <servlet-name>DownloadsServlet</servlet-name>
+        <servlet-class>\TechDivision\ApplicationServerWebsite\Servlets\DownloadsServlet</servlet-class>
     </servlet>
     <servlet>
         <description/>
@@ -24,11 +35,19 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>SiteServlet</servlet-name>
+        <servlet-name>DownloadsServlet</servlet-name>
+        <url-pattern>/downloads/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadsServlet</servlet-name>
+        <url-pattern>/downloads</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SiteServlet</servlet-name>
+        <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
