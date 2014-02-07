@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
 <project name="TechDivision_ApplicationServerWebsite" default="deploy" basedir=".">
-    <property file="${basedir}/build.properties"/>
-    <property file="${basedir}/build.default.properties"/>
+
     <property environment="env" />
+
     <property name="php-src.dir" value="${basedir}/src" />
     <property name="php-test.dir" value="${basedir}/tests" />
     <property name="php-target.dir" value="${basedir}/target"/>
+	
+    <property file="${basedir}/build.properties"/>
+    <property file="${basedir}/build.default.properties"/>
 
     <!-- ==================================================================== -->
     <!-- Cleans the directories with the generated source files				  -->
@@ -25,6 +28,7 @@
     <!-- Copies the sources to the target directory							  -->
     <!-- ==================================================================== -->
     <target name="copy" depends="prepare" description="Copies the sources to the target directory.">
+        <antcall target="sass-compile"/>
         <copy todir="${php-target.dir}/${webapp.name}" preservelastmodified="true" overwrite="true">
             <fileset dir="${php-src.dir}">
                 <include name="**/*.php" />
@@ -47,9 +51,9 @@
                 <exclude name="**/*.xml.*" />
             </fileset>
         </copy>
-    	<!-- <exec executable="composer.phar" dir="${php-target.dir}/${webapp.name}">
+    	<exec executable="composer.phar" dir="${php-target.dir}/${webapp.name}">
             <arg line="update"/>
-        </exec> -->
+        </exec>
     </target>
 
     <!-- ==================================================================== -->
@@ -66,17 +70,27 @@
             <arg line="html" />
         </exec>
         <copy
-            file="${php-target.dir}/${doc.git.repo}/doc/build/html/documentation.html"
-            tofile="${php-target.dir}/${webapp.name}/static/template/partials/doccontent.mustache"
+            file="${doc.build.file}"
+            tofile="${doc.target.file}"
             overwrite="true"
         />
+        <copy todir="${doc.image.target.dir}" preservelastmodified="true" overwrite="true">
+            <fileset dir="${doc.image.build.dir}">
+                <include name="**/*" />
+            </fileset>
+        </copy>
+        <replaceregexp file="${doc.target.file}"
+                       match="src=&quot;_images"
+                       replace="src=&quot;static/img/docs"
+                       byline="true"
+                />
     </target>
 
     <!-- ==================================================================== -->
     <!-- Copies the sources to the deploy directory     					  -->
     <!-- ==================================================================== -->
     <target name="deploy" depends="copy" description="Copies the sources to the deploy directory.">
-        <!-- antcall target="prepare-doc"/ -->
+        <antcall target="prepare-doc"/>
         <copy todir="${deploy.dir}/${webapp.name}" preservelastmodified="true" overwrite="true">
             <fileset dir="${php-target.dir}/${webapp.name}">
                 <include name="**/*"/>
@@ -167,6 +181,17 @@
     <target name="run-tests" depends="copy-tests" description="Runs the PHPUnit tests and generates a report.">
         <exec executable="phpunit" dir="${php-target.dir}">
             <arg line="--bootstrap bootstrap.php --configuration phpunit.xml.dist" />
+        </exec>
+    </target>
+
+    <!-- ==================================================================== -->
+    <!-- Compiles sass to css                                			 	  -->
+    <!-- ==================================================================== -->
+    <target name="sass-compile" if="${sass.compile}" description="Compiles sass to css">
+        <echo message="Compiling sass to css..." />
+        <!-- compile -->
+        <exec dir="${php-src.dir}" executable="compass" >
+            <arg value="compile"/>
         </exec>
     </target>
 

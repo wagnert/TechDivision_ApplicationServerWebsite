@@ -1,29 +1,34 @@
-<div class="row">
-    <div class="col-md-3">
-        <div id="sidebar-nav">
-            <ul class="current">
+
+<div class="row-fluid">
+
+    <div class="span4">
+        <div id="bootstrap-nav">
+        <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#installation">2. Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#roadmap">3. Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#getting-started-tutorial">4. Getting Started Tutorial</a></li>
 </ul>
 
         </div>
     </div>
-    <div class="col-md-8" role="main">
+
+    <div class="span8">
         <div id="doc-content">
-            
+        
   <div class="toctree-wrapper compound">
 </div>
 <div class="section" id="introduction">
-<h1>1. Introduction</h1>
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>The objective of the project is to develop a multi-threaded application server for PHP, written in PHP. Yes, pure PHP!
 You think we aren&#8217;t serious? Maybe! But we think, in order to enable as many developers in our great community, this
 will be the one and only way to enable you helping us. Through the broadest possible support of the PHP community we
 hopefully establish this solution as the standard for enterprise applications in PHP environment.</p>
 <div class="section" id="highlights">
-<h2>Highlights</h2>
+<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Servlet engine, with full HTTP 1.1 support</li>
+<li>Web Socket engine, based on <a class="reference external" href="http://socketo.me/">Ratchet</a></li>
 <li>Session beans (stateful, stateless + singleton)</li>
 <li>Message beans</li>
 <li>Doctrine as standard Persistence provider</li>
@@ -34,7 +39,7 @@ hopefully establish this solution as the standard for enterprise applications in
 </ul>
 </div>
 <div class="section" id="technical-features">
-<h2>Technical Features</h2>
+<h2>Technical Features<a class="headerlink" href="#technical-features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Joe Watkins (<a class="reference external" href="https://github.com/krakjoe/pthreads">https://github.com/krakjoe/pthreads</a>) phtreads Library is used</li>
 <li>DI &amp; AO  usage within the respective container</li>
@@ -52,28 +57,27 @@ applications based on all relevant PHP frameworks by providing libraries is supp
 </div>
 </div>
 <div class="section" id="installation">
-<h1>2. Installation</h1>
+<h1>2. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="requirements">
-<h2>Requirements</h2>
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>PHP 5.4+ on x64 or x86</li>
 <li>ZTS Enabled (Thread Safety)</li>
 <li>Posix Threads Implementation</li>
-<li>Memcached (2.1+)</li>
 </ul>
 <p>The lastest version is only tested with Mac OS 10.8+ and Debian Wheezy. PHP Application Server should run on any PHP
 version from 5.3+. However segmentation faults occurred in various tests with PHP 5.3.x repeatedly. Meanwhile this can
 lead to the early development stage of the pthreads library. We actually use PHP 5.5.+ for development.</p>
 </div>
 <div class="section" id="id1">
-<h2>Installation</h2>
+<h2>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Actually we support Mac OS X Mountain Lion and Debian Wheezy. We also plan to release a Windows installer and a RPM
 package as soon as possible but as we&#8217;re only Mac users we&#8217;ll be happy if someone is out there to support us with that
 stuff. Finally it&#8217;s possible to build the runtime by yourself. This can be done by cloning our [Runtime Environment]
 (<a class="reference external" href="https://github.com/techdivision/TechDivision_Runtime">https://github.com/techdivision/TechDivision_Runtime</a>). We&#8217;ve added two ANT targets <tt class="docutils literal"><span class="pre">create-pkg</span></tt> and <tt class="docutils literal"><span class="pre">create-deb</span></tt>
 that should do the stuff for you.</p>
 <div class="section" id="installation-on-mountain-lion">
-<h3>Installation on Mountain Lion</h3>
+<h3>Installation on Mountain Lion<a class="headerlink" href="#installation-on-mountain-lion" title="Permalink to this headline">¶</a></h3>
 <p>To install on your Mac OS X Mountain Lion please download the actual .pkg Package from <a class="reference external" href="http://www.appserver.io">http://www.appserver.io</a>.
 After downlaod the .pkg you can start installation process with a double click on the package. To install the
 software you need to have administration privileges (sudo). After the installation process, that is really simple,
@@ -84,7 +88,7 @@ and <tt class="docutils literal"><span class="pre">sbin/memcachectl</span></tt> 
 <p>Start your favorite browser and open the URL <tt class="docutils literal"><span class="pre">http://127.0.0.1:8586/demo</span></tt> to load the demo application.</p>
 </div>
 <div class="section" id="installation-on-a-debian-wheezy">
-<h3>Installation on a Debian Wheezy</h3>
+<h3>Installation on a Debian Wheezy<a class="headerlink" href="#installation-on-a-debian-wheezy" title="Permalink to this headline">¶</a></h3>
 <p>If you&#8217;re on a Debian system you don&#8217;t need to download the .deb package. Follow these instructions:</p>
 <div class="highlight-python"><pre>root@debian:~# echo “deb http://deb.appserver.io/ wheezy main” &gt;&gt; /etc/apt/sources.list
 root@debian:~# wget http://deb.appserver.io/appserver.gpg
@@ -102,7 +106,7 @@ be started itself.</p>
 </div>
 </div>
 <div class="section" id="roadmap">
-<h1>3. Roadmap</h1>
+<h1>3. Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h1>
 <p>As we&#8217;re in heavy development it may be, that we&#8217;ve to move some tasks from the following roadmap to a earlier/later
 version, please be aware of that. If you&#8217;ve ideas or features that definitely has to be in one of the next releases,
 please contact us. We&#8217;re always open for new ideas or feedback.</p>
@@ -110,44 +114,56 @@ please contact us. We&#8217;re always open for new ideas or feedback.</p>
 needed to develop, run maintain all kind of web applications. The Enterprise Edition will focus on large software
 solutions that run on many servers and needs real cluster functionality.</p>
 <div class="section" id="community-edition">
-<h2>Community Edition</h2>
-<div class="section" id="version-0-6-application-server">
-<h3>Version 0.6 - Application Server</h3>
+<h2>Community Edition<a class="headerlink" href="#community-edition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-0-5-8-application-server-websocketcontainer">
+<h3>Version 0.5.8 - Application Server + <a class="reference external" href="https://github.com/techdivision/TechDivision_WebSocketContainer">WebSocketContainer</a><a class="headerlink" href="#version-0-5-8-application-server-websocketcontainer" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>[ ] Logging</li>
+<li>[x] Logging with <a class="reference external" href="https://github.com/Seldaek/monolog">monolog</a></li>
+<li>[x] Generic management API</li>
+<li>[x] HTTP basic + digest authentication for Servlet Container</li>
+<li>[x] Integrate annotations for session beans</li>
+<li>[x] Administration interface with drag-and-drop PHAR installer</li>
+<li>[x] Automated Build- and Deployment using Travis-CI</li>
+<li>[x] Set environment variables in XML configuration files</li>
+<li>[x] Merging XML configuration files</li>
+<li>[x] WebSocket integration</li>
+<li>[x] Running Magento CE 1.7.x + 1.8.x demo applications</li>
+</ul>
+</div>
+<div class="section" id="version-0-5-9-application-server-servletcontainer">
+<h3>Version 0.5.9 - Application Server + <a class="reference external" href="https://github.com/techdivision/TechDivision_ServletContainer">ServletContainer</a><a class="headerlink" href="#version-0-5-9-application-server-servletcontainer" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>[ ] Windows installer</li>
+<li>[ ] PHAR based deployment</li>
+<li>[ ] <a class="reference external" href="https://github.com/wick-ed/php-by-contract">Design by Contract</a></li>
+<li>[ ] SSL Encryption for TechDivision_ServletContainer project</li>
+<li>[ ] RPM packages + Repository</li>
+</ul>
+</div>
+<div class="section" id="version-0-6-0-application-server-servletcontainer">
+<h3>Version 0.6.0 - Application Server + <a class="reference external" href="https://github.com/techdivision/TechDivision_ServletContainer">ServletContainer</a><a class="headerlink" href="#version-0-6-0-application-server-servletcontainer" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
 <li>[ ] AOP</li>
 <li>[ ] DI</li>
-<li>[ ] Refactoring routing</li>
-<li>[ ] Merging XML configuration files</li>
+<li>[ ] Refactor routing</li>
 <li>[ ] Separate configuration files for server, container and application</li>
-<li>[ ] Set environment variables in XML configuration files</li>
-<li>[ ] PHAR based deployment</li>
-<li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_ApplicationServer project</li>
-<li>[ ] Automated Build- and Deployment using Travis-CI</li>
-<li>[ ] Running Magento CE 1.7.x demo application</li>
 <li>[ ] Running TYPO3 6.x demo application</li>
 <li>[ ] Running TYPO3 Flow 2.0.x demo application</li>
 <li>[ ] Running TYPO3 Neos 1.x demo application</li>
 <li>[ ] Mac OS X Universal installer</li>
-<li>[ ] RPM packages</li>
-<li>[ ] Windows installer</li>
-<li>[ ] Generic management API</li>
+<li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_ApplicationServer project</li>
 </ul>
 </div>
-<div class="section" id="version-0-7-servlet-container-https-github-com-techdivision-techdivision-servletcontainer">
-<h3>Version 0.7 - [Servlet Container](<a class="reference external" href="https://github.com/techdivision/TechDivision_ServletContainer">https://github.com/techdivision/TechDivision_ServletContainer</a>)</h3>
+<div class="section" id="version-0-7-servlet-container">
+<h3>Version 0.7 - <a class="reference external" href="https://github.com/techdivision/TechDivision_ServletContainer">Servlet Container</a><a class="headerlink" href="#version-0-7-servlet-container" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>[ ] Integrate annotations for session beans</li>
-<li>[ ] Administration interface with drag-and-drop PHAR installer</li>
-<li>[ ] SSL Encryption for TechDivision_ServletContainer project</li>
-<li>[ ] HTTP basic authentication for TechDivision_ServletContainer project</li>
 <li>[ ] mod_rewrite functionality for TechDivision_ServletContainer project</li>
 <li>[ ] Add dynamic load of application specific PECL extensions</li>
 <li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_ServletContainer project</li>
 </ul>
 </div>
-<div class="section" id="version-0-8-persistence-container-https-github-com-techdivision-techdivision-persistencecontainer">
-<h3>Version 0.8 - [Persistence Container](<a class="reference external" href="https://github.com/techdivision/TechDivision_PersistenceContainer">https://github.com/techdivision/TechDivision_PersistenceContainer</a>)</h3>
+<div class="section" id="version-0-8-persistence-container">
+<h3>Version 0.8 - <a class="reference external" href="https://github.com/techdivision/TechDivision_PersistenceContainer">Persistence Container</a><a class="headerlink" href="#version-0-8-persistence-container" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>[ ] Stateful + Singleton session bean functionality</li>
 <li>[ ] Container managed entity beans for Doctrine</li>
@@ -155,39 +171,653 @@ solutions that run on many servers and needs real cluster functionality.</p>
 <li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_PersistenceContainer project</li>
 </ul>
 </div>
-<div class="section" id="version-0-9-message-queue-https-github-com-techdivision-techdivision-messagequeue">
-<h3>Version 0.9 - [Message Queue](<a class="reference external" href="https://github.com/techdivision/TechDivision_MessageQueue">https://github.com/techdivision/TechDivision_MessageQueue</a>)</h3>
+<div class="section" id="version-0-9-message-queue">
+<h3>Version 0.9 - <a class="reference external" href="https://github.com/techdivision/TechDivision_MessageQueue">Message Queue</a><a class="headerlink" href="#version-0-9-message-queue" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>[ ] Message bean functionality</li>
 <li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_MessageQueue project</li>
 </ul>
 </div>
 <div class="section" id="version-1-0-timer-service">
-<h3>Version 1.0 - Timer Service</h3>
+<h3>Version 1.0 - Timer Service<a class="headerlink" href="#version-1-0-timer-service" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>[ ] Timer Service</li>
 <li>[ ] 100 % Coverage for PHPUnit test suite for TechDivision_TimerService project</li>
 </ul>
 </div>
 <div class="section" id="version-1-1-additional-containers">
-<h3>Version 1.1 - Additional Containers</h3>
+<h3>Version 1.1 - Additional Containers<a class="headerlink" href="#version-1-1-additional-containers" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>[ ] Distributed and redundant cluster caching system with automated failover</li>
 <li>[ ] Fast-CGI container</li>
-<li>[ ] WebSocket integration</li>
 </ul>
 </div>
 </div>
 <div class="section" id="enterprise-edition">
-<h2>Enterprise Edition</h2>
+<h2>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="version-1-2-cluster-functionality">
-<h3>Version 1.2 - Cluster Functionality</h3>
+<h3>Version 1.2 - Cluster Functionality<a class="headerlink" href="#version-1-2-cluster-functionality" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>[ ] Cluster functionality</li>
 <li>[ ] Container based transactions</li>
 <li>[ ] Farming deployment</li>
 </ul>
 </div>
+</div>
+</div>
+<div class="section" id="getting-started-tutorial">
+<h1>4. Getting Started Tutorial<a class="headerlink" href="#getting-started-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This is a getting started tutorial for all folks who want to get in touch with appserver and want to learn how it works.
+It will guide you through setting up your first webapp, which serves HTTP requests. All necessary steps are explained in
+detail. It is assumed that you already installed appserver via the installer packages (explained above).</p>
+<div class="section" id="let-s-get-started">
+<h2>Let&#8217;s get started<a class="headerlink" href="#let-s-get-started" title="Permalink to this headline">¶</a></h2>
+<p>The appserver has its own runtime environment. After you installed appserver successfully on your system, it is accessible
+under <tt class="docutils literal"><span class="pre">/opt/appserver</span></tt>. This runtime already contains all necessary files and binaries to run appserver. There is a
+folder <tt class="docutils literal"><span class="pre">webapps</span></tt> where all your web applications are deployed. So let&#8217;s get you up running your first webapp. Type
+the following into your terminal:</p>
+<div class="highlight-python"><pre>cd /opt/appserver/webapps
+composer.phar create-project techdivision/techdivision_applicationserverproject myfirstapp dev-master</pre>
+</div>
+<p><em>myfirstapp</em> is the name of the webapp, it is necessary to call it by url. If you haven&#8217;t already started the appserver
+do it now by typing (user <em>restart</em> if appserver is already running):</p>
+<div class="highlight-python"><pre>[Mac OS] sudo /opt/appserver/sbin/appserverctl start
+[Debian] sudo /etc/init.d/appserver start</pre>
+</div>
+<p>By default the appserver is running on port 8586. Therefore head over to <tt class="docutils literal"><span class="pre">localhost:8586/myfirstapp</span></tt>. Notice the webapp
+name in the url, if you have chosen something else as the name, use it instead of <em>myfirstapp</em>.</p>
+<img alt="_images/myfirstapp.png" src="static/img/docs/myfirstapp.png" />
+<p>Let&#8217;s look into some source code to get to know how everything works. Open up your webapps folder <tt class="docutils literal"><span class="pre">webapps/myfirstapp</span></tt>
+in your favourite editor. The structure of the web application is similar to webapp structures of Tomcat or JBoss. Open
+<tt class="docutils literal"><span class="pre">WEB-INF/web.xml</span></tt>. This is the configuration file for your webapp&#8217;s routes. In general it is the servlet configuration
+for your servlet container. A servlet can be defined as follows:</p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">&lt;servlet&gt;</span>
+    <span class="nt">&lt;description&gt;</span><span class="cp">&lt;![CDATA[A demo servlet that renders a template showing the current uri requested]]&gt;</span><span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;display-name&gt;</span>DemoServlet<span class="nt">&lt;/display-name&gt;</span>
+    <span class="nt">&lt;servlet-name&gt;</span>DemoServlet<span class="nt">&lt;/servlet-name&gt;</span>
+    <span class="nt">&lt;servlet-class&gt;</span>\TechDivision\Example\Servlets\DemoServlet<span class="nt">&lt;/servlet-class&gt;</span>
+<span class="nt">&lt;/servlet&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>There you define the servlet name and map it to a servlet class defined by a namespace. If you open <tt class="docutils literal"><span class="pre">WEB-INF/classes</span></tt>
+you will find the defined servlet. This servlet can now be used in a route mapping like the following.</p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">&lt;servlet-mapping&gt;</span>
+    <span class="nt">&lt;servlet-name&gt;</span>DemoServlet<span class="nt">&lt;/servlet-name&gt;</span>
+    <span class="nt">&lt;url-pattern&gt;</span>/<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/servlet-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Try some other url patterns here, restart the appserver and test them in the browser&#8217;s url bar. It will always call the
+same servlet which delivers the same content. Let&#8217;s inspect the corresponding servlet class by opening
+<tt class="docutils literal"><span class="pre">WEB-INF/webapps/classes/TechDivisioon/Example/Servlets/DemoServlet.php</span></tt>. The servlet deviates from <tt class="docutils literal"><span class="pre">HttpServlet</span></tt> as
+it conforms to the HTTP 1.1 protocol. For every method of this protocol a function is provided by this class which can
+be overridden. Most of the time you will use <tt class="docutils literal"><span class="pre">doGet()</span></tt> or <tt class="docutils literal"><span class="pre">doPost()</span></tt> for GET and POST methods. Let&#8217;s inspect the
+<tt class="docutils literal"><span class="pre">doGet()</span></tt> in detail.</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">doGet</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$req</span><span class="p">,</span> <span class="nx">Response</span> <span class="nv">$res</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// build path to template</span>
+    <span class="nv">$pathToTemplate</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getServletConfig</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getWebappPath</span><span class="p">()</span>
+        <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">&#39;static&#39;</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">&#39;templates&#39;</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">&#39;layout.phtml&#39;</span><span class="p">;</span>
+
+    <span class="c1">// init template</span>
+    <span class="nv">$template</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DemoTemplate</span><span class="p">(</span><span class="nv">$pathToTemplate</span><span class="p">);</span>
+
+    <span class="nv">$baseUrl</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="p">;</span>
+    <span class="c1">// if the application has NOT been called over a VHost configuration append application folder naem</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getServletConfig</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getApplication</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">isVhostOf</span><span class="p">(</span><span class="nv">$req</span><span class="o">-&gt;</span><span class="na">getServerName</span><span class="p">()))</span> <span class="p">{</span>
+        <span class="nv">$baseUrl</span> <span class="o">.=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getServletConfig</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getApplication</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;/&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// set vars in template</span>
+    <span class="nv">$template</span><span class="o">-&gt;</span><span class="na">setBaseUrl</span><span class="p">(</span><span class="nv">$baseUrl</span><span class="p">);</span>
+    <span class="nv">$template</span><span class="o">-&gt;</span><span class="na">setRequestUri</span><span class="p">(</span><span class="nv">$req</span><span class="o">-&gt;</span><span class="na">getUri</span><span class="p">());</span>
+    <span class="nv">$template</span><span class="o">-&gt;</span><span class="na">setUserAgent</span><span class="p">(</span><span class="nv">$req</span><span class="o">-&gt;</span><span class="na">getHeader</span><span class="p">(</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">));</span>
+    <span class="nv">$template</span><span class="o">-&gt;</span><span class="na">setWebappName</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getServletConfig</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getApplication</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">());</span>
+
+    <span class="c1">// set response content by render template</span>
+    <span class="nv">$res</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="nv">$template</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>First the path to the template is built, afterwards the template is constructed. The template needs some data to display,
+which is set by several functions. The last line of the function sets the response content, which is send back to the
+client. You can inspect the template on your own. It is easy enough to understand by reading the code. You can of course
+use your own template functionalities or engines if you want. This template class is just a simple approach for
+demonstration purposes.</p>
+<p>If you want to add static content like images to your template you have to define a static servlet. Fortunately there
+already exists one. Open <tt class="docutils literal"><span class="pre">WEB-INF/web.xml</span></tt> again and search for <tt class="docutils literal"><span class="pre">StaticResourceServlet</span></tt>. You see the corresponding
+url pattern is defined as <tt class="docutils literal"><span class="pre">/components/*</span></tt> or <tt class="docutils literal"><span class="pre">/static/*</span></tt>, which means that all static content should be loaded by `
+these url patterns. You can define whatever url pattern you want for your static resources. We simply separated between
+libraries and custom stuff.</p>
+</div>
+<div class="section" id="let-s-build-something-crudish">
+<h2>Let&#8217;s build something CRUDish<a class="headerlink" href="#let-s-build-something-crudish" title="Permalink to this headline">¶</a></h2>
+<p>You already learned how to configure and create a servlet, which is conform to the HTTP protocol and can deliver content
+to the client. Now it is time to dive deep into the structure of the appserver. As a first webapp we will build something
+CRUDish, which involves data handling. In order to store some data you can set up your own database somewhere you can
+connect to. In your servlet you can connect to it and everything is fine. But wait! This is just the old school PHP
+stuff, how to handle data with Apache or similar servers. As we use the appserver we have much more advantages. The
+appserver comes along with a persistence container. With this architecture, your webapp is scalable, as containers can
+scale. You will learn by this tutorial how this works in detail.</p>
+<p>Let&#8217;s build a little system which can save customers. After creating a new customer, we can view them again. The first
+step is to build a little form which takes the users input data and send it to the server. Therefore, we head over to
+<tt class="docutils literal"><span class="pre">WEB-INF/web.xml</span></tt> and add our route for this form.</p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">&lt;servlet&gt;</span>
+    <span class="nt">&lt;description&gt;</span><span class="cp">&lt;![CDATA[A customer servlet]]&gt;</span><span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;display-name&gt;</span>CustomerServlet<span class="nt">&lt;/display-name&gt;</span>
+    <span class="nt">&lt;servlet-name&gt;</span>CustomerServlet<span class="nt">&lt;/servlet-name&gt;</span>
+    <span class="nt">&lt;servlet-class&gt;</span>\TechDivision\Example\Servlets\CustomerServlet<span class="nt">&lt;/servlet-class&gt;</span>
+<span class="nt">&lt;/servlet&gt;</span>
+
+<span class="nt">&lt;servlet-mapping&gt;</span>
+    <span class="nt">&lt;servlet-name&gt;</span>CustomerServlet<span class="nt">&lt;/servlet-name&gt;</span>
+    <span class="nt">&lt;url-pattern&gt;</span>/customer<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/servlet-mapping&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The customer servlet is now callable via the route <tt class="docutils literal"><span class="pre">/customer</span></tt>. But before we do so, let&#8217;s create the servlet. It is a
+class in the path <tt class="docutils literal"><span class="pre">WEB-INF/classes/TechDivision/Example/Servlets</span></tt> (this depends on the namespace you defined in
+<tt class="docutils literal"><span class="pre">web.xml</span></tt>).</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">namespace</span> <span class="nx">TechDivision\Example\Servlets</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">TechDivision\ServletContainer\Interfaces\Request</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">TechDivision\ServletContainer\Interfaces\Response</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">TechDivision\ServletContainer\Servlets\HttpServlet</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CustomerServlet</span> <span class="k">extends</span> <span class="nx">HttpServlet</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">doGet</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$req</span><span class="p">,</span> <span class="nx">Response</span> <span class="nv">$res</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$res</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>It is now time to restart your appserver in order to reload the changes made. After that open the url of your webapp
+and you will see this:</p>
+<img alt="_images/helloworld.png" src="static/img/docs/helloworld.png" />
+<p>As we can see the content we set to the response is transmitted to the client. A first template can now be build and
+delivered on the same way.</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">doGet</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$req</span><span class="p">,</span> <span class="nx">Response</span> <span class="nv">$res</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$webappPath</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getServletConfig</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getWebappPath</span><span class="p">();</span>
+
+    <span class="c1">// check if the template is available</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">file_exists</span><span class="p">(</span><span class="nv">$pathToTemplate</span> <span class="o">=</span> <span class="nv">$webappPath</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">&#39;static/templates/customer.phtml&#39;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">\Exception</span><span class="p">(</span><span class="s2">&quot;Requested template &#39;</span><span class="si">$pathToTemplate</span><span class="s2">&#39; is not available&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// render template</span>
+    <span class="nb">ob_start</span><span class="p">();</span>
+    <span class="k">require</span> <span class="nv">$pathToTemplate</span><span class="p">;</span>
+    <span class="nv">$html</span> <span class="o">=</span> <span class="nb">ob_get_clean</span><span class="p">();</span>
+
+    <span class="nv">$res</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="nv">$html</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>The templates are in the directory <tt class="docutils literal"><span class="pre">static/templates</span></tt> of the webapp root directory. If it exists it gets rendered and
+its output is set as the response&#8217;s content. The only thing to do is to fill the template with life. Create the file
+<tt class="docutils literal"><span class="pre">static/templates/customer.phtml</span></tt> and insert the following.</p>
+<div class="highlight-html"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;customer&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;action&quot;</span> <span class="na">value=</span><span class="s">&quot;persist&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;customerId&quot;</span> <span class="na">value=</span><span class="s">&quot;&lt;?php echo $customerId ?&gt;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Enter customer name&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;btn&quot;</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+
+As you can see the form uses the POST method to post its data. As we only support GET in ``CustomerServlet`` we have to
+</pre></div>
+</td></tr></table></div>
+<p>implement a corresponding method which can handle POST.</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">doPost</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$req</span><span class="p">,</span> <span class="nx">Response</span> <span class="nv">$res</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// load the params with the entity data</span>
+    <span class="nv">$parameterMap</span> <span class="o">=</span> <span class="nv">$req</span><span class="o">-&gt;</span><span class="na">getParameterMap</span><span class="p">();</span>
+
+    <span class="c1">// check if the necessary params has been specified and are valid</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">array_key_exists</span><span class="p">(</span><span class="s1">&#39;customerId&#39;</span><span class="p">,</span> <span class="nv">$parameterMap</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">\Exception</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nv">$customerId</span> <span class="o">=</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$parameterMap</span><span class="p">[</span><span class="s1">&#39;customerId&#39;</span><span class="p">],</span> <span class="nx">FILTER_VALIDATE_INT</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">array_key_exists</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nv">$parameterMap</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">\Exception</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nv">$name</span> <span class="o">=</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$parameterMap</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="nx">FILTER_SANITIZE_STRING</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nv">$res</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">&#39;Hello &#39;</span> <span class="o">.</span> <span class="nv">$name</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>So far so good, but we want to persist the customer to the database. Therefore we have to take a look on the persistence
+container. Open <tt class="docutils literal"><span class="pre">META-INF/appserver-ds.xml</span></tt>. This is a dummy configuration file for the persistence container. Change
+it to the following.</p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">&lt;datasources&gt;</span>
+    <span class="nt">&lt;datasource</span> <span class="na">name=</span><span class="s">&quot;TechDivision\Example&quot;</span> <span class="na">type=</span><span class="s">&quot;TechDivision\PersistenceContainer\Application&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;database&gt;</span>
+            <span class="nt">&lt;driver&gt;</span>pdo_sqlite<span class="nt">&lt;/driver&gt;</span>
+            <span class="nt">&lt;user&gt;</span>appserver<span class="nt">&lt;/user&gt;</span>
+            <span class="nt">&lt;password&gt;</span>appserver<span class="nt">&lt;/password&gt;</span>
+            <span class="nt">&lt;path&gt;</span>META-INF/data/customers.sqlite<span class="nt">&lt;/path&gt;</span>
+            <span class="nt">&lt;memory&gt;</span>false<span class="nt">&lt;/memory&gt;</span>
+        <span class="nt">&lt;/database&gt;</span>
+    <span class="nt">&lt;/datasource&gt;</span>
+<span class="nt">&lt;/datasources&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This configuration defines a data source connection to a database. In this case we use a sqlite database for demonstration
+purposes. We defined the path to the database as well as the path to the entities which get persisted to it. It is now
+time to create our customer entity. Create the following class
+<tt class="docutils literal"><span class="pre">META-INF/classes/TechDivision/Example/Entities/Customer.php</span></tt>.</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">TechDivision\Example\Entities</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @Entity @Table(name=&quot;customer&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">Customer</span> <span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Id</span>
+<span class="sd">     * @Column(type=&quot;integer&quot;)</span>
+<span class="sd">     * @GeneratedValue</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="nv">$customerId</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @Column(type=&quot;string&quot;, length=255)</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setCustomerId</span><span class="p">(</span><span class="nv">$customerId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">customerId</span> <span class="o">=</span> <span class="nv">$customerId</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCustomerId</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">customerId</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setName</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getName</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Maybe you can guess from the annotations which persistence layer we use here. It is Doctrine which is already part of the
+appserver. This is an entity which Doctrine can parse and persist. The entity gets persisted by an entity processor which
+takes care of the entities&#8217; states. At this point there is the tricky but cool part of appserver. As we want to persist
+the customer we have to talk to the persistence container which is all part of the <tt class="docutils literal"><span class="pre">META-INF</span></tt> folder. This is done by
+sockets in order to deploy both containers (servlet and persistence) on different machines, if necessary. Therefore, you
+can scale appserver as much as you want. Right now only the persistence container has the customer class and the servlet
+container does not know anything about it. We have to copy the customer class into the servlet container right into
+<tt class="docutils literal"><span class="pre">WEB-INF/classes/TechDivision/Example/Entities/Customer.php</span></tt>. As such we can now use it in our servlet. Insert the
+following lines right before the method <tt class="docutils literal"><span class="pre">doPost()</span></tt> ends:</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">use</span> <span class="nx">TechDivision\Example\Entities\Customer</span><span class="p">;</span>
+
+<span class="o">...</span>
+
+<span class="c1">// create a new entity and persist it</span>
+<span class="nv">$entity</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Customer</span><span class="p">();</span>
+<span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">setCustomerId</span><span class="p">((</span><span class="nx">integer</span><span class="p">)</span> <span class="nv">$customerId</span><span class="p">);</span>
+<span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+
+<span class="nv">$initialContext</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">createInitialContext</span><span class="p">();</span>
+<span class="nv">$proxy</span> <span class="o">=</span> <span class="nv">$initialContext</span><span class="o">-&gt;</span><span class="na">lookup</span><span class="p">(</span><span class="s1">&#39;TechDivision\Example\Services\CustomerProcessor&#39;</span><span class="p">);</span>
+<span class="nv">$proxy</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$entity</span><span class="p">);</span>
+
+<span class="nv">$res</span><span class="o">-&gt;</span><span class="na">setContent</span><span class="p">(</span><span class="s1">&#39;Hello &#39;</span> <span class="o">.</span> <span class="nv">$name</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>As you can already see we have a session attribute. This session is a context session which can handle our current
+context. The initial context provides us with a proxy class for a class of the persistence container. In this example
+we want to connect to the <tt class="docutils literal"><span class="pre">CustomerProcessor</span></tt> class as it handles our CRUD actions for our entity. We can communicate
+to the processor via a socket which is represented by the proxy class whereas the proxy class is just a general proxy
+implementation and not dependent on the <tt class="docutils literal"><span class="pre">CustomerProcessor</span></tt> class. The method call of <tt class="docutils literal"><span class="pre">persist()</span></tt> is actually done
+by remote method invocation via sockets. In order to make the code lines work we have to add the following lines to
+our customer servlet.</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">use</span> <span class="nx">TechDivision\PersistenceContainerClient\Context\Connection\Factory</span><span class="p">;</span>
+
+<span class="o">...</span>
+
+<span class="k">protected</span> <span class="nv">$connection</span><span class="p">;</span>
+<span class="k">protected</span> <span class="nv">$session</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">connection</span> <span class="o">=</span> <span class="nx">Factory</span><span class="o">::</span><span class="na">createContextConnection</span><span class="p">();</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">connection</span><span class="o">-&gt;</span><span class="na">createContextSession</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>We are now ready to start the implementation of <tt class="docutils literal"><span class="pre">CustomerProcessor</span></tt>. As we don&#8217;t want to overwhelm the documentation
+with lines of code we will copy some prepared one. We head over to the <tt class="docutils literal"><span class="pre">example</span></tt> webapp of the appserver. You can
+find the example webapp in appserver&#8217;s root directory in the folder <tt class="docutils literal"><span class="pre">webapps</span></tt>. Copy the class
+<tt class="docutils literal"><span class="pre">META-INF/classes/TechDivision/Example/Services/AbstractProcessor.php</span></tt> to our project at the same path. In the same
+folder we create the <tt class="docutils literal"><span class="pre">CustomerProcessor.php</span></tt> class as follows.</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">namespace</span> <span class="nx">TechDivision\Example\Services</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">TechDivision\Example\Entities\Customer</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">TechDivision\Example\Services\AbstractProcessor</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Tools\SchemaTool</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CustomerProcessor</span> <span class="k">extends</span> <span class="nx">AbstractProcessor</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">createSchema</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// load the entity manager and the schema tool</span>
+        <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getEntityManager</span><span class="p">();</span>
+        <span class="nv">$tool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SchemaTool</span><span class="p">(</span><span class="nv">$entityManager</span><span class="p">);</span>
+
+        <span class="c1">// initialize the schema data from the entities</span>
+        <span class="nv">$classes</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+            <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">getClassMetadata</span><span class="p">(</span><span class="s1">&#39;TechDivision\Example\Entities\Customer&#39;</span><span class="p">)</span>
+        <span class="p">);</span>
+
+        <span class="c1">// drop the schema if it already exists and create it new</span>
+        <span class="nv">$tool</span><span class="o">-&gt;</span><span class="na">dropSchema</span><span class="p">(</span><span class="nv">$classes</span><span class="p">);</span>
+        <span class="nv">$tool</span><span class="o">-&gt;</span><span class="na">createSchema</span><span class="p">(</span><span class="nv">$classes</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">persist</span><span class="p">(</span><span class="nx">Customer</span> <span class="nv">$entity</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// load the entity manager</span>
+        <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getEntityManager</span><span class="p">();</span>
+        <span class="c1">// check if a detached entity has been passed</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">getCustomerId</span><span class="p">())</span> <span class="p">{</span>
+            <span class="nv">$merged</span> <span class="o">=</span> <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">merge</span><span class="p">(</span><span class="nv">$entity</span><span class="p">);</span>
+            <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$merged</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$entity</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// flush the entity manager</span>
+        <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+        <span class="c1">// and return the entity itself</span>
+        <span class="k">return</span> <span class="nv">$entity</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>We overwrite the <tt class="docutils literal"><span class="pre">createSchema()</span></tt> method of the abstract processor as we have a different entity. But the rest of the
+abstract class works for us as well. The <tt class="docutils literal"><span class="pre">persist()</span></tt> method gets the doctrine entity manager in order to persist
+entities. After successful persistence we want to display all entities in the frontend. We therefore implement the
+following method into our customer processor.</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">findAll</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getEntityManager</span><span class="p">();</span>
+    <span class="nv">$repository</span> <span class="o">=</span> <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="s1">&#39;TechDivision\Example\Entities\Customer&#39;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nv">$repository</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>This works again with the doctrine entity manager as it does all the work for us. In order to display all customers
+in the frontend we add the following lines of code at the start of the <tt class="docutils literal"><span class="pre">doGet()</span></tt> method in our customer servlet.</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1">// member variable</span>
+<span class="k">protected</span> <span class="nv">$customers</span><span class="p">;</span>
+
+<span class="o">...</span>
+
+<span class="c1">// doGet() method</span>
+<span class="nv">$initialContext</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">createInitialContext</span><span class="p">();</span>
+<span class="nv">$proxy</span> <span class="o">=</span> <span class="nv">$initialContext</span><span class="o">-&gt;</span><span class="na">lookup</span><span class="p">(</span><span class="s1">&#39;TechDivision\Example\Services\CustomerProcessor&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">customers</span> <span class="o">=</span> <span class="nv">$proxy</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>It is the same principle. We request again a proxy class which takes all the communication for us via the socket. We just
+call the <tt class="docutils literal"><span class="pre">findAll()</span></tt> method we already implemented in our customer processor. The final step is now to customize the
+template like this:</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">customers</span> <span class="k">as</span> <span class="nv">$customer</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    &lt;div&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">endforeach</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p>We iterate over all customers and echo their names. The final step is now to change the <tt class="docutils literal"><span class="pre">doPost()</span></tt> method as we still
+return the Hello World example. Change the last line of the method to this line:</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">doGet</span><span class="p">(</span><span class="nv">$req</span><span class="p">,</span> <span class="nv">$res</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>It is now time to restart the appserver again and go to <tt class="docutils literal"><span class="pre">localhost:8586/myfirstapp/customer</span></tt> to see what we have built.
+You can now type in new customer names and view them in the frontend. Please note that this is just a very simple example
+to demonstrate how appserver works. It is a beginner tutorial. The demonstrated code should clearly be refactored, but
+for this tutorial it is good to go. Feel free to try out more functionality like updating and deleting entities.</p>
 </div>
 </div>
 
