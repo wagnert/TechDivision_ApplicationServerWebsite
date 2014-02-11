@@ -1,79 +1,66 @@
 {{>header}}
-    <div class="row-fluid">
 
-        <div class="span12">
-
-            <p>{{Version.Title}} <strong>{{Version.Value}}</strong></p>
-
+    <div class="row">
+        <div class="col-md-12">
+            {{#Releases}}
+            <p>
+                <a href="{{html_url}}" target="_blank"><h2>{{name}}</h2></a>
+                {{body}}
+            </p>
             <table class="table table-bordered table-hover">
                 <tbody>
-                {{#Downloads}}
+                {{#assets}}
                 <tr>
-                    <td>{{#Icon}}<i class="{{Icon}} icon-large"></i>{{/Icon}} {{Name}}</td>
-                    {{#Links}}
-                    <td {{#ColSpan}}colspan="{{ColSpan}}"{{/ColSpan}}>
-                        {{#Url}}<a onclick="{{OnClick}}" href="{{Url}}"{{#Class}} class="{{Class}}"{{/Class}}> {{/Url}}{{Name}}{{#Url}}</a>{{/Url}}
-                    </td>
-                    {{/Links}}
+                    <td><a href="{{GitHub.DownloadUrl}}{{tag_name}}/{{name}}"><span class="glyphicon glyphicon-download"></span> {{name}}</a></td>
+                    <td>{{label}}</td>
                 </tr>
-                {{/Downloads}}
+                {{/assets}}
                 </tbody>
             </table>
-
+            {{/Releases}}
         </div>
-
     </div>
 
     <br/>
     
-    <div class="row-fluid">
-
-        <div class="span12">
-
+    <div class="row">
+        <div class="col-md-12">
             <p>{{App.Title}}</p>
-
             <table class="table table-bordered table-hover">
                 <tbody>
                 {{#Apps}}
                 <tr>
-                    <td>{{#Icon}}<i class="{{Icon}} icon-large"></i>{{/Icon}} {{Name}}</td>
                     {{#Links}}
                     <td {{#ColSpan}}colspan="{{ColSpan}}"{{/ColSpan}}>
-                        {{#Url}}<a onclick="{{OnClick}}" href="{{Url}}"{{#Class}} class="{{Class}}"{{/Class}}> {{/Url}}{{Name}}{{#Url}}</a>{{/Url}}
+                        {{#Url}}<a onclick="{{OnClick}}" href="{{Url}}"{{#Class}} class="{{Class}}"{{/Class}}>{{#Icon}}<span class="glyphicon glyphicon-{{Icon}}"></span>{{/Icon}} {{/Url}}{{Name}}{{#Url}}</a>{{/Url}}
                     </td>
+                    <td>{{Name}}</td>
                     {{/Links}}
                 </tr>
                 {{/Apps}}
                 </tbody>
             </table>
-
         </div>
-
     </div>
 
     <br/>
 
-    <div class="row-fluid">
-
-
-        <div class="span12">
-
+    <div class="row">
+        <div class="col-md-12">
             <p>{{Asset.Title}}</strong></p>
-
             <table class="table table-bordered table-hover">
                 <tbody>
                 {{#Assets}}
                 <tr>
                     {{#Links}}
                     <td {{#ColSpan}}colspan="{{ColSpan}}"{{/ColSpan}}>
-                        {{#Icon}}<i class="{{Icon}} icon-large"></i>{{/Icon}} {{#Url}}<a onclick="{{OnClick}}" href="{{Url}}"{{#Class}} class="{{Class}}"{{/Class}}> {{/Url}}{{Name}}{{#Url}}</a>{{/Url}}
+                        {{#Url}}<a onclick="{{OnClick}}" href="{{Url}}"{{#Class}} class="{{Class}}"{{/Class}}>{{#Icon}}<span class="glyphicon glyphicon-{{Icon}}"></span>{{/Icon}} {{/Url}}{{Name}}{{#Url}}</a>{{/Url}}
                     </td>
                     {{/Links}}
                 </tr>
                 {{/Assets}}
                 </tbody>
             </table>
-
         </div>
     </div>
 

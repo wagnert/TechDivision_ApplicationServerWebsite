@@ -3,10 +3,11 @@
     <property name="php-src.dir" value="${basedir}/src" />
     <property name="php-test.dir" value="${basedir}/tests" />
     <property name="php-target.dir" value="${basedir}/target"/>
-
+    
+    <property environment="env" />
+    
     <property file="${basedir}/build.properties"/>
     <property file="${basedir}/build.default.properties"/>
-    <property environment="env" />
 
     <!-- ==================================================================== -->
     <!-- Cleans the directories with the generated source files				  -->
@@ -31,6 +32,7 @@
             <fileset dir="${php-src.dir}">
                 <include name="**/*.php" />
                 <include name="**/*.yml" />
+                <include name="**/*.properties" />
                 <include name="**/*.xml" />
                 <include name="**/*.xml.*" />
             </fileset>
@@ -43,11 +45,12 @@
                 <include name="**/*" />
                 <exclude name="**/*.php" />
                 <exclude name="**/*.yml" />
+                <exclude name="**/*.properties" />
                 <exclude name="**/*.xml" />
                 <exclude name="**/*.xml.*" />
             </fileset>
         </copy>
-        <exec executable="composer.phar" dir="${php-target.dir}/${webapp.name}">
+    	<exec executable="composer.phar" dir="${php-target.dir}/${webapp.name}">
             <arg line="update"/>
         </exec>
     </target>
