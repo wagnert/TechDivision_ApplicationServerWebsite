@@ -101,6 +101,7 @@
     <!-- Creates a PHAR file for deployment     					  		  -->
     <!-- ==================================================================== -->
 	<target name="create-phar" depends="copy" description="Creates a PHAR file for deployment.">
+        <antcall target="prepare-doc"/>
 		<exec executable="phar">
 			<arg line="pack -l 0 -f ${php-target.dir}/${webapp.name}.phar ${php-target.dir}/${webapp.name}"/>
 		</exec>
