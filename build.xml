@@ -63,7 +63,7 @@
             <arg line="clone https://github.com/${doc.git.namespace}/${doc.git.repo}.git"/>
         </exec>
         <exec executable="git" dir="${php-target.dir}/${doc.git.repo}">
-            <arg line="checkout master"/>
+            <arg line="checkout 0.5.8-beta"/>
         </exec>
         <exec executable="make" dir="${php-target.dir}/${doc.git.repo}/doc" failonerror="true">
             <arg line="html" />
