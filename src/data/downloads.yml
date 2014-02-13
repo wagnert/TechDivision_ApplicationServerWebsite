@@ -38,31 +38,31 @@ App:
   
 Apps:
   - Name: 'API (.phar)'
-    Icon: 'download'
+    Icon: 'collapse'
     Links:
       - Name: 'Management API'
         Url: 'dl/API'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'API']);"
   - Name: 'Admin (.phar)'
-    Icon: 'download'
+    Icon: 'collapse'
     Links:
       - Name: 'Administration GUI'
         Url: 'dl/Admin'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Admin']);"
   - Name: 'Example (.phar)'
-    Icon: 'download'
+    Icon: 'collapse'
     Links:
       - Name: 'Example Application'
         Url: 'dl/Example'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Example']);"
   - Name: 'Site (.phar)'
-    Icon: 'download'
+    Icon: 'collapse'
     Links:
       - Name: 'appserver.io Site'
         Url: 'dl/Site'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Site']);"
   - Name: 'Magento 1.8.1.0 (.phar)'
-    Icon: 'download'
+    Icon: 'collapse'
     Links:
       - Name: 'Magento CE 1.8.1.0'
         Url: 'dl/Magento1810'

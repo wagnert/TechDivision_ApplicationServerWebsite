@@ -11,7 +11,7 @@
                 <tbody>
                 {{#assets}}
                 <tr>
-                    <td><a href="{{GitHub.DownloadUrl}}{{tag_name}}/{{name}}"><span class="glyphicon glyphicon-download"></span> {{name}}</a></td>
+                    <td><a href="{{GitHub.DownloadUrl}}{{tag_name}}/{{name}}"><i class="icon-collapse"></i> {{name}}</a></td>
                     <td>{{label}}</td>
                 </tr>
                 {{/assets}}
@@ -32,7 +32,7 @@
                 <tr>
                     {{#Links}}
                     <td {{#ColSpan}}colspan="{{ColSpan}}"{{/ColSpan}}>
-                        {{#Url}}<a onclick="{{OnClick}}" href="{{Url}}"{{#Class}} class="{{Class}}"{{/Class}}>{{#Icon}}<span class="glyphicon glyphicon-{{Icon}}"></span>{{/Icon}} {{/Url}}{{Name}}{{#Url}}</a>{{/Url}}
+                        {{#Url}}<a onclick="{{OnClick}}" href="{{Url}}"{{#Class}} class="{{Class}}"{{/Class}}>{{#Icon}}<i class="icon-{{Icon}}"></i>{{/Icon}} {{/Url}}{{Name}}{{#Url}}</a>{{/Url}}
                     </td>
                     <td>{{Name}}</td>
                     {{/Links}}
@@ -54,7 +54,7 @@
                 <tr>
                     {{#Links}}
                     <td {{#ColSpan}}colspan="{{ColSpan}}"{{/ColSpan}}>
-                        {{#Url}}<a onclick="{{OnClick}}" href="{{Url}}"{{#Class}} class="{{Class}}"{{/Class}}>{{#Icon}}<span class="glyphicon glyphicon-{{Icon}}"></span>{{/Icon}} {{/Url}}{{Name}}{{#Url}}</a>{{/Url}}
+                        {{#Url}}<a onclick="{{OnClick}}" href="{{Url}}"{{#Class}} class="{{Class}}"{{/Class}}>{{#Icon}}<i class="icon-{{Icon}}"></i>{{/Icon}} {{/Url}}{{Name}}{{#Url}}</a>{{/Url}}
                     </td>
                     {{/Links}}
                 </tr>
