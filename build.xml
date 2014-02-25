@@ -3,9 +3,9 @@
     <property name="php-src.dir" value="${basedir}/src" />
     <property name="php-test.dir" value="${basedir}/tests" />
     <property name="php-target.dir" value="${basedir}/target"/>
-    
+
     <property environment="env" />
-    
+
     <property file="${basedir}/build.properties"/>
     <property file="${basedir}/build.default.properties"/>
 
@@ -50,7 +50,7 @@
                 <exclude name="**/*.xml.*" />
             </fileset>
         </copy>
-    	<exec executable="composer.phar" dir="${php-target.dir}/${webapp.name}">
+        <exec executable="composer.phar" dir="${php-target.dir}/${webapp.name}">
             <arg line="update"/>
         </exec>
     </target>
@@ -63,16 +63,16 @@
             <arg line="clone https://github.com/${doc.git.namespace}/${doc.git.repo}.git"/>
         </exec>
         <exec executable="git" dir="${php-target.dir}/${doc.git.repo}">
-            <arg line="checkout 0.5.8-beta"/>
+            <arg line="checkout ${webapp.appserver.version}"/>
         </exec>
         <exec executable="make" dir="${php-target.dir}/${doc.git.repo}/doc" failonerror="true">
             <arg line="html" />
         </exec>
         <copy
-            file="${doc.build.file}"
-            tofile="${doc.target.file}"
-            overwrite="true"
-        />
+                file="${doc.build.file}"
+                tofile="${doc.target.file}"
+                overwrite="true"
+                />
         <copy todir="${doc.image.target.dir}" preservelastmodified="true" overwrite="true" failonerror="false">
             <fileset dir="${doc.image.build.dir}">
                 <include name="**/*" />
@@ -100,12 +100,12 @@
     <!-- ==================================================================== -->
     <!-- Creates a PHAR file for deployment     					  		  -->
     <!-- ==================================================================== -->
-	<target name="create-phar" depends="copy" description="Creates a PHAR file for deployment.">
+    <target name="create-phar" depends="copy" description="Creates a PHAR file for deployment.">
         <antcall target="prepare-doc"/>
-		<exec executable="phar">
-			<arg line="pack -l 0 -f ${php-target.dir}/${webapp.name}.phar ${php-target.dir}/${webapp.name}"/>
-		</exec>
-	</target>
+        <exec executable="phar">
+            <arg line="pack -l 0 -f ${php-target.dir}/${webapp.name}.phar ${php-target.dir}/${webapp.name}"/>
+        </exec>
+    </target>
 
     <!-- ==================================================================== -->
     <!-- Generates the API documentation                                      -->
