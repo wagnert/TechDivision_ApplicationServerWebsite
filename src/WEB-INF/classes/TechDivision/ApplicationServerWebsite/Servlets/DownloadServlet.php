@@ -37,14 +37,6 @@ class DownloadServlet extends HttpServlet {
      * @var mirror urls
      */
     protected $mirrors = array(
-        'Linux'
-            => array(
-                0 => '${webapp.dl.url.linux.64bit}'
-            ),
-        'MacOS'
-            => array(
-                0 => '${webapp.dl.url.macos.64bit}'
-            ),
         'Techtalk072013'
             => array(
                 0 => '${webapp.asset.techtalk.url}'
@@ -109,7 +101,7 @@ class DownloadServlet extends HttpServlet {
         if ($mirrorUrl) {
             $res->setHeaders(
                     array(
-                        "status"                 => "HTTP/1.1 302 OK",
+                        "Status"                 => "HTTP/1.1 302 OK",
                         "Date"                   => gmdate('D, d M Y H:i:s \G\M\T', time()),
                         "Last-Modified"          => gmdate('D, d M Y H:i:s \G\M\T', time()),
                         "Expires"                => gmdate('D, d M Y H:i:s \G\M\T', time() - 3600),
