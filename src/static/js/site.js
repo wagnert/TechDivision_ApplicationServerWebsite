@@ -1,1 +1,1 @@
-$("#download-link").attr('href', 'downloads');
+$("#download-link").attr('href', 'downloads.do/downloads');

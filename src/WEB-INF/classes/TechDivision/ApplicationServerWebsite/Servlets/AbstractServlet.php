@@ -1,7 +1,5 @@
 <?php
 
-namespace TechDivision\ApplicationServerWebsite\Servlets;
-
 /**
  * TechDivision\ApplicationServerWebsite\Servlets\AbstractServlet
  *
@@ -10,36 +8,45 @@ namespace TechDivision\ApplicationServerWebsite\Servlets;
  * This source file is subject to the Open Software License (OSL 3.0)
  * that is available through the world-wide-web at this URL:
  * http://opensource.org/licenses/osl-3.0.php
+ *
+ * PHP version 5
+ *
+ * @category   Application
+ * @package    TechDivision_ApplicationServerWebsite
+ * @subpackage Servlets
+ * @author     Johann Zelger <jz@techdivision.com>
+ * @author     Tim Wagner <tw@techdivision.com>
+ * @copyright  2014 TechDivision GmbH <info@techdivision.com>
+ * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link       https://github.com/techdivision/TechDivision_ApplicationServerWebsite
  */
 
-/**
- * @package     TechDivision
- * @copyright  	Copyright (c) 2013 <info@techdivision.com> - TechDivision GmbH
- * @license    	http://opensource.org/licenses/osl-3.0.php
- *              Open Software License (OSL 3.0)
- * @author      Johann Zelger <jz@techdivision.com>
- */
+namespace TechDivision\ApplicationServerWebsite\Servlets;
 
-use TechDivision\ApplicationServerWebsite\Utilities\Template;
-use TechDivision\ServletContainer\Interfaces\Servlet;
-use TechDivision\ServletContainer\Interfaces\ServletConfig;
-use TechDivision\ServletContainer\Interfaces\Request;
-use TechDivision\ServletContainer\Interfaces\Response;
-use TechDivision\ApplicationServerWebsite\Utilities\I18n;
-use TechDivision\ServletContainer\Servlets\HttpServlet;
 use Symfony\Component\Yaml\Parser;
+use TechDivision\Servlet\ServletConfig;
+use TechDivision\Servlet\ServletRequest;
+use TechDivision\Servlet\ServletResponse;
+use TechDivision\Servlet\Http\HttpServletRequest;
+use TechDivision\Servlet\Http\HttpServletResponse;
+use TechDivision\ServletEngine\Http\Servlet;
+use TechDivision\ApplicationServerWebsite\Utilities\I18n;
 
 /**
  * This abstrac base servlet that provides template rendering
  * functionality.
  *
- * @package     TechDivision\ApplicationServerWebsite
- * @copyright  	Copyright (c) 2010 <info@techdivision.com> - TechDivision GmbH
- * @license    	http://opensource.org/licenses/osl-3.0.php
- *              Open Software License (OSL 3.0)
- * @author      Tim Wagner <tw@techdivision.com>
+ * @category   Application
+ * @package    TechDivision_ApplicationServerWebsite
+ * @subpackage Servlets
+ * @author     Johann Zelger <jz@techdivision.com>
+ * @author     Tim Wagner <tw@techdivision.com>
+ * @copyright  2014 TechDivision GmbH <info@techdivision.com>
+ * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link       https://github.com/techdivision/TechDivision_ApplicationServerWebsite
  */
-abstract class AbstractServlet extends HttpServlet {
+abstract class AbstractServlet extends Servlet
+{
 
     /**
      * The key for the context param with the name of the settings file.
@@ -99,9 +106,9 @@ abstract class AbstractServlet extends HttpServlet {
     protected $settings = array();
 
     /**
-     * Initialise servlet class
+     * Initialize the servlet with the servlet configuration.
      *
-     * @param ServletConfig $config The servlets config object
+     * @param \TechDivision\Servlet\ServletConfig $config The servlet configuration object
      *
      * @return void
      */
@@ -111,7 +118,7 @@ abstract class AbstractServlet extends HttpServlet {
         parent::init($config);
 
         // load the path to the properties file
-        $settingsFile = $config->getServletManager()->getInitParameter(
+        $settingsFile = $config->getServletContext()->getInitParameter(
             AbstractServlet::SETTINGS_FILE
         );
         
@@ -122,22 +129,29 @@ abstract class AbstractServlet extends HttpServlet {
     }
     
     /**
-     * @see \TechDivision\ServletContainer\Servlets\HttpServlet::service()
+     * Delegates to Http method specific functions like doPost() for POST e. g. In this case
+     * it also initializes the autoloader.
+     * 
+     * @param \TechDivision\Servlet\ServletRequest  $servletRequest  The request instance
+     * @param \TechDivision\Servlet\ServletResponse $servletResponse The response instance
+     * 
+     * @return void
      */
-    public function service(Request $req, Response $res)
+    public function service(ServletRequest $servletRequest, ServletResponse $servletResponse)
     {
         // initialize composer autoloader
         require $this->getServletConfig()->getWebappPath() . '/vendor/autoload.php';
         
         // serve the request
-        parent::service($req, $res);
+        parent::service($servletRequest, $servletResponse);
     }
 
     /**
      * Returns webapp root dir with path extended.
      *
-     * @param string $path
-     * @return string
+     * @param string $path The path that has to be extended with the base directory
+     * 
+     * @return string The path extended with the base directory
      */
     protected function getRootDir($path = null)
     {
@@ -149,18 +163,20 @@ abstract class AbstractServlet extends HttpServlet {
     }
     
     /**
+     * Returns the applications base URL depending on the vhost configuration.
      * 
-     * @param Request $req
-     * @return string
+     * @param \TechDivision\Servlet\Http\HttpServletRequest $servletRequest The request instance
+     * 
+     * @return string The applications base URL depending on the vhost found
      */
-    protected function getBaseUrl(Request $req)
+    protected function getBaseUrl(HttpServletRequest $servletRequest)
     {
 
         // initialize the base URL
         $baseUrl = '/';
         
         // if the application has NOT been called over a VHost configuration append application folder naem
-        if (!$this->getServletConfig()->getApplication()->isVhostOf($req->getServerName())) {
+        if (!$this->getServletConfig()->getApplication()->isVhostOf($servletRequest->getServerName())) {
             $baseUrl .= $this->getServletConfig()->getApplication()->getName() . '/';
         }
         
@@ -168,20 +184,21 @@ abstract class AbstractServlet extends HttpServlet {
     }
     
     /**
-     * Grab page to render.
+     * Grab the page to render.
      * 
-     * @param Request $req The request with the path information
+     * @param \TechDivision\Servlet\Http\HttpServletRequest $servletRequest The request instance
+     * 
      * @return string The requested page name
      */
-    protected function getPage(Request $req)
+    protected function getPage(HttpServletRequest $servletRequest)
     {
         
         // try extract the page name from the URL
         $page = trim(
             str_replace(
-                $this->getBaseUrl($req), 
-                '', 
-                $req->getPathInfo() . DIRECTORY_SEPARATOR
+                $this->getBaseUrl($servletRequest),
+                '',
+                $servletRequest->getPathInfo() . DIRECTORY_SEPARATOR
             ),
             '/'
         );
@@ -196,7 +213,7 @@ abstract class AbstractServlet extends HttpServlet {
     }
     
     /**
-     * return the global data from the YAML file.
+     * Returns the global data from the YAML file.
      * 
      * @return array The global data
      */
@@ -212,25 +229,27 @@ abstract class AbstractServlet extends HttpServlet {
     /**
      * Return the internal data.
      * 
-     * @param Request $req The actual request to return the data from
+     * @param \TechDivision\Servlet\Http\HttpServletRequest $servletRequest The request instance
+     * 
      * @return array The internal data
      */
-    protected function getInternalData(Request $req)
+    protected function getInternalData(HttpServletRequest $servletRequest)
     {
-        return array('BaseUrl' => $this->getBaseUrl($req));
+        return array('BaseUrl' => $this->getBaseUrl($servletRequest));
     }
     
     /**
      * Return the page specific data.
      * 
-     * @param Request $req The actual request to return the data from
+     * @param \TechDivision\Servlet\Http\HttpServletRequest $servletRequest The request instance
+     * 
      * @return array The page specific data
      */
-    public function getPageData(Request $req)
+    public function getPageData(HttpServletRequest $servletRequest)
     {
         return $this->yaml->parse(
             file_get_contents(
-                $this->getRootDir('data' . DIRECTORY_SEPARATOR . $this->getPage($req) . '.yml')
+                $this->getRootDir('data' . DIRECTORY_SEPARATOR . $this->getPage($servletRequest) . '.yml')
             )
         );
     }
@@ -238,10 +257,11 @@ abstract class AbstractServlet extends HttpServlet {
     /**
      * Process the template and return the HTML content as string.
      * 
-     * @param Request $req The actual request to return the data from
+     * @param \TechDivision\Servlet\Http\HttpServletRequest $servletRequest The request instance
+     * 
      * @return string The HTML to render
      */
-    public function processTemplate(Request $req)
+    public function processTemplate(HttpServletRequest $servletRequest)
     {
 
         // init parser for template yaml data.
@@ -262,7 +282,7 @@ abstract class AbstractServlet extends HttpServlet {
 
         // init language
         $locale = $this->defaultLocale;
-        list ($acceptLanguage) = explode(',', $req->getServerVar('HTTP_ACCEPT_LANGUAGE'));
+        list ($acceptLanguage) = explode(',', $servletRequest->getServerVar('HTTP_ACCEPT_LANGUAGE'));
         $acceptLanguage = strtolower($acceptLanguage);
         if (array_key_exists($acceptLanguage, $this->locales)) {
             $locale = $this->locales[$acceptLanguage];
@@ -272,10 +292,10 @@ abstract class AbstractServlet extends HttpServlet {
         $this->i18n = new I18n($locale);
 
         // grab page to render, if nothing left take default page
-        $page = $this->getPage($req);
+        $page = $this->getPage($servletRequest);
         
         // load the internal data
-        $internalData = $this->getInternalData($req);
+        $internalData = $this->getInternalData($servletRequest);
 
         // set default template
         $template = self::DEFAULT_TEMPALTE;
@@ -285,14 +305,18 @@ abstract class AbstractServlet extends HttpServlet {
         }
 
         // add global translations
-        $this->i18n->addResource('xliff-file',
+        $this->i18n->addResource(
+            'xliff-file',
             $this->getRootDir('locales' . DIRECTORY_SEPARATOR . $locale . DIRECTORY_SEPARATOR . 'global.xliff'),
-            $locale, 'global'
+            $locale,
+            'global'
         );
         // add template view translations
-        $this->i18n->addResource('xliff-file',
+        $this->i18n->addResource(
+            'xliff-file',
             $this->getRootDir('locales' . DIRECTORY_SEPARATOR . $locale . DIRECTORY_SEPARATOR . $page . '.xliff'),
-            $locale, $page
+            $locale,
+            $page
         );
         
         // translate data
@@ -304,7 +328,7 @@ abstract class AbstractServlet extends HttpServlet {
         if (file_exists($this->getRootDir('data' . DIRECTORY_SEPARATOR . $page . '.yml'))) {
             
             // load page specific data
-            $pageData = $this->getPageData($req);
+            $pageData = $this->getPageData($servletRequest);
             
             // translate data
             $this->i18n->translateData($pageData, $page);
@@ -315,7 +339,7 @@ abstract class AbstractServlet extends HttpServlet {
 
         // render and return the content
         return $this->mustache->render($template, $data);
-     }
+    }
 
     /**
      * Returns the application properties.
@@ -331,6 +355,7 @@ abstract class AbstractServlet extends HttpServlet {
      * Returns the setting with the passed key.
      * 
      * @param string $key The key of the property to return
+     * 
      * @return string The requested setting
      */
     protected function getSetting($key)
