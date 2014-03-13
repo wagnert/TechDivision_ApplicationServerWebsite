@@ -1,40 +1,60 @@
 <?php
 
 /**
- * TechDivision\ApplicationServerWebsite\Servlets\SiteServlet
+ * TechDivision\ApplicationServerWebsite\Servlets\AbstractServlet
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Open Software License (OSL 3.0)
  * that is available through the world-wide-web at this URL:
  * http://opensource.org/licenses/osl-3.0.php
+ *
+ * PHP version 5
+ *
+ * @category   Application
+ * @package    TechDivision_ApplicationServerWebsite
+ * @subpackage Servlets
+ * @author     Johann Zelger <jz@techdivision.com>
+ * @author     Tim Wagner <tw@techdivision.com>
+ * @copyright  2014 TechDivision GmbH <info@techdivision.com>
+ * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link       https://github.com/techdivision/TechDivision_ApplicationServerWebsite
  */
 
 namespace TechDivision\ApplicationServerWebsite\Servlets;
 
+use TechDivision\Servlet\ServletConfig;
+use TechDivision\Servlet\Http\HttpServletRequest;
+use TechDivision\Servlet\Http\HttpServletResponse;
+use TechDivision\ServletEngine\Http\Servlet;
+
 /**
- * @package     TechDivision
- * @copyright  	Copyright (c) 2013 <info@techdivision.com> - TechDivision GmbH
- * @license    	http://opensource.org/licenses/osl-3.0.php
- *              Open Software License (OSL 3.0)
- * @author      Johann Zelger <jz@techdivision.com>
+ * This abstrac base servlet that provides template rendering
+ * functionality.
+ *
+ * @category   Application
+ * @package    TechDivision_ApplicationServerWebsite
+ * @subpackage Servlets
+ * @author     Johann Zelger <jz@techdivision.com>
+ * @author     Tim Wagner <tw@techdivision.com>
+ * @copyright  2014 TechDivision GmbH <info@techdivision.com>
+ * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link       https://github.com/techdivision/TechDivision_ApplicationServerWebsite
  */
-
-use TechDivision\ServletContainer\Interfaces\Servlet;
-use TechDivision\ServletContainer\Servlets\HttpServlet;
-use TechDivision\ServletContainer\Interfaces\ServletConfig;
-use TechDivision\ServletContainer\Interfaces\Request;
-use TechDivision\ServletContainer\Interfaces\Response;
-
-class DownloadServlet extends HttpServlet {
+class DownloadServlet extends Servlet
+{
 
     /**
-     * defines base download uri
+     * Defines the base download URI.
+     * 
+     * @var string
      */
     const BASE_DOWNLOAD_URI = '/dl/';
 
     /**
-     * @var mirror urls
+     * Array containing the download mirrors.
+     * 
+     * @var array
      */
     protected $mirrors = array(
         'Linux'
@@ -72,17 +92,16 @@ class DownloadServlet extends HttpServlet {
     );
 
     /**
-     * The download filename
+     * The download filename.
      *
      * @var string
      */
     protected $downloadFilename = null;
 
     /**
-     * Get mirror by request uri
+     * Returns the requested mirror URI.
      *
-     * @param ServletRequest $req
-     * @return string
+     * @return string The requested mirror URI
      */
     public function getMirrorUrl()
     {
@@ -92,10 +111,14 @@ class DownloadServlet extends HttpServlet {
     }
 
     /**
-     * @param Request $req
-     * @param Response $res
+     * Handles a GET request.
+     * 
+     * @param \TechDivision\Servlet\Http\HttpServletRequest  $servletRequest  The request instance
+     * @param \TechDivision\Servlet\Http\HttpServletResponse $servletResponse The response instance
+     * 
+     * @return void
      */
-    public function doGet(Request $req, Response $res)
+    public function doGet(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
     {
         /** @var \TechDivision\ServletContainer\Http\HttpRequest $req */
         /** @var \TechDivision\ServletContainer\Http\HttpResponse $res */
@@ -105,20 +128,21 @@ class DownloadServlet extends HttpServlet {
 
         // check mirror for filename
         $mirrorUrl = $this->getMirrorUrl();
+        
         // if mirror exists send redirect headers
         if ($mirrorUrl) {
             $res->setHeaders(
-                    array(
-                        "status"                 => "HTTP/1.1 302 OK",
-                        "Date"                   => gmdate('D, d M Y H:i:s \G\M\T', time()),
-                        "Last-Modified"          => gmdate('D, d M Y H:i:s \G\M\T', time()),
-                        "Expires"                => gmdate('D, d M Y H:i:s \G\M\T', time() - 3600),
-                        "Server"                 => "Apache/4.3.29 (Unix) PHP/5.4.10",
-                        "Content-Language"       => "de",
-                        "Location"               => $mirrorUrl,
-                        "Connection"             => "close",
-                    )
-                );
+                array(
+                    "status"                 => "HTTP/1.1 302 OK",
+                    "Date"                   => gmdate('D, d M Y H:i:s \G\M\T', time()),
+                    "Last-Modified"          => gmdate('D, d M Y H:i:s \G\M\T', time()),
+                    "Expires"                => gmdate('D, d M Y H:i:s \G\M\T', time() - 3600),
+                    "Server"                 => "Apache/4.3.29 (Unix) PHP/5.4.10",
+                    "Content-Language"       => "de",
+                    "Location"               => $mirrorUrl,
+                    "Connection"             => "close",
+                )
+            );
             $res->setContent(PHP_EOL);
         } else {
             $res->setContent(sprintf('No mirror defined for download "%s"', $this->downloadFilename));

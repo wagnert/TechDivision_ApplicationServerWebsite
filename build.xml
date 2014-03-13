@@ -63,7 +63,7 @@
             <arg line="clone https://github.com/${doc.git.namespace}/${doc.git.repo}.git"/>
         </exec>
         <exec executable="git" dir="${php-target.dir}/${doc.git.repo}">
-            <arg line="checkout 0.5.8-beta"/>
+            <arg line="checkout ${webapp.appserver.version}"/>
         </exec>
         <exec executable="make" dir="${php-target.dir}/${doc.git.repo}/doc" failonerror="true">
             <arg line="html" />
@@ -119,16 +119,17 @@
     <!-- ==================================================================== -->
     <!-- Runs the code sniffer and generates a report                         -->
     <!-- ==================================================================== -->
-    <target name="phpcs" depends="apidoc" description="Runs the code sniffer and generates a report.">
-        <exec executable="phpcs" output="${php-target.dir}/reports/checkstyle.xml">
-            <arg line="--standard=ZEND --report=checkstyle ${php-src.dir}"/>
+    <target name="phpcs" description="Runs the code sniffer and generates a report.">
+        <exec executable="phpcs" failonerror="true">
+            <!-- call phpcs without report-file to get error message on build console -->
+            <arg line="-n --extensions=php --standard=phpcs.xml src"/>
         </exec>
     </target>
 
     <!-- ==================================================================== -->
     <!-- Runs the copy and paste detection                                    -->
     <!-- ==================================================================== -->
-    <target name="phpcpd" depends="phpcs" description="Runs the copy and paste detection.">
+    <target name="phpcpd"  description="Runs the copy and paste detection.">
         <exec executable="phpcpd">
             <arg line="--log-pmd ${php-target.dir}/reports/pmd-cpd.xml ${php-src.dir}"/>
         </exec>
@@ -137,7 +138,7 @@
     <!-- ==================================================================== -->
     <!-- Generate phploc.csv                                                  -->
     <!-- ==================================================================== -->
-    <target name="phploc" depends="phpcpd" description="Generate phploc.csv">
+    <target name="phploc" description="Generate phploc.csv">
         <exec executable="phploc">
             <arg line="--log-xml ${php-target.dir}/reports/phploc.xml ${php-src.dir}"/>
         </exec>
@@ -146,7 +147,7 @@
     <!-- ==================================================================== -->
     <!-- Runs the PHPDepend tool and generats a graphs                        -->
     <!-- ==================================================================== -->
-    <target name="pdepend" depends="phploc" description="Runs the PHPDepend tool and generats a graphs.">
+    <target name="pdepend" description="Runs the PHPDepend tool and generats a graphs.">
         <exec executable="pdepend">
             <arg line="--summary-xml=${php-target.dir}/reports/pdepend.xml --jdepend-xml=${php-target.dir}/reports/jdepend.xml --jdepend-chart=${php-target.dir}/reports/jdepend.svg --overview-pyramid=${php-target.dir}/reports/pdepend-pyramid.svg ${php-src.dir}" />
         </exec>
@@ -155,7 +156,7 @@
     <!-- ==================================================================== -->
     <!-- Runs the PHP mess detector tool                                      -->
     <!-- ==================================================================== -->
-    <target name="phpmd" depends="pdepend" description="Runs the PHP Mess detector tool.">
+    <target name="phpmd" description="Runs the PHP Mess detector tool.">
         <exec executable="phpmd">
             <arg line="${php-src.dir} xml codesize,unusedcode --reportfile ${php-target.dir}/reports/pmd.xml" />
         </exec>
@@ -193,6 +194,21 @@
         <exec dir="${php-src.dir}" executable="compass" >
             <arg value="compile"/>
         </exec>
+    </target>
+
+    <!-- ==================================================================== -->
+    <!-- Runs the PHPUnit tests and generates the code metrics				  -->
+    <!-- ==================================================================== -->
+    <target name="build" description="Runs the PHPUnit tests and generates the code metrics.">
+        <antcall target="phpcs"/>
+        <antcall target="run-tests"/>
+        <!--
+        <antcall target="apidoc"/>
+        <antcall target="phpcpd"/>
+        <antcall target="phploc"/>
+        <antcall target="pdepend"/>
+        <antcall target="phpmd"/>
+        -->
     </target>
 
 </project>
