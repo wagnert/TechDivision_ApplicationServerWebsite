@@ -8,13 +8,6 @@
         <param-name>settingsFile</param-name>
         <param-value>WEB-INF/settings.properties</param-value>
     </context-param>
-
-    <servlet>
-        <description/>
-        <display-name>StaticResourceServlet</display-name>
-        <servlet-name>StaticResourceServlet</servlet-name>
-        <servlet-class>\TechDivision\ServletContainer\Servlets\StaticResourceServlet</servlet-class>
-    </servlet>
     <servlet>
         <description/>
         <display-name>IndexServlet</display-name>
@@ -36,27 +29,17 @@
 
     <servlet-mapping>
         <servlet-name>DownloadsServlet</servlet-name>
-        <url-pattern>/downloads/*</url-pattern>
+        <url-pattern>/downloads.do*</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
-        <servlet-name>DownloadsServlet</servlet-name>
-        <url-pattern>/downloads</url-pattern>
+        <servlet-name>DownloadServlet</servlet-name>
+        <url-pattern>/dl.do*</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>StaticResourceServlet</servlet-name>
-        <url-pattern>/static/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DownloadServlet</servlet-name>
-        <url-pattern>/dl/*</url-pattern>
     </servlet-mapping>
 
 </web-app>

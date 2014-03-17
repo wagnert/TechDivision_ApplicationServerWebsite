@@ -1,7 +1,5 @@
 <?php
 
-namespace TechDivision\ApplicationServerWebsite\Servlets;
-
 /**
  * TechDivision\ApplicationServerWebsite\Servlets\DownloadsServlet
  *
@@ -10,32 +8,41 @@ namespace TechDivision\ApplicationServerWebsite\Servlets;
  * This source file is subject to the Open Software License (OSL 3.0)
  * that is available through the world-wide-web at this URL:
  * http://opensource.org/licenses/osl-3.0.php
+ *
+ * PHP version 5
+ *
+ * @category   Application
+ * @package    TechDivision_ApplicationServerWebsite
+ * @subpackage Servlets
+ * @author     Johann Zelger <jz@techdivision.com>
+ * @author     Tim Wagner <tw@techdivision.com>
+ * @copyright  2014 TechDivision GmbH <info@techdivision.com>
+ * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link       https://github.com/techdivision/TechDivision_ApplicationServerWebsite
  */
 
-/**
- * @package     TechDivision
- * @copyright  	Copyright (c) 2013 <info@techdivision.com> - TechDivision GmbH
- * @license    	http://opensource.org/licenses/osl-3.0.php
- *              Open Software License (OSL 3.0)
- * @author      Johann Zelger <jz@techdivision.com>
- */
+namespace TechDivision\ApplicationServerWebsite\Servlets;
 
-use TechDivision\ServletContainer\Interfaces\Request;
-use TechDivision\ServletContainer\Interfaces\Response;
 use Github\Client;
 use Github\HttpClient\CachedHttpClient;
+use TechDivision\Servlet\Http\HttpServletRequest;
+use TechDivision\Servlet\Http\HttpServletResponse;
 
 /**
  * This servlet loads the GitHub data for the application server
  * releases, appends it to the template data.
- * 
- * @package     TechDivision\ApplicationServerWebsite
- * @copyright  	Copyright (c) 2010 <info@techdivision.com> - TechDivision GmbH
- * @license    	http://opensource.org/licenses/osl-3.0.php
- *              Open Software License (OSL 3.0)
- * @author      Tim Wagner <tw@techdivision.com>
+ *
+ * @category   Application
+ * @package    TechDivision_ApplicationServerWebsite
+ * @subpackage Servlets
+ * @author     Johann Zelger <jz@techdivision.com>
+ * @author     Tim Wagner <tw@techdivision.com>
+ * @copyright  2014 TechDivision GmbH <info@techdivision.com>
+ * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link       https://github.com/techdivision/TechDivision_ApplicationServerWebsite
  */
-class DownloadsServlet extends IndexServlet {
+class DownloadsServlet extends IndexServlet
+{
 
     /**
      * The GitHub OAuth Token used for authentication.
@@ -70,16 +77,16 @@ class DownloadsServlet extends IndexServlet {
      * extended with the TechDivision_ApplicationServer releases
      * loaded from the GitHub API.
      * 
-     * @param \TechDivision\ServletContainer\Interfaces\Request $req The actual request instance
+     * @param \TechDivision\Servlet\Http\HttpServletRequest $servletRequest The actual request instance
      *
      * @return array The requested page data
      * @see \TechDivision\ApplicationServerWebsite\Servlets\AbstractServlet::getPageData()
      */
-    public function getPageData(Request $req)
+    public function getPageData(HttpServletRequest $servletRequest)
     {
         
         // load parent page data
-        $pageData = parent::getPageData($req);
+        $pageData = parent::getPageData($servletRequest);
         
         // load a API instance
         $initialContext = $this->getServletConfig()->getApplication()->getInitialContext();
@@ -99,7 +106,7 @@ class DownloadsServlet extends IndexServlet {
         $client->authenticate(
             $this->getSetting(
                 DownloadsServlet::OAUTH_TOKEN
-            ), 
+            ),
             null,
             Client::AUTH_URL_TOKEN
         );
