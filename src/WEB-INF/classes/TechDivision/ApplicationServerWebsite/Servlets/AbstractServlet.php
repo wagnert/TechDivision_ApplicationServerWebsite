@@ -176,7 +176,7 @@ abstract class AbstractServlet extends HttpServlet
         // initialize the base URL
         $baseUrl = '/';
 
-        // if the application has NOT been called over a VHost configuration append application folder naem
+        // if the application has NOT been called over a VHost configuration append application folder name
         if (!$this->getServletConfig()->getApplication()->isVhostOf($servletRequest->getServerName())) {
             $baseUrl .= $this->getServletConfig()->getApplication()->getName() . '/';
         }
@@ -273,11 +273,11 @@ abstract class AbstractServlet extends HttpServlet
             array(
                 'cache' => $this->getRootDir('cache/mustache'),
                 'loader' => new \Mustache_Loader_FilesystemLoader(
-                        $this->getRootDir('static/template')
-                    ),
+                    $this->getRootDir('static/template')
+                ),
                 'partials_loader' => new \Mustache_Loader_FilesystemLoader(
-                        $this->getRootDir('static/template/partials')
-                    )
+                    $this->getRootDir('static/template/partials')
+                )
             )
         );
 
