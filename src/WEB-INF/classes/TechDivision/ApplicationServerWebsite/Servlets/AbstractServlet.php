@@ -54,7 +54,7 @@ abstract class AbstractServlet extends HttpServlet
      * @var string
      */
     const SETTINGS_FILE = 'settingsFile';
-    
+
     /**
      * Define default template to use.
      *
@@ -121,27 +121,27 @@ abstract class AbstractServlet extends HttpServlet
         $settingsFile = $config->getServletContext()->getInitParameter(
             AbstractServlet::SETTINGS_FILE
         );
-        
+
         // initialize the properties
         $this->settings = parse_ini_file(
             $this->getWebappPath() . DIRECTORY_SEPARATOR . $settingsFile
         );
     }
-    
+
     /**
      * Delegates to Http method specific functions like doPost() for POST e. g. In this case
      * it also initializes the autoloader.
-     * 
+     *
      * @param \TechDivision\Servlet\ServletRequest  $servletRequest  The request instance
      * @param \TechDivision\Servlet\ServletResponse $servletResponse The response instance
-     * 
+     *
      * @return void
      */
     public function service(ServletRequest $servletRequest, ServletResponse $servletResponse)
     {
         // initialize composer autoloader
         require $this->getServletConfig()->getWebappPath() . '/vendor/autoload.php';
-        
+
         // serve the request
         parent::service($servletRequest, $servletResponse);
     }
@@ -150,7 +150,7 @@ abstract class AbstractServlet extends HttpServlet
      * Returns webapp root dir with path extended.
      *
      * @param string $path The path that has to be extended with the base directory
-     * 
+     *
      * @return string The path extended with the base directory
      */
     protected function getRootDir($path = null)
@@ -159,14 +159,15 @@ abstract class AbstractServlet extends HttpServlet
         if ($path) {
             $rootDir = $rootDir . DIRECTORY_SEPARATOR . $path;
         }
+
         return $rootDir;
     }
-    
+
     /**
      * Returns the applications base URL depending on the vhost configuration.
-     * 
+     *
      * @param \TechDivision\Servlet\Http\HttpServletRequest $servletRequest The request instance
-     * 
+     *
      * @return string The applications base URL depending on the vhost found
      */
     protected function getBaseUrl(HttpServletRequest $servletRequest)
@@ -174,25 +175,25 @@ abstract class AbstractServlet extends HttpServlet
 
         // initialize the base URL
         $baseUrl = '/';
-        
+
         // if the application has NOT been called over a VHost configuration append application folder naem
         if (!$this->getServletConfig()->getApplication()->isVhostOf($servletRequest->getServerName())) {
             $baseUrl .= $this->getServletConfig()->getApplication()->getName() . '/';
         }
-        
+
         return $baseUrl;
     }
-    
+
     /**
      * Grab the page to render.
-     * 
+     *
      * @param \TechDivision\Servlet\Http\HttpServletRequest $servletRequest The request instance
-     * 
+     *
      * @return string The requested page name
      */
     protected function getPage(HttpServletRequest $servletRequest)
     {
-        
+
         // try extract the page name from the URL
         $page = trim(
             str_replace(
@@ -202,19 +203,19 @@ abstract class AbstractServlet extends HttpServlet
             ),
             '/'
         );
-        
+
         // if no page name is available use the default one
         if (empty($page)) {
             $page = self::DEFAULT_PAGE;
         }
-        
+
         // return the page name
         return $page;
     }
-    
+
     /**
      * Returns the global data from the YAML file.
-     * 
+     *
      * @return array The global data
      */
     protected function getGlobalData()
@@ -225,24 +226,24 @@ abstract class AbstractServlet extends HttpServlet
             )
         );
     }
-    
+
     /**
      * Return the internal data.
-     * 
+     *
      * @param \TechDivision\Servlet\Http\HttpServletRequest $servletRequest The request instance
-     * 
+     *
      * @return array The internal data
      */
     protected function getInternalData(HttpServletRequest $servletRequest)
     {
         return array('BaseUrl' => $this->getBaseUrl($servletRequest));
     }
-    
+
     /**
      * Return the page specific data.
-     * 
+     *
      * @param \TechDivision\Servlet\Http\HttpServletRequest $servletRequest The request instance
-     * 
+     *
      * @return array The page specific data
      */
     public function getPageData(HttpServletRequest $servletRequest)
@@ -256,9 +257,9 @@ abstract class AbstractServlet extends HttpServlet
 
     /**
      * Process the template and return the HTML content as string.
-     * 
+     *
      * @param \TechDivision\Servlet\Http\HttpServletRequest $servletRequest The request instance
-     * 
+     *
      * @return string The HTML to render
      */
     public function processTemplate(HttpServletRequest $servletRequest)
@@ -266,17 +267,17 @@ abstract class AbstractServlet extends HttpServlet
 
         // init parser for template yaml data.
         $this->yaml = new Parser();
-        
+
         // init template engine
         $this->mustache = new \Mustache_Engine(
             array(
                 'cache' => $this->getRootDir('cache/mustache'),
                 'loader' => new \Mustache_Loader_FilesystemLoader(
-                    $this->getRootDir('static/template')
-                ),
+                        $this->getRootDir('static/template')
+                    ),
                 'partials_loader' => new \Mustache_Loader_FilesystemLoader(
-                    $this->getRootDir('static/template/partials')
-                )
+                        $this->getRootDir('static/template/partials')
+                    )
             )
         );
 
@@ -293,14 +294,17 @@ abstract class AbstractServlet extends HttpServlet
 
         // grab page to render, if nothing left take default page
         $page = $this->getPage($servletRequest);
-        
+
         // load the internal data
         $internalData = $this->getInternalData($servletRequest);
 
         // set default template
         $template = self::DEFAULT_TEMPALTE;
         // check if page specific template exists
-        if (file_exists($this->getRootDir('static' . DIRECTORY_SEPARATOR . 'template' . DIRECTORY_SEPARATOR . $page .'.mustache'))) {
+        if (file_exists(
+            $this->getRootDir('static' . DIRECTORY_SEPARATOR . 'template' . DIRECTORY_SEPARATOR . $page . '.mustache')
+        )
+        ) {
             $template = $page;
         }
 
@@ -318,18 +322,18 @@ abstract class AbstractServlet extends HttpServlet
             $locale,
             $page
         );
-        
+
         // translate data
         $globalData = $this->getGlobalData();
         $this->i18n->translateData($globalData, 'global');
-        
+
         // check if page specific data exists
         $pageData = array();
         if (file_exists($this->getRootDir('data' . DIRECTORY_SEPARATOR . $page . '.yml'))) {
-            
+
             // load page specific data
             $pageData = $this->getPageData($servletRequest);
-            
+
             // translate data
             $this->i18n->translateData($pageData, $page);
         }
@@ -350,12 +354,12 @@ abstract class AbstractServlet extends HttpServlet
     {
         return $this->settings;
     }
-    
+
     /**
      * Returns the setting with the passed key.
-     * 
+     *
      * @param string $key The key of the property to return
-     * 
+     *
      * @return string The requested setting
      */
     protected function getSetting($key)

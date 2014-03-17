@@ -46,49 +46,41 @@ class DownloadServlet extends Servlet
 
     /**
      * Defines the base download URI.
-     * 
+     *
      * @var string
      */
     const BASE_DOWNLOAD_URI = '/dl/';
 
     /**
      * Array containing the download mirrors.
-     * 
+     *
      * @var array
      */
     protected $mirrors = array(
-        'Linux'
-            => array(
-                0 => '${webapp.dl.url.linux.64bit}'
-            ),
-        'MacOS'
-            => array(
-                0 => '${webapp.dl.url.macos.64bit}'
-            ),
         'Techtalk072013'
-            => array(
-                0 => '${webapp.asset.techtalk.url}'
-            ),
+        => array(
+            0 => '${webapp.asset.techtalk.url}'
+        ),
         'API'
-            => array(
-                0 => '${webapp.app.api.url}'
-            ),
+        => array(
+            0 => '${webapp.app.api.url}'
+        ),
         'Admin'
-            => array(
-                0 => '${webapp.app.admin.url}'
-            ),
+        => array(
+            0 => '${webapp.app.admin.url}'
+        ),
         'Example'
-            => array(
-                0 => '${webapp.app.exmaple.url}'
-            ),
+        => array(
+            0 => '${webapp.app.exmaple.url}'
+        ),
         'Site'
-            => array(
-                0 => '${webapp.app.site.url}'
-            ),
+        => array(
+            0 => '${webapp.app.site.url}'
+        ),
         'Magento1810'
-            => array(
-                0 => '${webapp.app.magento_1810.url}'
-            ),
+        => array(
+            0 => '${webapp.app.magento_1810.url}'
+        ),
     );
 
     /**
@@ -112,10 +104,10 @@ class DownloadServlet extends Servlet
 
     /**
      * Handles a GET request.
-     * 
+     *
      * @param \TechDivision\Servlet\Http\HttpServletRequest  $servletRequest  The request instance
      * @param \TechDivision\Servlet\Http\HttpServletResponse $servletResponse The response instance
-     * 
+     *
      * @return void
      */
     public function doGet(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
@@ -128,19 +120,19 @@ class DownloadServlet extends Servlet
 
         // check mirror for filename
         $mirrorUrl = $this->getMirrorUrl();
-        
+
         // if mirror exists send redirect headers
         if ($mirrorUrl) {
             $res->setHeaders(
                 array(
-                    "status"                 => "HTTP/1.1 302 OK",
-                    "Date"                   => gmdate('D, d M Y H:i:s \G\M\T', time()),
-                    "Last-Modified"          => gmdate('D, d M Y H:i:s \G\M\T', time()),
-                    "Expires"                => gmdate('D, d M Y H:i:s \G\M\T', time() - 3600),
-                    "Server"                 => "Apache/4.3.29 (Unix) PHP/5.4.10",
-                    "Content-Language"       => "de",
-                    "Location"               => $mirrorUrl,
-                    "Connection"             => "close",
+                    "Status" => "HTTP/1.1 302 OK",
+                    "Date" => gmdate('D, d M Y H:i:s \G\M\T', time()),
+                    "Last-Modified" => gmdate('D, d M Y H:i:s \G\M\T', time()),
+                    "Expires" => gmdate('D, d M Y H:i:s \G\M\T', time() - 3600),
+                    "Server" => "Apache/4.3.29 (Unix) PHP/5.4.10",
+                    "Content-Language" => "de",
+                    "Location" => $mirrorUrl,
+                    "Connection" => "close",
                 )
             );
             $res->setContent(PHP_EOL);
