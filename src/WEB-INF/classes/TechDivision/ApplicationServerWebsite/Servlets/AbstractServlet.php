@@ -27,9 +27,9 @@ use Symfony\Component\Yaml\Parser;
 use TechDivision\Servlet\ServletConfig;
 use TechDivision\Servlet\ServletRequest;
 use TechDivision\Servlet\ServletResponse;
+use TechDivision\Servlet\Http\HttpServlet;
 use TechDivision\Servlet\Http\HttpServletRequest;
 use TechDivision\Servlet\Http\HttpServletResponse;
-use TechDivision\ServletEngine\Http\Servlet;
 use TechDivision\ApplicationServerWebsite\Utilities\I18n;
 
 /**
@@ -45,7 +45,7 @@ use TechDivision\ApplicationServerWebsite\Utilities\I18n;
  * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link       https://github.com/techdivision/TechDivision_ApplicationServerWebsite
  */
-abstract class AbstractServlet extends Servlet
+abstract class AbstractServlet extends HttpServlet
 {
 
     /**
