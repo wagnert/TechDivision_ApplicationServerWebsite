@@ -45,11 +45,11 @@ class IndexServlet extends AbstractServlet
     /**
      * Implements Http GET method.
      *
-     * @param \TechDivision\Servlet\Http\ServletRequest  $servletRequest  The request instance
-     * @param \TechDivision\Servlet\Http\ServletResponse $servletResponse The response instance
+     * @param \TechDivision\Servlet\Http\HttpServletRequest  $servletRequest  The request instance
+     * @param \TechDivision\Servlet\Http\HttpServletResponse $servletResponse The response instance
      *
      * @return void
-     * @throws \TechDivision\Servlet\ServletException Is thrown if the request method is not implemented
+     *
      * @see \TechDivision\Servlet\Http\HttpServlet::doGet()
      */
     public function doGet(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
