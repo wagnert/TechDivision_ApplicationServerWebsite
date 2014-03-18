@@ -26,7 +26,7 @@ namespace TechDivision\ApplicationServerWebsite\Servlets;
 use TechDivision\Servlet\ServletConfig;
 use TechDivision\Servlet\Http\HttpServletRequest;
 use TechDivision\Servlet\Http\HttpServletResponse;
-use TechDivision\ServletEngine\Http\Servlet;
+use TechDivision\Servlet\Http\HttpServlet;
 
 /**
  * This abstrac base servlet that provides template rendering
@@ -41,7 +41,7 @@ use TechDivision\ServletEngine\Http\Servlet;
  * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link       https://github.com/techdivision/TechDivision_ApplicationServerWebsite
  */
-class DownloadServlet extends Servlet
+class DownloadServlet extends HttpServlet
 {
 
     /**
