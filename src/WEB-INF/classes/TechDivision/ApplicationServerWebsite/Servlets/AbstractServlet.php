@@ -175,10 +175,10 @@ abstract class AbstractServlet extends HttpServlet
 
         // initialize the base URL
         $baseUrl = '/';
-
-        // if the application has NOT been called over a VHost configuration append application folder name
-        if (!$this->getServletConfig()->getApplication()->isVhostOf($servletRequest->getServerName())) {
-            $baseUrl .= $this->getServletConfig()->getApplication()->getName() . '/';
+        
+        // if the application has NOT been called over a VHost configuration append application folder naem
+        if (!$servletRequest->getContext()->isVhostOf($servletRequest->getServerName())) {
+            $baseUrl .= $servletRequest->getContext()->getName() . '/';
         }
 
         return $baseUrl;
