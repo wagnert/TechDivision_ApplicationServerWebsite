@@ -89,7 +89,7 @@ class DownloadsServlet extends IndexServlet
         $pageData = parent::getPageData($servletRequest);
         
         // load a API instance
-        $initialContext = $this->getServletConfig()->getApplication()->getInitialContext();
+        $initialContext = $servletRequest->getContext()->getInitialContext();
         $apiInstance = $initialContext->newInstance(DownloadsServlet::SERVICE_CLASS, array($initialContext));
         
         // initialize the path to the cache directory
