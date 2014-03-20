@@ -18,19 +18,21 @@ Downloads:
     Links:
       - Name: '32bit (not yet)'
       - Name: '64bit'
-        Url: 'dl/MacOS'
+        Url: 'dl.do/MacOS'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'MacOS 64bit']);"
   - Name: 'Linux Installer (.deb)'
     Icon: 'icon-linux'
     Links:
       - Name: '32bit (not yet)'
       - Name: '64bit'
-        Url: 'dl/Linux'
+        Url: 'dl.do/Linux'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Linux 64bit']);"
-  - Name: 'Windows Installer (.msi)'
+  - Name: 'Windows Installer (.jar)'
     Icon: 'icon-windows'
     Links:
       - Name: '32bit (not yet)'
+        Url: 'dl.do/Windows'
+        OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Windows 32bit']);"
       - Name: '64bit (not yet)'
 
 App:
@@ -41,31 +43,31 @@ Apps:
     Icon: 'collapse'
     Links:
       - Name: 'Management API'
-        Url: 'dl/API'
+        Url: 'dl.do/API'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'API']);"
   - Name: 'Admin (.phar)'
     Icon: 'collapse'
     Links:
       - Name: 'Administration GUI'
-        Url: 'dl/Admin'
+        Url: 'dl.do/Admin'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Admin']);"
   - Name: 'Example (.phar)'
     Icon: 'collapse'
     Links:
       - Name: 'Example Application'
-        Url: 'dl/Example'
+        Url: 'dl.do/Example'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Example']);"
   - Name: 'Site (.phar)'
     Icon: 'collapse'
     Links:
       - Name: 'appserver.io Site'
-        Url: 'dl/Site'
+        Url: 'dl.do/Site'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Site']);"
   - Name: 'Magento 1.8.1.0 (.phar)'
     Icon: 'collapse'
     Links:
       - Name: 'Magento CE 1.8.1.0'
-        Url: 'dl/Magento1810'
+        Url: 'dl.do/Magento1810'
         OnClick: "_gaq.push(['_trackEvent', 'Downloads', 'Downloaded', 'Magento CE 1.8.1.0']);"
 
 Asset:
@@ -75,5 +77,5 @@ Assets:
     Icon: 'book'
     Links:
         Name: 'TD Techtalk 07/2013'
-        Url: 'dl/Techtalk072013'
+        Url: 'dl.do/Techtalk072013'
         OnClick: "_gaq.push(['_trackEvent', 'Assets', 'Downloaded', downloads.asset.techtalk.name]);"

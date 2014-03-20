@@ -49,7 +49,7 @@ class DownloadServlet extends HttpServlet
      *
      * @var string
      */
-    const BASE_DOWNLOAD_URI = '/dl/';
+    const BASE_DOWNLOAD_URI = '/dl.do/';
 
     /**
      * Array containing the download mirrors.
@@ -57,28 +57,22 @@ class DownloadServlet extends HttpServlet
      * @var array
      */
     protected $mirrors = array(
-        'Techtalk072013'
-        => array(
+        '/Techtalk072013' => array(
             0 => '${webapp.asset.techtalk.url}'
         ),
-        'API'
-        => array(
+        '/API' => array(
             0 => '${webapp.app.api.url}'
         ),
-        'Admin'
-        => array(
+        '/Admin' => array(
             0 => '${webapp.app.admin.url}'
         ),
-        'Example'
-        => array(
+        '/Example' => array(
             0 => '${webapp.app.exmaple.url}'
         ),
-        'Site'
-        => array(
+        '/Site' => array(
             0 => '${webapp.app.site.url}'
         ),
-        'Magento1810'
-        => array(
+        '/Magento1810' => array(
             0 => '${webapp.app.magento_1810.url}'
         ),
     );
@@ -112,20 +106,20 @@ class DownloadServlet extends HttpServlet
      */
     public function doGet(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
     {
+        
         /** @var \TechDivision\ServletContainer\Http\HttpRequest $req */
         /** @var \TechDivision\ServletContainer\Http\HttpResponse $res */
 
         // define downloadFilename
-        $this->downloadFilename = basename($req->getUri());
+        $this->downloadFilename = $servletRequest->getPathInfo();
 
         // check mirror for filename
         $mirrorUrl = $this->getMirrorUrl();
 
         // if mirror exists send redirect headers
         if ($mirrorUrl) {
-            $res->setHeaders(
+            $servletResponse->setHeaders(
                 array(
-                    "Status" => "HTTP/1.1 302 OK",
                     "Date" => gmdate('D, d M Y H:i:s \G\M\T', time()),
                     "Last-Modified" => gmdate('D, d M Y H:i:s \G\M\T', time()),
                     "Expires" => gmdate('D, d M Y H:i:s \G\M\T', time() - 3600),
@@ -135,9 +129,10 @@ class DownloadServlet extends HttpServlet
                     "Connection" => "close",
                 )
             );
-            $res->setContent(PHP_EOL);
+            $servletResponse->setStatusCode(302);
+            $servletResponse->appendBodyStream(PHP_EOL);
         } else {
-            $res->setContent(sprintf('No mirror defined for download "%s"', $this->downloadFilename));
+            $servletResponse->appendBodyStream(sprintf('No mirror defined for download "%s"', $this->downloadFilename));
         }
     }
 }
